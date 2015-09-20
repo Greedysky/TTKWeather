@@ -5,15 +5,15 @@
     <name>WeatherAddItemTableWidget</name>
     <message>
         <source>Add</source>
-        <translation >添加城市</translation>
+        <translation>添加城市</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation >删除城市</translation>
+        <translation>删除城市</translation>
     </message>
     <message>
         <source>Input address!</source>
-        <translation >请输入要查询的城市！</translation>
+        <translation>请输入要查询的城市！</translation>
     </message>
 </context>
 <context>
@@ -57,6 +57,18 @@
     <message>
         <source>AddCity</source>
         <translation>添加城市</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation >关于..</translation>
+    </message>
+    <message>
+        <source>QWeather</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Directed By Greedysky</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -111,6 +123,33 @@
     <message>
         <source>humi_low</source>
         <translation>最低湿度</translation>
+    </message>
+</context>
+<context>
+    <name>WeatherMessageBox</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>提示框</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>确定</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>取消</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>关闭</translation>
     </message>
 </context>
 </TS>
