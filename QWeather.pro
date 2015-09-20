@@ -11,6 +11,11 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = QWeather
 TEMPLATE = app
 
+INCLUDEPATH += \
+               $$PWD/core \
+               $$PWD/widget \
+               $$PWD/
+
 TRANSLATIONS += cn.ts
 
 DEFINES += WEATHER_LIBRARY
@@ -18,33 +23,35 @@ DEFINES += WEATHER_LIBRARY
 SOURCES += \
         weathermain.cpp \
         weatherapplication.cpp \
-        weatherabstractmovedialog.cpp \
-        weatherabstractmovewidget.cpp \
-        weatherquery.cpp \
-        weatherquerycity.cpp \
-        weatherqueryfuture.cpp \
-        weatheritemtablewidget.cpp \
-        weatherfutureitemwidget.cpp \
-        weatheradditemtablewidget.cpp \
-        weatherabstracttablewidget.cpp \
-        weatherloadingwidget.cpp
+        core/weatherquery.cpp \
+        core/weatherquerycity.cpp \
+        core/weatherqueryfuture.cpp \
+        widget/weatherabstractmovedialog.cpp \
+        widget/weatherabstractmovewidget.cpp \
+        widget/weatheritemtablewidget.cpp \
+        widget/weatherfutureitemwidget.cpp \
+        widget/weatheradditemtablewidget.cpp \
+        widget/weatherabstracttablewidget.cpp \
+        widget/weatherloadingwidget.cpp \
+        widget/weathermessagebox.cpp
 
 
 HEADERS  += \
         weatherapplication.h \
-        weatherobject.h \
-        weatheruiobject.h \
-        weatherlibexportglobal.h \
-        weatherabstractmovedialog.h \
-        weatherabstractmovewidget.h \
-        weatherquery.h \
-        weatherquerycity.h \
-        weatherqueryfuture.h \
-        weatheritemtablewidget.h \
-        weatherfutureitemwidget.h \
-        weatheradditemtablewidget.h \
-        weatherabstracttablewidget.h \
-        weatherloadingwidget.h
+        core/weatherobject.h \
+        core/weatheruiobject.h \
+        core/weatherlibexportglobal.h \
+        core/weatherquery.h \
+        core/weatherquerycity.h \
+        core/weatherqueryfuture.h \
+        widget/weatherabstractmovedialog.h \
+        widget/weatherabstractmovewidget.h \
+        widget/weatheritemtablewidget.h \
+        widget/weatherfutureitemwidget.h \
+        widget/weatheradditemtablewidget.h \
+        widget/weatherabstracttablewidget.h \
+        widget/weatherloadingwidget.h \
+        widget/weathermessagebox.h
 
 
 RESOURCES+= \
@@ -54,4 +61,5 @@ RC_FILE  += \
         QWeather.rc
 
 FORMS    += \
-        weatherapplication.ui
+        ui/weatherapplication.ui \
+        ui/weathermessagebox.ui

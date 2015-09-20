@@ -4,6 +4,9 @@
         <file alias="close">resource/appClose.png</file>
         <file alias="background">resource/background.jpg</file>
         <file alias="loading">resource/loading.jpg</file>
+        <file alias="about">resource/about.png</file>
+        <file alias="close1">resource/close.png</file>
+        <file alias="warning">resource/warning.png</file>
     </qresource>
     <qresource prefix="/b">
         <file alias="0.gif">resource/weather/b/0.gif</file>
