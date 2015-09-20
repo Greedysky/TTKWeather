@@ -26,6 +26,7 @@ SOURCES += \
         core/weatherquery.cpp \
         core/weatherquerycity.cpp \
         core/weatherqueryfuture.cpp \
+        core/weatherquerypm2p5.cpp \
         widget/weatherabstractmovedialog.cpp \
         widget/weatherabstractmovewidget.cpp \
         widget/weatheritemtablewidget.cpp \
@@ -44,6 +45,7 @@ HEADERS  += \
         core/weatherquery.h \
         core/weatherquerycity.h \
         core/weatherqueryfuture.h \
+        core/weatherquerypm2p5.h \
         widget/weatherabstractmovedialog.h \
         widget/weatherabstractmovewidget.h \
         widget/weatheritemtablewidget.h \

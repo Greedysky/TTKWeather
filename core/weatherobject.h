@@ -42,7 +42,22 @@ typedef QMapIterator<qint64, QString> MIntStringMapIt;      /* intStrMapIt */
 const QString CITY_QUERY_URL = "http://api.k780.com:88/?app=weather.city&format=json";
 const QString FUTURE_QUERY_URL = "http://api.k780.com:88/?app=weather.future&weaid=%1&\
                                   appkey=15437&sign=fa6a4de8b7b7c30714d74a043ccdcd61&format=json";
+const QString PM2P5_QUERY_URL = "http://api.k780.com:88/?app=weather.pm25&weaid=%1&\
+                                  appkey=15437&sign=fa6a4de8b7b7c30714d74a043ccdcd61&format=json";
 ///Attention: the interface can be accessed only 750 times per hour
+
+
+typedef struct WeatherPM2P5
+{
+    QString m_weaidP;
+    QString m_aqi;
+    QString m_aqiScope;
+    QString m_aqiLevid;
+    QString m_aqiLevnm;
+    QString m_aqiRemark;
+}WeatherPM2P5;
+
+typedef QList<WeatherPM2P5> WeatherPM2P5List;
 
 typedef struct Weather
 {
@@ -61,9 +76,11 @@ typedef struct Weather
     QString m_humi_low;
     QString m_weatidX;
     QString m_weatidY;
+    WeatherPM2P5 m_pm2p5;
 }Weather;
 
 typedef QList<Weather> WeatherList;
+
 
 namespace WeatherObject
 {

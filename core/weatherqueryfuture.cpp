@@ -1,4 +1,5 @@
 #include "weatherqueryfuture.h"
+#include "weatherquerypm2p5.h"
 
 WeatherQueryFuture::WeatherQueryFuture(QObject *parent)
     : WeatherQuery(parent)
@@ -73,6 +74,26 @@ void WeatherQueryFuture::searchFinshed()
         {
             qDebug() << "Error:" << jsonObject.take("msg").toString();
             return;
+        }
+    }
+
+    emit resolvedSuccess();
+//    foreach(Weather var, m_futureList)
+//    {
+//        WeatherQuerPM2P5 *pm = new WeatherQuerPM2P5(this);
+//        connect(pm, SIGNAL(repliedPM2P5Finished(WeatherPM2P5)),
+//                    SLOT(repliedPM2P5Finished(WeatherPM2P5)));
+//        pm->startToQuery(var.m_weaid);
+//    }
+}
+
+void WeatherQueryFuture::repliedPM2P5Finished(const WeatherPM2P5 &pm)
+{
+    foreach(Weather var, m_futureList)
+    {
+        if(var.m_weaid == pm.m_weaidP)
+        {
+           var.m_pm2p5 = pm;
         }
     }
     emit resolvedSuccess();
