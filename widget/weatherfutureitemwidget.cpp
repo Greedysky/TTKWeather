@@ -38,7 +38,7 @@ void WeatherFutureItemWidget::createButton()
     {
         QPushButton *button = new QPushButton(this);
         button->setText(tr("Button%1").arg(i + 1));
-        button->setToolTip(tr("Button%1").arg(i));
+        button->setToolTip(tr("Button%1").arg(i + 1));
         button->setFixedSize(65, 30);
         button->setStyleSheet(WeatherUIObject::MPushButtonStyle04);
         m_group->addButton(button, i);
