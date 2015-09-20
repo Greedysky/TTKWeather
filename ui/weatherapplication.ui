@@ -137,6 +137,16 @@
     <string>添加城市</string>
    </property>
   </widget>
+  <widget class="QToolButton" name="windowAbout">
+   <property name="geometry">
+    <rect>
+     <x>543</x>
+     <y>5</y>
+     <width>25</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

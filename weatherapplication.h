@@ -33,6 +33,7 @@ private slots:
     void changeStack2Future();
     void listCellClickedByText(const QString &name);
     void loadingIconFinished(const QStringList &icons);
+    void aboutApplication();
 
 private:
     void initWidget();

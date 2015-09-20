@@ -5,6 +5,7 @@
 #include "weatheruiobject.h"
 #include "weatheritemtablewidget.h"
 #include "weatherfutureitemwidget.h"
+#include "weathermessagebox.h"
 
 #include <QPainter>
 
@@ -51,6 +52,13 @@ void WeatherApplication::initWidget()
     ui->windowClose->setStyleSheet(WeatherUIObject::MToolButtonStyle01);
     ui->windowClose->setIcon(QIcon(QPixmap(QString::fromUtf8(":/image/close")).scaled(25,25)));
     connect(ui->windowClose, SIGNAL(clicked()), SLOT(close()));
+
+    ui->windowAbout->setToolTip(tr("About"));
+    ui->windowAbout->setCursor(QCursor(Qt::PointingHandCursor));
+    ui->windowAbout->setStyleSheet(WeatherUIObject::MToolButtonStyle01);
+    ui->windowAbout->setIcon(QIcon(QPixmap(QString::fromUtf8(":/image/about")).scaled(25,25)));
+    connect(ui->windowAbout, SIGNAL(clicked()), SLOT(aboutApplication()));
+
 
     ui->todayButton->setToolTip(tr("Today"));
     ui->todayButton->setCursor(QCursor(Qt::PointingHandCursor));
@@ -111,4 +119,14 @@ void WeatherApplication::listCellClickedByText(const QString &name)
 void WeatherApplication::loadingIconFinished(const QStringList &icons)
 {
     ui->addItemTableWidget->loadingIconFinished(icons);
+}
+
+void WeatherApplication::aboutApplication()
+{
+    WeatherMessageBox message;
+    message.setText(tr("QWeather") + QString("\n\n") +
+                    tr("Directed By Greedysky") +
+                    QString("\nCopyright© 2014-2015") +
+                    QString("\nMail:Greedysky@163.com"));
+    message.exec();
 }
