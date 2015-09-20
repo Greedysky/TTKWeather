@@ -10,6 +10,16 @@ Usage
 ----
 weather forecast program, you can query the future weather conditions, based on qt 
 
+
+Example
+----
+
+![Rungholt](https://github.com/Greedysky/QWeather/blob/master/Image/1.png?raw=true)
+
+![Rungholt](https://github.com/Greedysky/QWeather/blob/master/Image/2.png?raw=true)
+
+![Rungholt](https://github.com/Greedysky/QWeather/blob/master/Image/3.png?raw=true)
+
 Copyright
 -------
  * This file is part of the Music Player project.
