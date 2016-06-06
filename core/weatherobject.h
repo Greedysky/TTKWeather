@@ -41,9 +41,9 @@ typedef QMapIterator<qint64, QString> MIntStringMapIt;      /* intStrMapIt */
 
 const QString CITY_QUERY_URL = "http://api.k780.com:88/?app=weather.city&format=json";
 const QString FUTURE_QUERY_URL = "http://api.k780.com:88/?app=weather.future&weaid=%1&\
-                                  appkey=15437&sign=fa6a4de8b7b7c30714d74a043ccdcd61&format=json";
+                                  appkey=15437&sign=cf444d86cbe7b5e13ab5958101d3044d&format=json";
 const QString PM2P5_QUERY_URL = "http://api.k780.com:88/?app=weather.pm25&weaid=%1&\
-                                  appkey=15437&sign=fa6a4de8b7b7c30714d74a043ccdcd61&format=json";
+                                  appkey=15437&sign=cf444d86cbe7b5e13ab5958101d3044d&format=json";
 ///Attention: the interface can be accessed only 750 times per hour
 
 
