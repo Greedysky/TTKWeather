@@ -124,9 +124,9 @@ void WeatherApplication::loadingIconFinished(const QStringList &icons)
 void WeatherApplication::aboutApplication()
 {
     WeatherMessageBox message;
-    message.setText(tr("QWeather") + QString("\n\n") +
+    message.setText(tr("TTKWeather") + QString("\n\n") +
                     tr("Directed By Greedysky") +
-                    QString("\nCopyright© 2014-2015") +
+                    QString("\nCopyright© 2015-2016") +
                     QString("\nMail:Greedysky@163.com"));
     message.exec();
 }

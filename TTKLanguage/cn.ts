@@ -60,14 +60,14 @@
     </message>
     <message>
         <source>About</source>
-        <translation >关于..</translation>
-    </message>
-    <message>
-        <source>QWeather</source>
-        <translation type="unfinished"></translation>
+        <translation>关于..</translation>
     </message>
     <message>
         <source>Directed By Greedysky</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TTKWeather</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

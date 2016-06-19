@@ -1,7 +1,11 @@
 *.user
-QWeather.aps
-build-QWeather-*/
-*.0-pre1
-*.3-pre1
 *.user.*
+*.aps
+build-TTKWeather-*/
+*.*-pre1
 *.autosave
+*.*~
+*.uxf
+Thumbs.db
+ehthumbs.db
+Desktop.ini

@@ -4,7 +4,7 @@
     #include <winver.h>
 #endif
 
-IDI_ICON1               ICON     DISCARDABLE     "resource/myweather.ico"
+IDI_ICON1               ICON     DISCARDABLE     "../TTKResource/myweather.ico"
 
 VS_VERSION_INFO VERSIONINFO
     FILEVERSION 1,0,0,0
@@ -26,12 +26,12 @@ BEGIN
         BLOCK "080404b0"
             BEGIN
                 VALUE "CompanyName", "Greedysky studio, Ltd."
-                VALUE "FileDescription", "Qt天气预报"
+                VALUE "FileDescription", "天天预报"
                 VALUE "FileVersion", "1.0.0.0"
-                VALUE "InternalName", "Qt天气预报.exe"
-                VALUE "LegalCopyright", "Copyright By Greedysky studio(C)2015"
-                VALUE "OriginalFilename", "Qt天气预报.exe"
-                VALUE "ProductName", "Qt天气预报"
+                VALUE "InternalName", "天天预报.exe"
+                VALUE "LegalCopyright", "Copyright By Greedysky studio(C)2016"
+                VALUE "OriginalFilename", "天天预报.exe"
+                VALUE "ProductName", "天天预报"
                 VALUE "ProductVersion", "1.0.0.0"
             END
     END

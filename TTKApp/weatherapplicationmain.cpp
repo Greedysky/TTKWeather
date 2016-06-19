@@ -1,4 +1,5 @@
 #include "weatherapplication.h"
+
 #include <QApplication>
 #include <QTranslator>
 
@@ -7,7 +8,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     QTranslator translator;
-    translator.load("cn.qm");
+    translator.load("MLanguage/cn.ln");
     a.installTranslator(&translator);
 
     WeatherApplication w;
