@@ -1,34 +1,45 @@
-# QWeather
-
-[![Join the chat at https://gitter.im/syoyo/tinyobjloader](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/syoyo/tinyobjloader?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-[![wercker status](https://app.wercker.com/status/495a3bac400212cdacdeb4dd9397bf4f/m "wercker status")](https://app.wercker.com/project/bykey/495a3bac400212cdacdeb4dd9397bf4f)
-
-[![Build status](https://ci.appveyor.com/api/projects/status/tlb421q3t2oyobcn/branch/master?svg=true)](https://ci.appveyor.com/project/syoyo/tinyobjloader/branch/master)
+# TTKWeather
 
 Usage
 ----
-weather forecast program, you can query the future weather conditions, based on qt 
+The TTKWeather forecast program, you can query the future weather conditions, based on Qt for windows.
+ * Qt develop version be tested on Qt4.8.7 for windows-mingw 32bit and 64bit
+ * Qt develop version be tested on Qt4.8.6 for ubuntu-linux-gcc 32bit and 64bit
+ * Qt develop version be tested on Qt5.x for windows-mingw 32bit and 64bit
+ * Qt develop version be tested on Qt5.x for windows-msvc 32bit and 64bit
+ * Qt develop version be tested on Qt5.x for ubuntu-linux-gcc 32bit and 64bit
+ 
+# For Developers
 
+License
+---
+TTKWeather is free software licensed under the term of GPL v2. If you use TTKWeather or its constituent libraries, you must adhere to the terms of the license in question.
 
-Example
+Screenshots
 ----
 
-![Rungholt](https://github.com/Greedysky/QWeather/blob/master/Image/1.png?raw=true)
+1
+![Rungholt](https://github.com/Greedysky/Resource/tree/master/Screen/TTKWeather/1.png?raw=true)
 
-![Rungholt](https://github.com/Greedysky/QWeather/blob/master/Image/2.png?raw=true)
+2
+![Rungholt](https://github.com/Greedysky/Resource/tree/master/Screen/TTKWeather/2.png?raw=true)
 
-![Rungholt](https://github.com/Greedysky/QWeather/blob/master/Image/3.png?raw=true)
+3
+![Rungholt](https://github.com/Greedysky/Resource/tree/master/Screen/TTKWeather/3.png?raw=true)
+
 
 Copyright
 -------
- * This file is part of the Music Player project.
- * Copyright (c) 2014 - 2015 Greedysky Studio.
+ * This file is part of the TTK Music Player project.
+ * Copyright (c) 2014 - 2016 Greedysky Studio.
  * All rights reserved!
  * Redistribution and use of the source code or any derivative.
  * works are strictly forbiden.
  * mail: greedysky@163.com.
  
-Contributing
+How To Contribute
 -------
-If you want to join the project developed together, please send e-mail to me.
+ * Fork this project on github and make a branch. Commit in that branch, and push, then create a pull request to be reviewed and merged.
+ * Create an issue if you have any problem when using project or you find a bug, etc.
+ * What you can do: translation, write document, wiki, find or fix bugs, give your idea for this project etc.
+ * If you want to join the project developed together, please send e-mail to me.
