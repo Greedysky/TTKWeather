@@ -33,7 +33,7 @@ void WeatherItemTableWidget::setItemName(const QString &name, int index)
     m_queryFuture->startToQuery(name);
 }
 
-void WeatherItemTableWidget::createItem(const Weather &weather)
+void WeatherItemTableWidget::createItem(const WeatherObject::Weather &weather)
 {
     clear();
     QStringList names, values;
@@ -69,7 +69,7 @@ void WeatherItemTableWidget::listCellClicked(int row, int column)
 
 void WeatherItemTableWidget::searchItemInformationDown()
 {
-    Weather weather = m_queryFuture->getFuture(m_indexOfItem);
+    WeatherObject::Weather weather = m_queryFuture->getFuture(m_indexOfItem);
     emit loadingIcon( QStringList()<< weather.m_weatidX << weather.m_weatidY);
     createItem( weather );
 }

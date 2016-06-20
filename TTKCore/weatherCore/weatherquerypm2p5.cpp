@@ -27,7 +27,7 @@ void WeatherQuerPM2P5::searchFinshed()
         return;
     }
 
-    WeatherPM2P5 pm2p5List;
+    WeatherObject::WeatherPM2P5 pm2p5List;
     m_reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
     if(m_reply->error() == QNetworkReply::NoError)
     {

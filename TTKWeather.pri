@@ -32,29 +32,18 @@ QT_VER_MINOR = $$member(QT_VER_STRING, 1)
 QT_VER_PATCH = $$member(QT_VER_STRING, 2)
 
 win32{
-    equals(QT_MAJOR_VERSION, 5){
-        msvc{
-            !contains(QMAKE_TARGET.arch, x86_64){
-                 #support on windows XP
-                 QMAKE_LFLAGS_WINDOWS = /SUBSYSTEM:WINDOWS,5.01
-                 QMAKE_LFLAGS_CONSOLE = /SUBSYSTEM:CONSOLE,5.01
-            }
-        }
-
-        gcc{
-            QMAKE_CXXFLAGS += -std=c++11
-            QMAKE_CXXFLAGS += -Wunused-function
-            QMAKE_CXXFLAGS += -Wswitch
+    msvc{
+        !contains(QMAKE_TARGET.arch, x86_64){
+             #support on windows XP
+             QMAKE_LFLAGS_WINDOWS = /SUBSYSTEM:WINDOWS,5.01
+             QMAKE_LFLAGS_CONSOLE = /SUBSYSTEM:CONSOLE,5.01
         }
     }
 
-    equals(QT_MAJOR_VERSION, 4){
-        gcc{
-            LIBS += -L../bin -lqmmp0 -lMusicExtras -lzlib
-            QMAKE_CXXFLAGS += -std=c++11
-            QMAKE_CXXFLAGS += -Wunused-function
-            QMAKE_CXXFLAGS += -Wswitch
-        }
+    gcc{
+        QMAKE_CXXFLAGS += -std=c++11
+        QMAKE_CXXFLAGS += -Wunused-function
+        QMAKE_CXXFLAGS += -Wswitch
     }
 }
 

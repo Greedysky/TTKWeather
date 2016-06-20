@@ -10,7 +10,7 @@
    =================================================*/
 
 #include <QDialog>
-#include "weatherlibexportglobal.h"
+#include "weatherglobaldefine.h"
 
 class WEATHER_WIDGET_EXPORT WeatherAbstractMoveDialog : public QDialog
 {

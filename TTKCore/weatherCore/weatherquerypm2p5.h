@@ -20,7 +20,7 @@ public:
     virtual void startToQuery(const QString &id = 0);
 
 signals:
-    void repliedPM2P5Finished(const WeatherPM2P5 &pm);
+    void repliedPM2P5Finished(const WeatherObject::WeatherPM2P5 &pm);
 
 public slots:
     virtual void searchFinshed();

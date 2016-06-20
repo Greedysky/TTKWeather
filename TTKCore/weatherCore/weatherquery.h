@@ -18,7 +18,7 @@
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
 
-#include "weatherlibexportglobal.h"
+#include "weatherglobaldefine.h"
 #include "weatherobject.h"
 
 class WEATHER_CORE_EXPORT WeatherQuery : public QObject

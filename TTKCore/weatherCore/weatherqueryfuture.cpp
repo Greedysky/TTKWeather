@@ -50,7 +50,7 @@ void WeatherQueryFuture::searchFinshed()
             {
                 jsonObject = array.at(i).toObject();
 
-                Weather weather;
+                WeatherObject::Weather weather;
                 weather.m_weaid = jsonObject.value("weaid").toString();
                 weather.m_days = jsonObject.value("days").toString();
                 weather.m_week = jsonObject.value("week").toString();
@@ -87,9 +87,9 @@ void WeatherQueryFuture::searchFinshed()
 //    }
 }
 
-void WeatherQueryFuture::repliedPM2P5Finished(const WeatherPM2P5 &pm)
+void WeatherQueryFuture::repliedPM2P5Finished(const WeatherObject::WeatherPM2P5 &pm)
 {
-    foreach(Weather var, m_futureList)
+    foreach(WeatherObject::Weather var, m_futureList)
     {
         if(var.m_weaid == pm.m_weaidP)
         {
@@ -99,16 +99,16 @@ void WeatherQueryFuture::repliedPM2P5Finished(const WeatherPM2P5 &pm)
     emit resolvedSuccess();
 }
 
-const Weather& WeatherQueryFuture::getToday()
+const WeatherObject::Weather& WeatherQueryFuture::getToday()
 {
     if(m_futureList.empty())
     {
-        m_futureList.append( Weather() );
+        m_futureList.append( WeatherObject::Weather() );
     }
     return m_futureList.first();
 }
 
-const Weather &WeatherQueryFuture::getFuture(int index)
+const WeatherObject::Weather &WeatherQueryFuture::getFuture(int index)
 {
     if(index < 0 || index >= m_futureList.count())
     {
@@ -117,7 +117,7 @@ const Weather &WeatherQueryFuture::getFuture(int index)
     return m_futureList[index];
 }
 
-const WeatherList& WeatherQueryFuture::getFuture() const
+const WeatherObject::WeatherList& WeatherQueryFuture::getFuture() const
 {
     return m_futureList;
 }

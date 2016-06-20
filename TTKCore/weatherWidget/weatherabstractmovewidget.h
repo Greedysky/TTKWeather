@@ -11,7 +11,7 @@
 
 #include <QWidget>
 #include <QMouseEvent>
-#include "weatherlibexportglobal.h"
+#include "weatherglobaldefine.h"
 
 class WEATHER_WIDGET_EXPORT WeatherAbstractMoveWidget : public QWidget
 {

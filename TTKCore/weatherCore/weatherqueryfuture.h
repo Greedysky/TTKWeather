@@ -19,16 +19,16 @@ public:
 
     virtual void startToQuery(const QString &id = 0);
 
-    const Weather &getToday();
-    const Weather &getFuture(int index);
-    const WeatherList &getFuture() const;
+    const WeatherObject::Weather &getToday();
+    const WeatherObject::Weather &getFuture(int index);
+    const WeatherObject::WeatherList &getFuture() const;
 
 public slots:
     virtual void searchFinshed();
-    void repliedPM2P5Finished(const WeatherPM2P5 &pm);
+    void repliedPM2P5Finished(const WeatherObject::WeatherPM2P5 &pm);
 
 protected:
-    WeatherList m_futureList;
+    WeatherObject::WeatherList m_futureList;
 
 };
 

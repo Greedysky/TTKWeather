@@ -82,7 +82,7 @@ void WeatherApplication::initWidget()
     ui->stackedWidget->addWidget(m_todayItem);
     ui->stackedWidget->addWidget(m_futureItem);
 
-    m_todayItem->createItem(Weather());
+    m_todayItem->createItem( WeatherObject::Weather() );
 }
 
 void WeatherApplication::loadingFinished()
@@ -100,14 +100,14 @@ void WeatherApplication::changeStack2Today()
 {
     ui->stackedWidget->setCurrentIndex(0);
     !m_currentItemId.isEmpty() ? m_todayItem->setItemName(m_currentItemId, 0)
-                               : m_todayItem->createItem(Weather());
+                               : m_todayItem->createItem( WeatherObject::Weather() );
 }
 
 void WeatherApplication::changeStack2Future()
 {
     ui->stackedWidget->setCurrentIndex(1);
     !m_currentItemId.isEmpty() ? m_futureItem->setItemName(m_currentItemId)
-                               : m_futureItem->createItem(Weather());
+                               : m_futureItem->createItem( WeatherObject::Weather() );
 }
 
 void WeatherApplication::listCellClickedByText(const QString &name)

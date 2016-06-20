@@ -10,7 +10,7 @@
    =================================================*/
 
 #include <QWidget>
-#include "weatherlibexportglobal.h"
+#include "weatherglobaldefine.h"
 #include "weatherobject.h"
 
 #define COUNT 5
@@ -27,7 +27,7 @@ public:
     ~WeatherFutureItemWidget();
 
     void setItemName(const QString &name);
-    void createItem(const Weather &weather);
+    void createItem(const WeatherObject::Weather &weather);
 
 private slots:
     void buttonClicked(int index);

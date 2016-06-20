@@ -21,6 +21,16 @@ void WeatherQueryCity::startToQuery(const QString &id)
                      SLOT(replyError(QNetworkReply::NetworkError)) );
 }
 
+QString WeatherQueryCity::getCityCode(const QString &name) const
+{
+    return m_cityMap[name].toString();
+}
+
+const WeatherObject::MStriantMap& WeatherQueryCity::getCityCodeS() const
+{
+    return m_cityMap;
+}
+
 void WeatherQueryCity::searchFinshed()
 {
     if(m_reply == NULL)

@@ -15,7 +15,7 @@ WeatherFutureItemWidget::WeatherFutureItemWidget(QWidget *parent)
     for(int i=0; i<COUNT; ++i)
     {
         WeatherItemTableWidget *item = new WeatherItemTableWidget(parent);
-        item->createItem(Weather());
+        item->createItem( WeatherObject::Weather() );
         m_itemLists << item;
         m_statckedWidget->addWidget(item);
     }
@@ -80,7 +80,7 @@ void WeatherFutureItemWidget::setItemName(const QString &name)
     buttonClicked(0);
 }
 
-void WeatherFutureItemWidget::createItem(const Weather &weather)
+void WeatherFutureItemWidget::createItem(const WeatherObject::Weather &weather)
 {
     for(int i=0; i<COUNT; ++i)
     {

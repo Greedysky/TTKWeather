@@ -11,7 +11,7 @@
 
 #include <QTableWidget>
 #include <QHeaderView>
-#include "weatherlibexportglobal.h"
+#include "weatherglobaldefine.h"
 #include "weatherobject.h"
 #include "weatheruiobject.h"
 

@@ -19,16 +19,14 @@ public:
 
     virtual void startToQuery(const QString &id = 0);
 
-    inline QString getCityCode(const QString &name) const
-    { return m_cityMap[name].toString(); }
-    inline const MStriantMap& getCityCodeS() const
-    { return m_cityMap; }
+    QString getCityCode(const QString &name) const;
+    const WeatherObject::MStriantMap& getCityCodeS() const;
 
 public slots:
     virtual void searchFinshed();
 
 protected:
-    MStriantMap m_cityMap;
+    WeatherObject::MStriantMap m_cityMap;
 
 };
 

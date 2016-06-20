@@ -14,6 +14,9 @@ INCLUDEPATH += $$PWD
 
 !contains(CONFIG, TTK_NO_MSVC_LINK_NEED){
 HEADERS  += \
+    $$PWD/weatherlogger.h \
+    $$PWD/weatherobject.h \
+    $$PWD/weathersingleton.h \
     $$PWD/weatherquery.h \
     $$PWD/weatherquerycity.h \
     $$PWD/weatherqueryfuture.h \
@@ -30,3 +33,6 @@ SOURCES += \
 
 
 }
+
+HEADERS += \
+    $$PWD/weatherglobaldefine.h

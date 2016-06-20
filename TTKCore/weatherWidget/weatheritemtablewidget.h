@@ -21,7 +21,7 @@ public:
     virtual ~WeatherItemTableWidget();
 
     void setItemName(const QString &name, int index);
-    void createItem(const Weather &weather);
+    void createItem(const WeatherObject::Weather &weather);
 
 signals:
     void loadingIcon(const QStringList &icons);
