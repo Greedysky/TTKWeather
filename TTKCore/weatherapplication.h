@@ -20,23 +20,50 @@ class WeatherQueryCity;
 class WeatherItemTableWidget;
 class WeatherFutureItemWidget;
 
+/*! @brief The class of the main applicatin widget.
+ * @author Greedysky <greedysky@163.com>
+ */
 class WEATHER_GUI_EXPORT WeatherApplication : public WeatherAbstractMoveWidget
 {
     Q_OBJECT
 public:
     explicit WeatherApplication(QWidget *parent = 0);
-    ~WeatherApplication();
+    /*!
+     * Object contsructor.
+     */
+    virtual ~WeatherApplication();
 
 private slots:
     void loadingFinished();
+    /*!
+     * Loading main finished.
+     */
     void changeStack2Today();
+    /*!
+     * Changed the stacked widget to today.
+     */
     void changeStack2Future();
+    /*!
+     * Changed the stacked widget to future.
+     */
     void listCellClickedByText(const QString &name);
+    /*!
+     * Send query the weather by given name.
+     */
     void loadingIconFinished(const QStringList &icons);
+    /*!
+     * Load the current weather state icons.
+     */
     void aboutApplication();
+    /*!
+     * Show about dialog.
+     */
 
 private:
     void initWidget();
+    /*!
+     * Init main widget.
+     */
 
     Ui::WeatherApplication *ui;
     WeatherLoadingWidget *m_loadingWidget;

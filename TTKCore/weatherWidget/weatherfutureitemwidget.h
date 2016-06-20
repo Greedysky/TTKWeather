@@ -19,22 +19,43 @@ class QButtonGroup;
 class QStackedWidget;
 class WeatherItemTableWidget;
 
+/*! @brief The class of the future item widget.
+ * @author Greedysky <greedysky@163.com>
+ */
 class WEATHER_WIDGET_EXPORT WeatherFutureItemWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit WeatherFutureItemWidget(QWidget *parent = 0);
-    ~WeatherFutureItemWidget();
+    /*!
+     * Object contsructor.
+     */
+    virtual ~WeatherFutureItemWidget();
 
     void setItemName(const QString &name);
+    /*!
+     * Set table item to query differ future weather.
+     */
     void createItem(const WeatherObject::Weather &weather);
+    /*!
+     * Set table item by weather object.
+     */
 
 private slots:
     void buttonClicked(int index);
+    /*!
+     * Future button item clicked in which.
+     */
 
 protected:
     void initWidget();
+    /*!
+     * Init future button widget.
+     */
     void createButton();
+    /*!
+     * Create future buttons.
+     */
 
     QString m_itemId;
     QStackedWidget *m_statckedWidget;

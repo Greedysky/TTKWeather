@@ -26,7 +26,7 @@ QString WeatherQueryCity::getCityCode(const QString &name) const
     return m_cityMap[name].toString();
 }
 
-const WeatherObject::MStriantMap& WeatherQueryCity::getCityCodeS() const
+const WeatherObject::MStriantMap& WeatherQueryCity::getCityCodes() const
 {
     return m_cityMap;
 }

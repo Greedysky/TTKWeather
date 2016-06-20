@@ -15,17 +15,29 @@ namespace Ui {
 class WeatherMessageBox;
 }
 
+/*! @brief The class of the messagebox widget.
+ * @author Greedysky <greedysky@163.com>
+ */
 class WEATHER_WIDGET_EXPORT WeatherMessageBox : public WeatherAbstractMoveDialog
 {
     Q_OBJECT
 public:
     explicit WeatherMessageBox(QWidget *parent = 0);
+    /*!
+     * Object contsructor.
+     */
     virtual ~WeatherMessageBox();
 
     void setText(const QString &text) const;
+    /*!
+     * Set context text.
+     */
 
 public slots:
     void buttonClicked(int index);
+    /*!
+     * Confirm or cancal button clicked, set the state.
+     */
 
 protected:
     Ui::WeatherMessageBox *ui;

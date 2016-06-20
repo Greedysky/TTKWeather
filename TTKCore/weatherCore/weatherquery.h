@@ -21,24 +21,47 @@
 #include "weatherglobaldefine.h"
 #include "weatherobject.h"
 
+/*! @brief The class of the weather query abstract base.
+ * @author Greedysky <greedysky@163.com>
+ */
 class WEATHER_CORE_EXPORT WeatherQuery : public QObject
 {
     Q_OBJECT
 public:
     explicit WeatherQuery(QObject *parent = 0);
+    /*!
+     * Object contsructor.
+     */
     ~WeatherQuery();
 
     virtual void startToQuery(const QString &id = 0) = 0;
+    /*!
+     * Start to query data.
+     * Subclass should implement this function.
+     */
 
 signals:
     void resolvedSuccess();
+    /*!
+     * Send download data from net.
+     */
 
 public slots:
     virtual void searchFinshed() = 0;
+    /*!
+     * Download data from net finished.
+     * Subclass should implement this function.
+     */
     void replyError(QNetworkReply::NetworkError error);
+    /*!
+     * Download reply error.
+     */
 
 protected:
     void deleteAll();
+    /*!
+     * Release the network object.
+     */
 
     QNetworkAccessManager *m_manager;
     QNetworkReply *m_reply;

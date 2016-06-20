@@ -12,14 +12,23 @@
 #include "weatherquerycity.h"
 #include "weatherabstractmovedialog.h"
 
+/*! @brief The class of the weather loading widget.
+ * @author Greedysky <greedysky@163.com>
+ */
 class WEATHER_WIDGET_EXPORT WeatherLoadingWidget : public WeatherAbstractMoveDialog
 {
     Q_OBJECT
 public:
     explicit WeatherLoadingWidget(QWidget *parent = 0);
-    ~WeatherLoadingWidget();
+    /*!
+     * Object contsructor.
+     */
+    virtual ~WeatherLoadingWidget();
 
-    inline WeatherQueryCity *getQueryCity() const {return m_queryCity;}
+    inline WeatherQueryCity *getQueryCity() const { return m_queryCity; }
+    /*!
+     * Get query city finished.
+     */
 
 protected:
     WeatherQueryCity *m_queryCity;
