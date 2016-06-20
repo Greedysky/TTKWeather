@@ -11,13 +11,26 @@
 
 #include <QMap>
 
+#ifdef Q_CC_GNU
+#  pragma GCC diagnostic ignored "-Wunused-function"
+#endif
+
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#  define MUSIC_QT_5
+#  if QT_VERSION >= QT_VERSION_CHECK(5,2,0)
+#    define MUSIC_WINEXTRAS
+#  endif
+#endif
+///////////////////////////////////////
+
 const QString CITY_QUERY_URL = "http://api.k780.com:88/?app=weather.city&format=json";
 const QString FUTURE_QUERY_URL = "http://api.k780.com:88/?app=weather.future&weaid=%1&\
                                   appkey=15437&sign=cf444d86cbe7b5e13ab5958101d3044d&format=json";
 const QString PM2P5_QUERY_URL = "http://api.k780.com:88/?app=weather.pm25&weaid=%1&\
                                   appkey=15437&sign=cf444d86cbe7b5e13ab5958101d3044d&format=json";
 ///Attention: the interface can be accessed only 750 times per hour
-
+///////////////////////////////////////
+///
 namespace WeatherObject
 {
     typedef signed char MInt8;           /* 8 bit signed */

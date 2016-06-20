@@ -36,7 +36,7 @@ signals:
      */
 
 public slots:
-    virtual void listCellClicked(int row, int column);
+    virtual void listCellClicked(int row, int column) override;
     /*!
      * Table widget list cell click.
      */
@@ -50,7 +50,7 @@ public slots:
      */
 
 protected:
-    virtual void contextMenuEvent(QContextMenuEvent *event);
+    virtual void contextMenuEvent(QContextMenuEvent *event) override;
     /*!
      * Override the widget event.
      */

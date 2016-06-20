@@ -27,6 +27,6 @@ void WeatherQuery::deleteAll()
 
 void WeatherQuery::replyError(QNetworkReply::NetworkError)
 {
-    qDebug() <<"Abnormal network connection";
+    M_LOGGER_ERROR("Abnormal network connection");
     deleteAll();
 }

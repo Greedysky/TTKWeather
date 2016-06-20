@@ -18,7 +18,7 @@
 #define CURRENTDATE QDate::currentDate().toString("yyyy-MM-dd")
 #define LOG_END  QString("log::npos")
 
-#define M_LOGGER (*WeatherSingleton::createInstance())
+#define M_LOGGER (*WeatherLogger::createInstance())
 #define M_MESSAGE(str, msg) \
 { \
     M_LOGGER.setLevel(msg); \

@@ -27,20 +27,22 @@ void WeatherQueryFuture::searchFinshed()
     {
         return;
     }
-    m_reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
+
     if(m_reply->error() == QNetworkReply::NoError)
     {
         QByteArray bytes = m_reply->readAll();///Get all the data obtained by request
+        m_futureList.clear();
+#ifdef MUSIC_QT_5
         QJsonParseError jsonError;
         QJsonDocument parseDoucment = QJsonDocument::fromJson(bytes, &jsonError);
         ///Put the data into Json
         if(jsonError.error != QJsonParseError::NoError ||
            !parseDoucment.isObject())
         {
+            emit resolvedSuccess();
             return ;
         }
 
-        m_futureList.clear();  ///Empty the last search to songsInfo
         QJsonObject jsonObject = parseDoucment.object();
         if(jsonObject.contains("success") &&
            jsonObject.take("success").toString() == "1")
@@ -72,9 +74,52 @@ void WeatherQueryFuture::searchFinshed()
         }
         else
         {
-            qDebug() << "Error:" << jsonObject.take("msg").toString();
+            M_LOGGER_ERROR(QString("Error: %1").arg(jsonObject.take("msg").toString()));
+            emit resolvedSuccess();
             return;
         }
+#else
+        QScriptEngine engine;
+        QScriptValue sc = engine.evaluate("value=" + QString(bytes));
+        if(sc.property("success").isValid() &&
+           sc.property("success").toString() == "1")
+        {
+            if(sc.property("result").isArray())
+            {
+                QScriptValueIterator it(sc.property("result"));
+                while(it.hasNext())
+                {
+                    it.next();
+                    QScriptValue value = it.value();
+
+                    WeatherObject::Weather weather;
+                    weather.m_weaid = value.property("weaid").toString();
+                    weather.m_days = value.property("days").toString();
+                    weather.m_week = value.property("week").toString();
+                    weather.m_citynm = value.property("citynm").toString();
+                    weather.m_temperature = value.property("temperature").toString();
+                    weather.m_humidity = value.property("humidity").toString();
+                    weather.m_weather = value.property("weather").toString();
+                    weather.m_wind = value.property("wind").toString();
+                    weather.m_winp = value.property("winp").toString();
+                    weather.m_temp_high = value.property("temp_high").toString();
+                    weather.m_temp_low = value.property("temp_low").toString();
+                    weather.m_humi_high = value.property("humi_high").toString();
+                    weather.m_humi_low = value.property("humi_low").toString();
+                    weather.m_weatidX = value.property("weather_icon").toString();
+                    weather.m_weatidY = value.property("weather_icon1").toString();
+
+                    m_futureList << weather;
+                }
+            }
+        }
+        else
+        {
+            M_LOGGER_ERROR(QString("Error: %1").arg(sc.property("msg").toString()));
+            emit resolvedSuccess();
+            return;
+        }
+#endif
     }
 
     emit resolvedSuccess();

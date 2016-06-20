@@ -1,5 +1,7 @@
 #include "weatherquerycity.h"
 
+#include <QStringList>
+
 WeatherQueryCity::WeatherQueryCity(QObject *parent)
     : WeatherQuery(parent)
 {
@@ -37,20 +39,22 @@ void WeatherQueryCity::searchFinshed()
     {
         return;
     }
-    m_reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
+
     if(m_reply->error() == QNetworkReply::NoError)
     {
         QByteArray bytes = m_reply->readAll();///Get all the data obtained by request
+        m_cityMap.clear();
+#ifdef MUSIC_QT_5
         QJsonParseError jsonError;
         QJsonDocument parseDoucment = QJsonDocument::fromJson(bytes, &jsonError);
         ///Put the data into Json
         if(jsonError.error != QJsonParseError::NoError ||
            !parseDoucment.isObject())
         {
+            emit resolvedSuccess();
             return ;
         }
 
-        m_cityMap.clear();  ///Empty the last search to songsInfo
         QJsonObject jsonObject = parseDoucment.object();
         if(jsonObject.contains("success") &&
            jsonObject.take("success").toString() == "1")
@@ -67,9 +71,39 @@ void WeatherQueryCity::searchFinshed()
         }
         else
         {
-            qDebug() << "Error:" << jsonObject.take("msg").toString();
+            M_LOGGER_ERROR(QString("Error: %1").arg(jsonObject.take("msg").toString()));
+            emit resolvedSuccess();
             return;
         }
+#else
+        QScriptEngine engine;
+        QScriptValue sc = engine.evaluate("value=" + QString(bytes));
+        if(sc.property("success").isValid() &&
+           sc.property("success").toString() == "1")
+        {
+            if(sc.property("result").isValid())
+            {
+                sc = sc.property("result");
+                for(int i=1; i<3000; ++i)
+                {
+                    QScriptValue value = sc.property(QString::number(i));
+                    if(!value.isValid())
+                    {
+                        continue;
+                    }
+
+                    m_cityMap[value.property("citynm").toString()] =
+                              value.property("weaid").toString();
+                }
+            }
+        }
+        else
+        {
+            M_LOGGER_ERROR(QString("Error: %1").arg(sc.property("msg").toString()));
+            emit resolvedSuccess();
+            return;
+        }
+#endif
     }
     emit resolvedSuccess();
 }

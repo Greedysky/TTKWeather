@@ -9,17 +9,23 @@
  * works are strictly forbiden.
    =================================================*/
 
-#include <QJsonArray>
-#include <QJsonObject>
-#include <QJsonValue>
-#include <QJsonParseError>
+#include "weatherglobaldefine.h"
+#include "weatherobject.h"
+
+#ifdef MUSIC_QT_5
+#   include <QJsonParseError>
+#   include <QJsonDocument>
+#   include <QJsonObject>
+#   include <QJsonArray>
+#else
+#   include <QtScript/QScriptEngine>
+#   include <QtScript/QScriptValue>
+#   include <QtScript/QScriptValueIterator>
+#endif
 
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
-
-#include "weatherglobaldefine.h"
-#include "weatherobject.h"
 
 /*! @brief The class of the weather query abstract base.
  * @author Greedysky <greedysky@163.com>

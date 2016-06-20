@@ -15,6 +15,7 @@ INCLUDEPATH += $$PWD
 !contains(CONFIG, TTK_NO_MSVC_LINK_NEED){
 HEADERS  += \
     $$PWD/weatherglobaldefine.h \
+    $$PWD/weatherversion.h \
     $$PWD/weatherlogger.h \
     $$PWD/weatherobject.h \
     $$PWD/weathersingleton.h \

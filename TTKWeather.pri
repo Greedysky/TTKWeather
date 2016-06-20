@@ -13,6 +13,7 @@
 QT       += core gui network
 
 equals(QT_MAJOR_VERSION, 4){
+QT       += script
 CONFIG   += gcc
 }
 equals(QT_MAJOR_VERSION, 5){

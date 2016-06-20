@@ -28,16 +28,17 @@ void WeatherQuerPM2P5::searchFinshed()
     }
 
     WeatherObject::WeatherPM2P5 pm2p5List;
-    m_reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
     if(m_reply->error() == QNetworkReply::NoError)
     {
         QByteArray bytes = m_reply->readAll();///Get all the data obtained by request
+#ifdef MUSIC_QT_5
         QJsonParseError jsonError;
         QJsonDocument parseDoucment = QJsonDocument::fromJson(bytes, &jsonError);
         ///Put the data into Json
         if(jsonError.error != QJsonParseError::NoError ||
            !parseDoucment.isObject())
         {
+            emit repliedPM2P5Finished(pm2p5List);
             return ;
         }
 
@@ -56,9 +57,35 @@ void WeatherQuerPM2P5::searchFinshed()
         }
         else
         {
-            qDebug() << "Error:" << jsonObject.take("msg").toString();
+            M_LOGGER_ERROR(QString("Error: %1").arg(jsonObject.take("msg").toString()));
+            emit repliedPM2P5Finished(pm2p5List);
             return;
         }
+#else
+        QScriptEngine engine;
+        QScriptValue sc = engine.evaluate("value=" + QString(bytes));
+        if(sc.property("success").isValid() &&
+           sc.property("success").toString() == "1")
+        {
+
+            if(sc.property("result").isValid())
+            {
+                sc = sc.property("result");
+                pm2p5List.m_weaidP = sc.property("weaid").toString();
+                pm2p5List.m_aqi = sc.property("aqi").toString();
+                pm2p5List.m_aqiLevid = sc.property("aqi_levid").toString();
+                pm2p5List.m_aqiLevnm = sc.property("aqi_levnm").toString();
+                pm2p5List.m_aqiScope = sc.property("aqi_scope").toString();
+                pm2p5List.m_aqiRemark = sc.property("aqi_remark").toString();
+            }
+        }
+        else
+        {
+            M_LOGGER_ERROR(QString("Error: %1").arg(sc.property("msg").toString()));
+            emit repliedPM2P5Finished(pm2p5List);
+            return;
+        }
+#endif
     }
 
     emit repliedPM2P5Finished(pm2p5List);

@@ -28,5 +28,5 @@ HEADERS  += \
     weatherapplication.h
 
 RESOURCES += \
-    ../TTKQrc/Weather.qrc
+    ../TTKQrc/TTKWeather.qrc
     
