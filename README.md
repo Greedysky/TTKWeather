@@ -19,19 +19,19 @@ Screenshots
 ----
 
 1
-![Rungholt](https://github.com/Greedysky/Resource/tree/master/Screen/TTKWeather/1.png?raw=true)
+![Rungholt](https://github.com/Greedysky/Resource/blob/master/Screen/TTKWeather/1.png?raw=true)
 
 2
-![Rungholt](https://github.com/Greedysky/Resource/tree/master/Screen/TTKWeather/2.png?raw=true)
+![Rungholt](https://github.com/Greedysky/Resource/blob/master/Screen/TTKWeather/2.png?raw=true)
 
 3
-![Rungholt](https://github.com/Greedysky/Resource/tree/master/Screen/TTKWeather/3.png?raw=true)
+![Rungholt](https://github.com/Greedysky/Resource/blob/master/Screen/TTKWeather/3.png?raw=true)
 
 
 Copyright
 -------
- * This file is part of the TTK Music Player project.
- * Copyright (c) 2014 - 2016 Greedysky Studio.
+ * This file is part of the TTK Weather project.
+ * Copyright (c) 2015 - 2016 Greedysky Studio.
  * All rights reserved!
  * Redistribution and use of the source code or any derivative.
  * works are strictly forbiden.
