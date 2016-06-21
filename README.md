@@ -18,13 +18,10 @@ TTKWeather is free software licensed under the term of GPL v2. If you use TTKWea
 Screenshots
 ----
 
-1
 ![Rungholt](https://github.com/Greedysky/Resource/blob/master/Screen/TTKWeather/1.png?raw=true)
 
-2
 ![Rungholt](https://github.com/Greedysky/Resource/blob/master/Screen/TTKWeather/2.png?raw=true)
 
-3
 ![Rungholt](https://github.com/Greedysky/Resource/blob/master/Screen/TTKWeather/3.png?raw=true)
 
 
