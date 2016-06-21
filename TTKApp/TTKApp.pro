@@ -17,7 +17,7 @@ win32{
 }
 unix{
   TARGET = ../lib/TTKWeather
-  LIBS += -L./lib -lWeatherCore
+  LIBS += -L../lib -lWeatherCore
 }
 
 contains(CONFIG, TTK_BUILD_LIB){
