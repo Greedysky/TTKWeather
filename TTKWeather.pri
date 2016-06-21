@@ -62,5 +62,5 @@ contains(CONFIG, TTK_BUILD_LIB){
   include(TTKCore/weatherUi/WeatherUi.pri)
 }
 
-include(TTKCore/weatherCore/MusicCore.pri)
-include(TTKCore/weatherWidget/MusicWidget.pri)
+include(TTKCore/weatherCore/WeatherCore.pri)
+include(TTKCore/weatherWidget/WeatherWidget.pri)
