@@ -2,9 +2,9 @@
 
 Usage
 ----
-The TTKWeather forecast program, you can query the future weather conditions, based on Qt for windows.
- * Qt develop version be tested on Qt4.8.7 for windows-mingw 32bit and 64bit
- * Qt develop version be tested on Qt4.8.6 for ubuntu-linux-gcc 32bit and 64bit
+The TTKWeather forecast program, you can query the future weather conditions, based on Qt for windows and linux.
+ * Qt develop version be tested on Qt4.8.x for windows-mingw 32bit and 64bit
+ * Qt develop version be tested on Qt4.8.x for ubuntu-linux-gcc 32bit and 64bit
  * Qt develop version be tested on Qt5.x for windows-mingw 32bit and 64bit
  * Qt develop version be tested on Qt5.x for windows-msvc 32bit and 64bit
  * Qt develop version be tested on Qt5.x for ubuntu-linux-gcc 32bit and 64bit
