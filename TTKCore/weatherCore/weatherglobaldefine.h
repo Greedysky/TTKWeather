@@ -22,7 +22,7 @@
 #endif
 //////////////////////////////////////
 #ifdef __cplusplus
-#  define MUSIC_CAST
+#  define WEATHER_CAST
 #endif
 //////////////////////////////////////
 
@@ -59,25 +59,25 @@
 //////////////////////////////////////
 ///cast
 ///
-#ifdef MUSIC_CAST
+#ifdef WEATHER_CAST
 #  define MConst_cast(x,y) (const_cast< x >(y))
 #else
 #  define MConst_cast(x,y) ((x)(y))
 #endif
 
-#ifdef MUSIC_CAST
+#ifdef WEATHER_CAST
 #  define MDynamic_cast(x,y) (dynamic_cast< x >(y))
 #else
 #  define MDynamic_cast(x,y) ((x)(y))
 #endif
 
-#ifdef MUSIC_CAST
+#ifdef WEATHER_CAST
 #  define MReinterpret_cast(x,y) (reinterpret_cast< x >(y))
 #else
 #  define MReinterpret_cast(x,y) ((x)(y))
 #endif
 
-#ifdef MUSIC_CAST
+#ifdef WEATHER_CAST
 #  define MStatic_cast(x,y) (static_cast< x >(y))
 #else
 #  define MStatic_cast(x,y) ((x)(y))

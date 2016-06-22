@@ -44,7 +44,7 @@ void WeatherQueryCity::searchFinshed()
     {
         QByteArray bytes = m_reply->readAll();///Get all the data obtained by request
         m_cityMap.clear();
-#ifdef MUSIC_QT_5
+#ifdef WEATHER_QT_5
         QJsonParseError jsonError;
         QJsonDocument parseDoucment = QJsonDocument::fromJson(bytes, &jsonError);
         ///Put the data into Json

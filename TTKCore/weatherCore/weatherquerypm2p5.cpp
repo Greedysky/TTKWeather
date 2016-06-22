@@ -31,7 +31,7 @@ void WeatherQuerPM2P5::searchFinshed()
     if(m_reply->error() == QNetworkReply::NoError)
     {
         QByteArray bytes = m_reply->readAll();///Get all the data obtained by request
-#ifdef MUSIC_QT_5
+#ifdef WEATHER_QT_5
         QJsonParseError jsonError;
         QJsonDocument parseDoucment = QJsonDocument::fromJson(bytes, &jsonError);
         ///Put the data into Json

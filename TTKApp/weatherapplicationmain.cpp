@@ -1,6 +1,6 @@
 #include "weatherapplication.h"
 #include "weatherobject.h"
-#ifndef MUSIC_QT_5
+#ifndef WEATHER_QT_5
 #include <QTextCodec>
 #endif
 #include <QApplication>
@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-#ifndef MUSIC_QT_5
+#ifndef WEATHER_QT_5
     QTextCodec *codec = QTextCodec::codecForName("utf8");
     QTextCodec::setCodecForLocale(codec);
     QTextCodec::setCodecForCStrings(codec);

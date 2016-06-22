@@ -12,7 +12,7 @@
 #include "weatherglobaldefine.h"
 #include "weatherobject.h"
 
-#ifdef MUSIC_QT_5
+#ifdef WEATHER_QT_5
 #   include <QJsonParseError>
 #   include <QJsonDocument>
 #   include <QJsonObject>
