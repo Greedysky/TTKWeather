@@ -22,7 +22,8 @@ HEADERS  += \
     $$PWD/weatherquery.h \
     $$PWD/weatherquerycity.h \
     $$PWD/weatherqueryfuture.h \
-    $$PWD/weatherquerypm2p5.h
+    $$PWD/weatherquerypm2p5.h \
+    $$PWD/weathercryptographichash.h
 
 }
 
@@ -31,7 +32,7 @@ SOURCES += \
     $$PWD/weatherquery.cpp \
     $$PWD/weatherquerycity.cpp \
     $$PWD/weatherqueryfuture.cpp \
-    $$PWD/weatherquerypm2p5.cpp
-
+    $$PWD/weatherquerypm2p5.cpp \
+    $$PWD/weathercryptographichash.cpp
 
 }

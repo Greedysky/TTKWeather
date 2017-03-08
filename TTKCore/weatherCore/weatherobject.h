@@ -10,6 +10,7 @@
    =================================================*/
 
 #include <QMap>
+#include <QVariant>
 
 #ifdef Q_CC_GNU
 #  pragma GCC diagnostic ignored "-Wunused-function"
@@ -21,16 +22,7 @@
 #    define WEATHER_WINEXTRAS
 #  endif
 #endif
-///////////////////////////////////////
 
-const QString CITY_QUERY_URL = "http://api.k780.com:88/?app=weather.city&format=json";
-const QString FUTURE_QUERY_URL = "http://api.k780.com:88/?app=weather.future&weaid=%1&\
-                                  appkey=15437&sign=cf444d86cbe7b5e13ab5958101d3044d&format=json";
-const QString PM2P5_QUERY_URL = "http://api.k780.com:88/?app=weather.pm25&weaid=%1&\
-                                  appkey=15437&sign=cf444d86cbe7b5e13ab5958101d3044d&format=json";
-///Attention: the interface can be accessed only 750 times per hour
-///////////////////////////////////////
-///
 namespace WeatherObject
 {
     typedef signed char MInt8;           /* 8 bit signed */
@@ -46,19 +38,19 @@ namespace WeatherObject
     typedef float MFloat;                /* float */
     typedef bool MBool;                  /* bool */
 
-    typedef QList<QStringList> MStringLists;    /* stringlists */
-    typedef QList<int> MIntList;                /* intlist */
-    typedef QList<MIntList> MIntLists;          /* intlists */
-    typedef QSet<int> MIntSet;                  /* intset */
-    typedef QSet<MIntSet> MIntSets;             /* intsets */
-    typedef QMap<QString, QVariant> MStriantMap;    /* stringVariantMap */
-    typedef QMap<QString, QStringList> MStringsListMap; /* stringStrlistsMap */
-    typedef QMap<int, MIntList> MIntsListMap;        /* intIntlistMap */
-    typedef QMap<qint64, QString> MIntStringMap;      /* intStrMap */
-    typedef QMapIterator<QString, QVariant> MStriantMapIt;    /* stringVariantMapIt */
+    typedef QList<QStringList> MStringLists;                      /* stringlists */
+    typedef QList<int> MIntList;                                  /* intlist */
+    typedef QList<MIntList> MIntLists;                            /* intlists */
+    typedef QSet<int> MIntSet;                                    /* intset */
+    typedef QSet<MIntSet> MIntSets;                               /* intsets */
+    typedef QMap<QString, QVariant> MStriantMap;                  /* stringVariantMap */
+    typedef QMap<QString, QStringList> MStringsListMap;           /* stringStrlistsMap */
+    typedef QMap<int, MIntList> MIntsListMap;                     /* intIntlistMap */
+    typedef QMap<qint64, QString> MIntStringMap;                  /* intStrMap */
+    typedef QMapIterator<QString, QVariant> MStriantMapIt;        /* stringVariantMapIt */
     typedef QMapIterator<QString, QStringList> MStringsListMapIt; /* stringStrlistsMapIt */
-    typedef QMapIterator<int, MIntList> MIntsListMapIt;        /* intIntlistMapIt */
-    typedef QMapIterator<qint64, QString> MIntStringMapIt;      /* intStrMapIt */
+    typedef QMapIterator<int, MIntList> MIntsListMapIt;           /* intIntlistMapIt */
+    typedef QMapIterator<qint64, QString> MIntStringMapIt;        /* intStrMapIt */
     ///////////////////////////////////////
 
     typedef struct WeatherPM2P5

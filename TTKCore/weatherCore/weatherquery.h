@@ -9,9 +9,16 @@
  * works are strictly forbiden.
    =================================================*/
 
-#include "weatherglobaldefine.h"
 #include "weatherobject.h"
+#include "weathercryptographichash.h"
+///////////////////////////////////////
 
+const QString CITY_QUERY_URL   = "OVV1ZU9jUDVKbURUN29kQ3AvSTR0aTg5Z2RMaXNEd000U3dzaGMrU244Zkw0L3h4QlErWWgzTGcrenlxWGlLS2lVRmZVSXk2V1ZZPQ==";
+const QString FUTURE_QUERY_URL = "S0crZVVyUWdpQVg1S05hUUNERXY0NmZkY3JCY1BpV0dOa1c0Z3VWYTVScFVIeDFpNWhnbmZpdnprN1RWeU1sdEt5TlFPY1NjVTVCbmsxZFY4b1VmUGVyQjk2SEJOWDZqOE1YOC9zWnQ3T2dYeWlZd0huZlVvR2FEVmdCVFphU25haVJCUHBQOUJLSWptSzFSNmZFTXYvOEo5ZENEcjRYZw==";
+const QString PM2P5_QUERY_URL  = "LzJmUW92R3VMdW9UdVI5Uk9CaTJLWGhuRnJSbkVUZlJTbXFidjJCRDJwNnRvWFpRVWxrZ1c4MmM3ZzZ5RU15eGVsMExjTnZoYkQvTFpDQXZpVS9vb1NBRXhYTDVCeTBFZHNvc1FBSmIxUVJWd0ZvRk9waE1nN2FxbTAreFU1RFNRUi9vZkp5aHhGYUIvcXl6aG9uV1Y1NGtXR0k9";
+///Attention: the interface can be accessed only 750 times per hour
+///////////////////////////////////////
+///
 #ifdef WEATHER_QT_5
 #   include <QJsonParseError>
 #   include <QJsonDocument>

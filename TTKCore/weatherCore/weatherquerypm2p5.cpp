@@ -14,7 +14,7 @@ void WeatherQuerPM2P5::startToQuery(const QString &id)
         m_reply = NULL;
     }
 
-    m_reply = m_manager->get(QNetworkRequest( QUrl(PM2P5_QUERY_URL.arg(id)) ));
+    m_reply = m_manager->get(QNetworkRequest( QUrl(WeatherCryptographicHash::decryptData(PM2P5_QUERY_URL, URL_KEY).arg(id)) ));
     connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()) );
     connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)),this,
                      SLOT(replyError(QNetworkReply::NetworkError)) );
