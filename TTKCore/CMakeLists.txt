@@ -21,6 +21,7 @@ set(WEATHER_HEADERS
     ${WEATHER_CORE_DIR}/weatherquerycity.h
     ${WEATHER_CORE_DIR}/weatherqueryfuture.h
     ${WEATHER_CORE_DIR}/weatherquerypm2p5.h
+    ${WEATHER_CORE_DIR}/weathercryptographichash.h
     ${WEATHER_WIDGET_DIR}/weatherabstractmovedialog.h
     ${WEATHER_WIDGET_DIR}/weatherabstractmovewidget.h
     ${WEATHER_WIDGET_DIR}/weatheritemtablewidget.h
@@ -37,6 +38,7 @@ set(WEATHER_SOURCES
     ${WEATHER_CORE_DIR}/weatherquerycity.cpp
     ${WEATHER_CORE_DIR}/weatherqueryfuture.cpp
     ${WEATHER_CORE_DIR}/weatherquerypm2p5.cpp
+    ${WEATHER_CORE_DIR}/weathercryptographichash.cpp
     ${WEATHER_WIDGET_DIR}/weatherabstractmovedialog.cpp
     ${WEATHER_WIDGET_DIR}/weatherabstractmovewidget.cpp
     ${WEATHER_WIDGET_DIR}/weatheritemtablewidget.cpp
