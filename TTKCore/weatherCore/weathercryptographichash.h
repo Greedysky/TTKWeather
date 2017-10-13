@@ -22,7 +22,7 @@
 #include <QString>
 #include "weatherglobaldefine.h"
 
-#define URL_KEY      "GREEDYSKY"
+#define URL_KEY      "13;dg18dgsd"
 
 #ifdef Q_CC_GNU
     #pragma GCC diagnostic ignored "-Wparentheses"
