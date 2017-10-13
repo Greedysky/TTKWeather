@@ -3,17 +3,26 @@
 Usage
 ----
 The TTKWeather forecast program, you can query the future weather conditions, based on Qt for windows and linux.
+
+## CI Status
  * Qt develop version be tested on Qt4.8.x for windows-mingw 32bit and 64bit
  * Qt develop version be tested on Qt4.8.x for ubuntu-linux-gcc 32bit and 64bit
  * Qt develop version be tested on Qt5.x for windows-mingw 32bit and 64bit
  * Qt develop version be tested on Qt5.x for windows-msvc 32bit and 64bit
  * Qt develop version be tested on Qt5.x for ubuntu-linux-gcc 32bit and 64bit
  
+| Platform | Qt & Compiler       | Status                                                                                      |
+| :---:    | :---:               | :---:                                                                                       |
+| Linux    | 4.8.7 GCC & 5.x GCC    | ![Linux](https://img.shields.io/wercker/ci/wercker/docs.svg)                            |
+| Windows  | 4.8.7 GCC & 5.x GCC       | ![Windows](https://img.shields.io/wercker/ci/wercker/docs.svg) |
+| Windows  | 5.x MSVC       | ![Windows](https://img.shields.io/wercker/ci/wercker/docs.svg) |
+| OS X     | 5.x Clang     | ![OSX](https://img.shields.io/badge/build-unknown-lightgrey.svg?style=flat-square)                           |
+
 # For Developers
 
 License
 ---
-TTKWeather is free software licensed under the term of GPL v2. If you use TTKWeather or its constituent libraries, you must adhere to the terms of the license in question.
+TTKWeather is free software licensed under the term of [Licence GPL v3](https://github.com/Greedysky/TTKWeather/blob/master/LICENSE). If you use TTKWeather or its constituent libraries, you must adhere to the terms of the license in question.
 
 Screenshots
 ----
@@ -28,10 +37,7 @@ Screenshots
 Copyright
 -------
  * This file is part of the TTK Weather project.
- * Copyright (c) 2015 - 2016 Greedysky Studio.
- * All rights reserved!
- * Redistribution and use of the source code or any derivative.
- * works are strictly forbiden.
+ * Copyright (c) 2015 - 2017 Greedysky Studio.
  * mail: greedysky@163.com.
  
 How To Contribute
