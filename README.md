@@ -37,7 +37,7 @@ Screenshots
 Copyright
 -------
  * This file is part of the TTK Weather project.
- * Copyright (c) 2015 - 2017 Greedysky Studio.
+ * Copyright (c) 2015 - 2018 Greedysky Studio.
  * mail: greedysky@163.com.
  
 How To Contribute

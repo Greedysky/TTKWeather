@@ -3,7 +3,7 @@
 
 /* =================================================
  * This file is part of the TTK Weather project
- * Copyright (C) 2015 - 2017 Greedysky Studio
+ * Copyright (C) 2015 - 2018 Greedysky Studio
 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,16 +19,16 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ================================================= */
 
-//update time 2016.06.20
+//update time 2018.01.02
 #define TTKWEATHER_STR         "TTKWeather"
-#define TTKWEATHER_VERSION_STR "1.0.0.0"
+#define TTKWEATHER_VERSION_STR "1.1.0.0"
 
 #define TTKWEATHER_MAJOR_VERSION 1
-#define TTKWEATHER_MIDLE_VERSION 0
+#define TTKWEATHER_MIDLE_VERSION 1
 #define TTKWEATHER_MINOR_VERSION 0
 #define TTKWEATHER_PATCH_VERSION 0
 
-#define TTKWEATHER_VERSION 0x01000
+#define TTKWEATHER_VERSION 0x01100
 
 #define TTKWEATHER_VERSION_CHECK(major, middle, minor, patch) ((major<<12)|(middle<<8)|(minor<<4)|(patch))
 

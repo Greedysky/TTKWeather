@@ -2,7 +2,6 @@
     <qresource prefix="/image">
         <file alias="appIcon">../TTKResource/appIcon.png</file>
         <file alias="close">../TTKResource/appClose.png</file>
-        <file alias="background">../TTKResource/background.jpg</file>
         <file alias="loading">../TTKResource/loading.jpg</file>
         <file alias="about">../TTKResource/about.png</file>
         <file alias="close1">../TTKResource/close.png</file>

@@ -3,7 +3,7 @@
 
 /* =================================================
  * This file is part of the TTK Weather project
- * Copyright (C) 2015 - 2017 Greedysky Studio
+ * Copyright (C) 2015 - 2018 Greedysky Studio
 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,11 +34,6 @@ public:
      * Object contsructor.
      */
     virtual ~WeatherAbstractMoveDialog();
-
-    void drawWindowRoundedRect(QWidget *widget);
-    /*!
-     * Set or not draw window bound shadow.
-     */
 
 protected:
     virtual void mousePressEvent(QMouseEvent *event) override;

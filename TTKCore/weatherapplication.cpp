@@ -31,15 +31,9 @@ WeatherApplication::~WeatherApplication()
 
 void WeatherApplication::initWidget()
 {
-    QPixmap origin(":/image/background");
-    QPixmap afterDeal( size() );
-    afterDeal.fill(Qt::transparent);
-    QPainter paint(&afterDeal);
-    paint.fillRect(0, 0, afterDeal.width(), afterDeal.height(), QColor(255, 255, 255, 222));
-    paint.setCompositionMode(QPainter::CompositionMode_SourceIn);
-    paint.drawPixmap(0, 0, QPixmap::fromImage(origin.scaled(size(), Qt::KeepAspectRatioByExpanding).toImage()));
-    paint.end();
-    ui->background->setPixmap(afterDeal);
+    QPixmap pix(1, 1);
+    pix.fill(QColor(73, 166, 253));
+    ui->background->setPixmap(pix.scaled(size()));
 
     QPixmap minPix  = style()->standardPixmap(QStyle::SP_TitleBarMinButton);
     ui->minimization->setIcon(QIcon(minPix.scaled(25, 25)));
@@ -92,7 +86,6 @@ void WeatherApplication::loadingFinished()
     m_loadingWidget->close();
 
     setAttribute(Qt::WA_TranslucentBackground, true);
-    drawWindowRoundedRect(this);
     initWidget();
     show();
 }
@@ -127,7 +120,7 @@ void WeatherApplication::aboutApplication()
     WeatherMessageBox message;
     message.setText(tr(TTKWEATHER_STR) + QString("\n\n") +
                     tr("Directed By Greedysky") +
-                    QString("\nCopyright© 2015-2017") +
+                    QString("\nCopyright© 2015-2018") +
                     QString("\nMail:Greedysky@163.com"));
     message.exec();
 }

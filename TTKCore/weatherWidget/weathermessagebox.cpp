@@ -9,11 +9,11 @@ WeatherMessageBox::WeatherMessageBox(QWidget *parent)
     ui(new Ui::WeatherMessageBox)
 {
     ui->setupUi(this);
-    drawWindowRoundedRect(this);
-    //set window radius
 
     m_status = 0;
-    ui->background->setPixmap(QPixmap(":/image/background").scaled(size()));
+    QPixmap pix(1, 1);
+    pix.fill(QColor(73, 166, 253));
+    ui->background->setPixmap(pix.scaled(size()));
     ////////////////////////////////////////////////
     ui->topTitleCloseButton->setIcon(QIcon(":/image/close1"));
     ui->topTitleCloseButton->setStyleSheet(WeatherUIObject::MToolButtonStyle01);

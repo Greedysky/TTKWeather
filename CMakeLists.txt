@@ -31,10 +31,12 @@ set(WEATHER_QRC_DIR "${WEATHER_DIR}/TTKQrc")
 set(WEATHER_LANGUAGE_DIR "${WEATHER_DIR}/TTKLanguage")
 set(WEATHER_RESOURCE_DIR "${WEATHER_DIR}/TTKResource")
 
-include_directories(${WEATHER_DIR})
-include_directories(${WEATHER_LIB_DIR})
-include_directories(${WEATHER_CORE_DIR})
-include_directories(${WEATHER_WIDGET_DIR})
+include_directories(
+    ${WEATHER_DIR}
+    ${WEATHER_LIB_DIR}
+    ${WEATHER_CORE_DIR}
+    ${WEATHER_WIDGET_DIR}
+)
 
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CACHEFILE_DIR}/bin)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CACHEFILE_DIR}/bin) 

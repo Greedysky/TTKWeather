@@ -1,8 +1,5 @@
 #include "weatherabstractmovewidget.h"
 
-#include <QBitmap>
-#include <QPainter>
-
 WeatherAbstractMoveWidget::WeatherAbstractMoveWidget(QWidget *parent)
     : QWidget(parent)
 {
@@ -14,17 +11,6 @@ WeatherAbstractMoveWidget::WeatherAbstractMoveWidget(QWidget *parent)
 WeatherAbstractMoveWidget::~WeatherAbstractMoveWidget()
 {
 
-}
-
-void WeatherAbstractMoveWidget::drawWindowRoundedRect(QWidget *widget)
-{
-    QBitmap bmp(widget->size());
-    bmp.fill();
-    QPainter p(&bmp);
-    p.setPen(Qt::NoPen);
-    p.setBrush(Qt::black);
-    p.drawRoundedRect(bmp.rect(),4,4);
-    widget->setMask(bmp);
 }
 
 void WeatherAbstractMoveWidget::mousePressEvent(QMouseEvent *event)

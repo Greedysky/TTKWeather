@@ -75,29 +75,13 @@
     <string>未来五天</string>
    </property>
   </widget>
-  <widget class="QLabel" name="windowTitle">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>8</y>
-     <width>81</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font-size:16px;color:#FFFFFF;font-weight:bold</string>
-   </property>
-   <property name="text">
-    <string>天气预报</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="windowIcon">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>2</y>
-     <width>35</width>
-     <height>35</height>
+     <x>10</x>
+     <y>5</y>
+     <width>30</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">

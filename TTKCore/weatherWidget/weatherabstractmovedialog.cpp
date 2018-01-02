@@ -1,8 +1,6 @@
 #include "weatherabstractmovedialog.h"
 
 #include <QMouseEvent>
-#include <QBitmap>
-#include <QPainter>
 
 WeatherAbstractMoveDialog::WeatherAbstractMoveDialog(QWidget *parent)
     : QDialog(parent)
@@ -15,17 +13,6 @@ WeatherAbstractMoveDialog::WeatherAbstractMoveDialog(QWidget *parent)
 WeatherAbstractMoveDialog::~WeatherAbstractMoveDialog()
 {
 
-}
-
-void WeatherAbstractMoveDialog::drawWindowRoundedRect(QWidget *widget)
-{
-    QBitmap bmp(widget->size());
-    bmp.fill();
-    QPainter p(&bmp);
-    p.setPen(Qt::NoPen);
-    p.setBrush(Qt::black);
-    p.drawRoundedRect(bmp.rect(),4,4);
-    widget->setMask(bmp);
 }
 
 void WeatherAbstractMoveDialog::mousePressEvent(QMouseEvent *event)
