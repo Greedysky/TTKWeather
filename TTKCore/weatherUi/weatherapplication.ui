@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>625</width>
-    <height>400</height>
+    <height>430</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
      <x>0</x>
      <y>0</y>
      <width>625</width>
-     <height>400</height>
+     <height>430</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -33,9 +33,9 @@
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>70</y>
+     <y>40</y>
      <width>321</width>
-     <height>311</height>
+     <height>370</height>
     </rect>
    </property>
   </widget>
@@ -45,34 +45,8 @@
      <x>10</x>
      <y>40</y>
      <width>261</width>
-     <height>341</height>
+     <height>370</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="todayButton">
-   <property name="geometry">
-    <rect>
-     <x>450</x>
-     <y>40</y>
-     <width>71</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>今天</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="futureButton">
-   <property name="geometry">
-    <rect>
-     <x>530</x>
-     <y>40</y>
-     <width>75</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>未来五天</string>
    </property>
   </widget>
   <widget class="QLabel" name="windowIcon">
@@ -106,19 +80,6 @@
      <width>25</width>
      <height>25</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="addCityButton">
-   <property name="geometry">
-    <rect>
-     <x>290</x>
-     <y>40</y>
-     <width>71</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>添加城市</string>
    </property>
   </widget>
   <widget class="QToolButton" name="windowAbout">

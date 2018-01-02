@@ -24,7 +24,6 @@ WeatherApplication::WeatherApplication(QWidget *parent) :
 WeatherApplication::~WeatherApplication()
 {
     delete m_loadingWidget;
-    delete m_todayItem;
     delete m_futureItem;
     delete ui;
 }
@@ -54,30 +53,11 @@ void WeatherApplication::initWidget()
     ui->windowAbout->setIcon(QIcon(QPixmap(QString::fromUtf8(":/image/about")).scaled(25,25)));
     connect(ui->windowAbout, SIGNAL(clicked()), SLOT(aboutApplication()));
 
-
-    ui->todayButton->setToolTip(tr("Today"));
-    ui->todayButton->setCursor(QCursor(Qt::PointingHandCursor));
-    ui->todayButton->setStyleSheet(WeatherUIObject::MPushButtonStyle03);
-    connect(ui->todayButton, SIGNAL(clicked()), SLOT(changeStack2Today()));
-
-    ui->futureButton->setToolTip(tr("Future"));
-    ui->futureButton->setCursor(QCursor(Qt::PointingHandCursor));
-    ui->futureButton->setStyleSheet(WeatherUIObject::MPushButtonStyle03);
-    connect(ui->futureButton, SIGNAL(clicked()), SLOT(changeStack2Future()));
-
-    ui->addCityButton->setToolTip(tr("AddCity"));
-    ui->addCityButton->setCursor(QCursor(Qt::PointingHandCursor));
-    ui->addCityButton->setStyleSheet(WeatherUIObject::MPushButtonStyle03);
-    connect(ui->addCityButton, SIGNAL(clicked()), ui->addItemTableWidget, SLOT(addCityClicked()));
     connect(ui->addItemTableWidget, SIGNAL(listCellClickedByText(QString)),
                                     SLOT(listCellClickedByText(QString)));
 
-    m_todayItem = new WeatherItemTableWidget(this);
     m_futureItem = new WeatherFutureItemWidget(this);
-    ui->stackedWidget->addWidget(m_todayItem);
     ui->stackedWidget->addWidget(m_futureItem);
-
-    m_todayItem->createItem( WeatherObject::Weather() );
 }
 
 void WeatherApplication::loadingFinished()
@@ -93,13 +73,6 @@ void WeatherApplication::loadingFinished()
 void WeatherApplication::changeStack2Today()
 {
     ui->stackedWidget->setCurrentIndex(0);
-    !m_currentItemId.isEmpty() ? m_todayItem->setItemName(m_currentItemId, 0)
-                               : m_todayItem->createItem( WeatherObject::Weather() );
-}
-
-void WeatherApplication::changeStack2Future()
-{
-    ui->stackedWidget->setCurrentIndex(1);
     !m_currentItemId.isEmpty() ? m_futureItem->setItemName(m_currentItemId)
                                : m_futureItem->createItem( WeatherObject::Weather() );
 }

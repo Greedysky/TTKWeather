@@ -15,7 +15,7 @@ WeatherMessageBox::WeatherMessageBox(QWidget *parent)
     pix.fill(QColor(73, 166, 253));
     ui->background->setPixmap(pix.scaled(size()));
     ////////////////////////////////////////////////
-    ui->topTitleCloseButton->setIcon(QIcon(":/image/close1"));
+    ui->topTitleCloseButton->setIcon(QIcon(":/image/close"));
     ui->topTitleCloseButton->setStyleSheet(WeatherUIObject::MToolButtonStyle01);
     ui->topTitleCloseButton->setCursor(QCursor(Qt::PointingHandCursor));
     ui->topTitleCloseButton->setToolTip(tr("Close"));

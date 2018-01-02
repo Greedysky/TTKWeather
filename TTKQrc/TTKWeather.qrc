@@ -4,7 +4,6 @@
         <file alias="close">../TTKResource/appClose.png</file>
         <file alias="loading">../TTKResource/loading.jpg</file>
         <file alias="about">../TTKResource/about.png</file>
-        <file alias="close1">../TTKResource/close.png</file>
         <file alias="warning">../TTKResource/warning.png</file>
     </qresource>
     <qresource prefix="/b">

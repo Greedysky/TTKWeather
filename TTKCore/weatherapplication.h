@@ -27,7 +27,6 @@ class WeatherApplication;
 
 class WeatherLoadingWidget;
 class WeatherQueryCity;
-class WeatherItemTableWidget;
 class WeatherFutureItemWidget;
 
 /*! @brief The class of the main applicatin widget.
@@ -52,10 +51,6 @@ private slots:
     /*!
      * Changed the stacked widget to today.
      */
-    void changeStack2Future();
-    /*!
-     * Changed the stacked widget to future.
-     */
     void listCellClickedByText(const QString &name);
     /*!
      * Send query the weather by given name.
@@ -77,7 +72,6 @@ private:
 
     Ui::WeatherApplication *ui;
     WeatherLoadingWidget *m_loadingWidget;
-    WeatherItemTableWidget *m_todayItem;
     WeatherFutureItemWidget *m_futureItem;
     WeatherQueryCity *m_queryCity;
     QString m_currentItemId;
