@@ -13,9 +13,9 @@ The TTKWeather forecast program, you can query the future weather conditions, ba
  
 | Platform | Qt & Compiler       | Status                                                                                      |
 | :---:    | :---:               | :---:                                                                                       |
-| Linux    | 4.8.7 GCC & 5.x GCC    | ![Linux](https://img.shields.io/wercker/ci/wercker/docs.svg)                            |
-| Windows  | 4.8.7 GCC & 5.x GCC       | ![Windows](https://img.shields.io/wercker/ci/wercker/docs.svg) |
-| Windows  | 5.x MSVC       | ![Windows](https://img.shields.io/wercker/ci/wercker/docs.svg) |
+| Linux    | 4.8.7 GCC & 5.x GCC    | ![Linux](https://img.shields.io/teamcity/codebetter/bt428.svg)                            |
+| Windows  | 4.8.7 GCC & 5.x GCC       | ![Windows](https://img.shields.io/teamcity/codebetter/bt428.svg) |
+| Windows  | 5.x MSVC       | ![Windows](https://img.shields.io/teamcity/codebetter/bt428.svg) |
 | OS X     | 5.x Clang     | ![OSX](https://img.shields.io/badge/build-unknown-lightgrey.svg?style=flat-square)                           |
 
 # For Developers
