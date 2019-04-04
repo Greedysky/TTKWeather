@@ -16,8 +16,8 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # =================================================
 
-win32:TARGET = ../../bin/WeatherCore
-unix:TARGET = ../lib/WeatherCore
+win32:TARGET = ../../bin/TTKCore
+unix:TARGET = ../lib/TTKCore
 TEMPLATE = lib
 
 CONFIG += TTK_BUILD_LIB

@@ -27,7 +27,7 @@ namespace WeatherUIObject
 ///ToolButton
 //////////////////////////////////////////////////////
     const QString MToolButtonStyle02 = " \
-            QToolButton{background-color:transparent;}";
+            QToolButton{border:none; background-color:transparent;}";
 
     const QString MToolButtonStyle01 = MToolButtonStyle02 + " \
             QToolButton::hover{background-color:rgba(255,255,255,20)}";

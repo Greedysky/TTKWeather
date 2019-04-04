@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.11)
 
-add_definitions(-DWEATHER_LIBRARY)
+add_definitions(-DTTK_LIBRARY)
 
 # Find includes in the build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -12,16 +12,15 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O2 -pthread -fopenmp -Wall")
 set(CMAKE_BUILD_TYPE Release CACHE STRING "set build type to Release")  
 set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS Release Debug)
 
-set(TTK_BUILD_SHARED "true" CACHE STRING "TTK build by shared link")
-set_property(CACHE TTK_BUILD_SHARED PROPERTY STRINGS true false)
-if(TTK_BUILD_SHARED STREQUAL "true")
-  message(STATUS "TTK build by shared link")
+option(TTK_BUILD_SHARED "TTK BUILD SHARED LIBS" ON)
+if(TTK_BUILD_SHARED)
+  message(STATUS "Message TTK build by shared link")
 else()
-  message(STATUS "TTK build by static link")
+  message(STATUS "Message TTK build by static link")
 endif()
 
 set(WEATHER_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(WEATHER_LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/TTKCore")
+set(WEATHER_LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/TTKModule")
 set(WEATHER_CORE_DIR "${WEATHER_LIB_DIR}/weatherCore")
 set(WEATHER_WIDGET_DIR "${WEATHER_LIB_DIR}/weatherWidget")
 set(WEATHER_UI_DIR "${WEATHER_LIB_DIR}/weatherUi")
@@ -99,5 +98,5 @@ else()
   message(FATAL_ERROR "Could NOT find lrelease executable")
 endif()
 
-add_subdirectory(TTKCore)
+add_subdirectory(TTKModule)
 add_subdirectory(TTKApp)

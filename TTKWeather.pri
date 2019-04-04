@@ -31,13 +31,6 @@ MOC_DIR = ./.build/moc/
 OBJECTS_DIR = ./.build/obj
 RCC_DIR = ./.build/rcc
 
-#check Qt version
-QT_VER_STRING = $$[QT_VERSION];
-QT_VER_STRING = $$split(QT_VER_STRING, ".")
-QT_VER_MAJOR = $$member(QT_VER_STRING, 0)
-QT_VER_MINOR = $$member(QT_VER_STRING, 1)
-QT_VER_PATCH = $$member(QT_VER_STRING, 2)
-
 win32{
     msvc{
         !contains(QMAKE_TARGET.arch, x86_64){
@@ -62,11 +55,11 @@ unix:!mac{
 
 TTKWeather = 1.0.0.0
 
-DEFINES += WEATHER_LIBRARY
+DEFINES += TTK_LIBRARY
 
 contains(CONFIG, TTK_BUILD_LIB){
-  include(TTKCore/weatherUi/WeatherUi.pri)
+  include(TTKModule/weatherUi/WeatherUi.pri)
 }
 
-include(TTKCore/weatherCore/WeatherCore.pri)
-include(TTKCore/weatherWidget/WeatherWidget.pri)
+include(TTKModule/weatherCore/WeatherCore.pri)
+include(TTKModule/weatherWidget/WeatherWidget.pri)

@@ -53,8 +53,7 @@ void WeatherApplication::initWidget()
     ui->windowAbout->setIcon(QIcon(QPixmap(QString::fromUtf8(":/image/about")).scaled(25,25)));
     connect(ui->windowAbout, SIGNAL(clicked()), SLOT(aboutApplication()));
 
-    connect(ui->addItemTableWidget, SIGNAL(listCellClickedByText(QString)),
-                                    SLOT(listCellClickedByText(QString)));
+    connect(ui->addItemTableWidget, SIGNAL(listCellClickedByText(QString)), SLOT(listCellClickedByText(QString)));
 
     m_futureItem = new WeatherFutureItemWidget(this);
     ui->stackedWidget->addWidget(m_futureItem);
@@ -93,7 +92,7 @@ void WeatherApplication::aboutApplication()
     WeatherMessageBox message;
     message.setText(tr(TTKWEATHER_STR) + QString("\n\n") +
                     tr("Directed By Greedysky") +
-                    QString("\nCopyright© 2015-2018") +
+                    QString("\nCopyright© 2015-2019") +
                     QString("\nMail:Greedysky@163.com"));
     message.exec();
 }

@@ -18,12 +18,12 @@
 
 TEMPLATE = app
 win32{
-  TARGET = ../../bin/TTKWeather
-  LIBS += -L../bin -lWeatherCore
+  TARGET = ../../bin/TTKApp
+  LIBS += -L../bin -lTTKCore
 }
 unix{
-  TARGET = ../lib/TTKWeather
-  LIBS += -L../lib -lWeatherCore
+  TARGET = ../lib/TTKApp
+  LIBS += -L../lib -lTTKCore
 }
 
 contains(CONFIG, TTK_BUILD_LIB){
@@ -37,14 +37,14 @@ win32{
     }
 }
 
-INCLUDEPATH += ../TTKCore
+INCLUDEPATH += ../TTKModule
 
 include(../TTKWeather.pri)
 unix:VERSION += $$TTKWeather
 
 !contains(CONFIG, TTK_NO_MSVC_LINK_NEED){
 HEADERS  += \
-    ../TTKCore/weatherapplication.h
+    ../TTKModule/weatherapplication.h
 }
 
 SOURCES += \

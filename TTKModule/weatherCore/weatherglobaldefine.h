@@ -25,7 +25,7 @@
 #   define WEATHER_DEBUG
 #endif
 
-#ifdef WEATHER_LIBRARY
+#ifdef TTK_LIBRARY
 #  define WEATHER_GUI
 #  define WEATHER_WIDGET
 #  define WEATHER_CORE
