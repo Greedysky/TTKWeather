@@ -11,7 +11,7 @@ void WeatherQuerPM2P5::startToQuery(const QString &id)
     if(m_reply)
     {
         m_reply->deleteLater();
-        m_reply = NULL;
+        m_reply = nullptr;
     }
 
     m_reply = m_manager->get(QNetworkRequest( QUrl(WeatherCryptographicHash::decryptData(PM2P5_QUERY_URL, URL_KEY).arg(id)) ));
@@ -22,7 +22,7 @@ void WeatherQuerPM2P5::startToQuery(const QString &id)
 
 void WeatherQuerPM2P5::searchFinshed()
 {
-    if(m_reply == NULL)
+    if(m_reply == nullptr)
     {
         return;
     }

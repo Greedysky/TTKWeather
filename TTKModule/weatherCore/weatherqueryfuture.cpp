@@ -12,18 +12,17 @@ void WeatherQueryFuture::startToQuery(const QString &id)
     if(m_reply)
     {
         m_reply->deleteLater();
-        m_reply = NULL;
+        m_reply = nullptr;
     }
 
     m_reply = m_manager->get(QNetworkRequest( QUrl(WeatherCryptographicHash::decryptData(FUTURE_QUERY_URL, URL_KEY).arg(id)) ));
     connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()) );
-    connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)),this,
-                     SLOT(replyError(QNetworkReply::NetworkError)) );
+    connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), SLOT(replyError(QNetworkReply::NetworkError)) );
 }
 
 void WeatherQueryFuture::searchFinshed()
 {
-    if(m_reply == NULL)
+    if(m_reply == nullptr)
     {
         return;
     }

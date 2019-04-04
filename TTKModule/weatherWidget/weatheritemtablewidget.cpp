@@ -5,7 +5,7 @@
 WeatherItemTableWidget::WeatherItemTableWidget(QWidget *parent)
     : WeatherAbstractTableWidget(parent)
 {
-    m_queryFuture = NULL;
+    m_queryFuture = nullptr;
     setColumnCount(2);
     QHeaderView *headerview = horizontalHeader();
     headerview->resizeSection(0, 120);
@@ -24,7 +24,7 @@ WeatherItemTableWidget::~WeatherItemTableWidget()
 void WeatherItemTableWidget::setItemName(const QString &name, int index)
 {
     m_indexOfItem = index;
-    if(m_queryFuture == NULL)
+    if(m_queryFuture == nullptr)
     {
         m_queryFuture = new WeatherQueryFuture(this);
         connect(m_queryFuture, SIGNAL(resolvedSuccess()),

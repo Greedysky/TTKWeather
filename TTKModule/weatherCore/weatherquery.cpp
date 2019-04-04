@@ -1,7 +1,7 @@
 #include "weatherquery.h"
 
 WeatherQuery::WeatherQuery(QObject *parent)
-    : QObject(parent), m_reply(NULL)
+    : QObject(parent), m_reply(nullptr)
 {
     m_manager = new QNetworkAccessManager(this);
 }
@@ -12,7 +12,7 @@ WeatherQuery::~WeatherQuery()
     if(m_manager)
     {
         m_manager->deleteLater();
-        m_manager = NULL;
+        m_manager = nullptr;
     }
 }
 
@@ -21,7 +21,7 @@ void WeatherQuery::deleteAll()
     if(m_reply)
     {
         m_reply->deleteLater();
-        m_reply = NULL;
+        m_reply = nullptr;
     }
 }
 
