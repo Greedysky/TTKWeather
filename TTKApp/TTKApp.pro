@@ -18,11 +18,11 @@
 
 TEMPLATE = app
 win32{
-  TARGET = ../../bin/TTKApp
+  TARGET = ../../bin/TTKWeather
   LIBS += -L../bin -lTTKCore
 }
 unix{
-  TARGET = ../lib/TTKApp
+  TARGET = ../lib/TTKWeather
   LIBS += -L../lib -lTTKCore
 }
 
