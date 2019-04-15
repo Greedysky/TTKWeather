@@ -19,16 +19,16 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ================================================= */
 
-//update time 2018.01.02
+//update time 2019.04.15
 #define TTKWEATHER_STR         "TTKWeather"
-#define TTKWEATHER_VERSION_STR "1.1.0.0"
+#define TTKWEATHER_VERSION_STR "1.2.0.0"
 
 #define TTKWEATHER_MAJOR_VERSION 1
-#define TTKWEATHER_MIDLE_VERSION 1
+#define TTKWEATHER_MIDLE_VERSION 2
 #define TTKWEATHER_MINOR_VERSION 0
 #define TTKWEATHER_PATCH_VERSION 0
 
-#define TTKWEATHER_VERSION 0x01100
+#define TTKWEATHER_VERSION 0x01200
 
 #define TTKWEATHER_VERSION_CHECK(major, middle, minor, patch) ((major<<12)|(middle<<8)|(minor<<4)|(patch))
 
