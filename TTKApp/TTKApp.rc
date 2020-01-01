@@ -29,7 +29,7 @@ BEGIN
                 VALUE "FileDescription", "天天预报"
                 VALUE "FileVersion", "1.1.0.0"
                 VALUE "InternalName", "天天预报.exe"
-                VALUE "LegalCopyright", "Copyright By Greedysky studio(C)2018"
+                VALUE "LegalCopyright", "Copyright By Greedysky studio(C)2020"
                 VALUE "OriginalFilename", "天天预报.exe"
                 VALUE "ProductName", "天天预报"
                 VALUE "ProductVersion", "1.1.0.0"
