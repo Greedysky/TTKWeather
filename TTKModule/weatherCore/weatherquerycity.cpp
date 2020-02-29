@@ -18,7 +18,7 @@ void WeatherQueryCity::startToQuery(const QString &id)
         m_reply = nullptr;
     }
 
-    m_reply = m_manager->get(QNetworkRequest( QUrl(WeatherCryptographicHash::decryptData(CITY_QUERY_URL, URL_KEY)) ));
+    m_reply = m_manager->get(QNetworkRequest(QUrl(WeatherCryptographicHash::decryptData(CITY_QUERY_URL, URL_KEY))));
     connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()) );
     connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), SLOT(replyError(QNetworkReply::NetworkError)) );
 }
@@ -28,7 +28,7 @@ QString WeatherQueryCity::getCityCode(const QString &name) const
     return m_cityMap[name].toString();
 }
 
-const WeatherObject::MStriantMap& WeatherQueryCity::getCityCodes() const
+const WeatherObject::TTKVariantMap& WeatherQueryCity::getCityCodes() const
 {
     return m_cityMap;
 }
@@ -44,29 +44,27 @@ void WeatherQueryCity::searchFinshed()
     {
         QByteArray bytes = m_reply->readAll();///Get all the data obtained by request
         m_cityMap.clear();
-#ifdef WEATHER_QT_5
+#ifdef TTK_GREATER_NEW
         QJsonParseError jsonError;
         QJsonDocument parseDoucment = QJsonDocument::fromJson(bytes, &jsonError);
         ///Put the data into Json
-        if(jsonError.error != QJsonParseError::NoError ||
-           !parseDoucment.isObject())
+        if(jsonError.error != QJsonParseError::NoError || !parseDoucment.isObject())
         {
             emit resolvedSuccess();
             return ;
         }
 
         QJsonObject jsonObject = parseDoucment.object();
-        if(jsonObject.contains("success") &&
-           jsonObject.take("success").toString() == "1")
+        if(jsonObject.contains("success") && jsonObject.take("success").toString() == "1")
         {
             jsonObject = jsonObject.take("result").toObject();
-            QJsonObject indata;
+            jsonObject = jsonObject.take("datas").toObject();
 
-            foreach(QString key, jsonObject.keys() )
+            QJsonObject indata;
+            foreach(QString key, jsonObject.keys())
             {
                 indata = jsonObject.value(key).toObject();
-                m_cityMap[indata.value("citynm").toString()] =
-                          indata.value("weaid").toString();
+                m_cityMap[indata.value("citynm").toString()] = indata.value("weaid").toString();
             }
         }
         else
@@ -84,16 +82,19 @@ void WeatherQueryCity::searchFinshed()
             if(sc.property("result").isValid())
             {
                 sc = sc.property("result");
-                for(int i=1; i<3000; ++i)
+                if(sc.property("datas").isValid())
                 {
-                    QScriptValue value = sc.property(QString::number(i));
-                    if(!value.isValid())
+                    sc = sc.property("datas");
+                    for(int i=1; i<3000; ++i)
                     {
-                        continue;
-                    }
+                        QScriptValue value = sc.property(QString::number(i));
+                        if(!value.isValid())
+                        {
+                            continue;
+                        }
 
-                    m_cityMap[value.property("citynm").toString()] =
-                              value.property("weaid").toString();
+                        m_cityMap[value.property("citynm").toString()] = value.property("weaid").toString();
+                    }
                 }
             }
         }

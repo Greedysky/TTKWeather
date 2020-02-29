@@ -26,41 +26,50 @@
 #  pragma GCC diagnostic ignored "-Wunused-function"
 #endif
 
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-#  define WEATHER_QT_5
-#  if QT_VERSION >= QT_VERSION_CHECK(5,2,0)
-#    define WEATHER_WINEXTRAS
+#define TTK_QT_VERSION_CHECK(major, minor, patch) (QT_VERSION >= QT_VERSION_CHECK(major, minor, patch))
+#if TTK_QT_VERSION_CHECK(5,0,0)
+#  define TTK_GREATER_NEW
+#  if TTK_QT_VERSION_CHECK(5,2,0)
+#    define TTK_WINEXTRAS
+#  else
+#    define TTK_NO_WINEXTRAS
 #  endif
+#else
+#  define TTK_NO_WINEXTRAS
 #endif
 
 namespace WeatherObject
 {
-    typedef signed char MInt8;           /* 8 bit signed */
-    typedef unsigned char MUint8;        /* 8 bit unsigned */
-    typedef short MInt16;                /* 16 bit signed */
-    typedef unsigned short MUint16;      /* 16 bit unsigned */
-    typedef int MInt32;                  /* 32 bit signed */
-    typedef unsigned int MUint32;        /* 32 bit unsigned */
-    typedef long long MInt64;            /* 64 bit signed */
-    typedef unsigned long long MUint64;  /* 64 bit unsigned */
+    typedef signed char                        TTKInt8;         /* 8 bit signed */
+    typedef unsigned char                      TTKUInt8;        /* 8 bit unsigned */
+    typedef short                              TTKInt16;        /* 16 bit signed */
+    typedef unsigned short                     TTKUInt16;       /* 16 bit unsigned */
+    typedef int                                TTKInt32;        /* 32 bit signed */
+    typedef unsigned int                       TTKUInt32;       /* 32 bit unsigned */
+    typedef long long                          TTKInt64;        /* 64 bit signed */
+    typedef unsigned long long                 TTKUInt64;       /* 64 bit unsigned */
 
-    typedef double MDouble;              /* double */
-    typedef float MFloat;                /* float */
-    typedef bool MBool;                  /* bool */
+    typedef double                             TTKDouble;       /* double */
+    typedef float                              TTKFloat;        /* float */
+    typedef bool                               TTKBool;         /* bool */
 
-    typedef QList<QStringList> MStringLists;                      /* stringlists */
-    typedef QList<int> MIntList;                                  /* intlist */
-    typedef QList<MIntList> MIntLists;                            /* intlists */
-    typedef QSet<int> MIntSet;                                    /* intset */
-    typedef QSet<MIntSet> MIntSets;                               /* intsets */
-    typedef QMap<QString, QVariant> MStriantMap;                  /* stringVariantMap */
-    typedef QMap<QString, QStringList> MStringsListMap;           /* stringStrlistsMap */
-    typedef QMap<int, MIntList> MIntsListMap;                     /* intIntlistMap */
-    typedef QMap<qint64, QString> MIntStringMap;                  /* intStrMap */
-    typedef QMapIterator<QString, QVariant> MStriantMapIt;        /* stringVariantMapIt */
-    typedef QMapIterator<QString, QStringList> MStringsListMapIt; /* stringStrlistsMapIt */
-    typedef QMapIterator<int, MIntList> MIntsListMapIt;           /* intIntlistMapIt */
-    typedef QMapIterator<qint64, QString> MIntStringMapIt;        /* intStrMapIt */
+    typedef std::string                        TTKString;       /* string */
+
+    ///
+    typedef QList<QVariant>                    TTKVariantList;            /* variantlist */
+    typedef QList<int>                         TTKIntList;                /* intlist */
+    typedef QSet<QVariant>                     TTKVariantSet;             /* variantset */
+    typedef QSet<int>                          TTKIntSet;                 /* intset */
+    typedef QMap<QString, QVariant>            TTKVariantMap;             /* stringVariantMap */
+    typedef QMap<QString, QString>             TTKStringMap;              /* stringsMap */
+    typedef QMap<QString, QStringList>         TTKStringListMap;          /* stringStrlistsMap */
+    typedef QMap<int, TTKIntList>              TTKIntListMap;             /* intIntlistMap */
+    typedef QMap<qint64, QString>              TTKIntStringMap;           /* intStrMap */
+    typedef QMapIterator<QString, QVariant>    TTKVariantMapIterator;     /* stringVariantMapIterator */
+    typedef QMapIterator<QString, QString>     TTKStringMapterator;       /* stringsMapIterator */
+    typedef QMapIterator<QString, QStringList> TTKStringListMapIterator;  /* stringStrlistsMapIterator */
+    typedef QMapIterator<int, TTKIntList>      TTKIntListMapIterator;     /* intIntlistMapIterator */
+    typedef QMapIterator<qint64, QString>      TTKIntStringMapIterator;   /* intStrMapIterator */
     ///////////////////////////////////////
 
     typedef struct WeatherPM2P5

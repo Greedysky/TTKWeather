@@ -31,7 +31,7 @@ void WeatherQueryFuture::searchFinshed()
     {
         QByteArray bytes = m_reply->readAll();///Get all the data obtained by request
         m_futureList.clear();
-#ifdef WEATHER_QT_5
+#ifdef TTK_GREATER_NEW
         QJsonParseError jsonError;
         QJsonDocument parseDoucment = QJsonDocument::fromJson(bytes, &jsonError);
         ///Put the data into Json

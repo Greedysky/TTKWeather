@@ -42,7 +42,7 @@ public:
     /*!
      * Get city code by name.
      */
-    const WeatherObject::MStriantMap& getCityCodes() const;
+    const WeatherObject::TTKVariantMap& getCityCodes() const;
     /*!
      * Get all cities code.
      */
@@ -54,7 +54,7 @@ public slots:
      */
 
 protected:
-    WeatherObject::MStriantMap m_cityMap;
+    WeatherObject::TTKVariantMap m_cityMap;
 
 };
 

@@ -29,7 +29,7 @@ const QString PM2P5_QUERY_URL  = "WHF6dU85RlRDUmpTanltT3h1elZzQ2ZSU2lnK0hIeC9LYV
 ///Attention: the interface can be accessed only 750 times per hour
 ///////////////////////////////////////
 ///
-#ifdef WEATHER_QT_5
+#ifdef TTK_GREATER_NEW
 #   include <QJsonParseError>
 #   include <QJsonDocument>
 #   include <QJsonObject>
