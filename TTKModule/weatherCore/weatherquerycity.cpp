@@ -69,7 +69,7 @@ void WeatherQueryCity::searchFinshed()
         }
         else
         {
-            M_LOGGER_ERROR(QString("Error: %1").arg(jsonObject.take("msg").toString()));
+            TTK_LOGGER_ERROR(QString("Error: %1").arg(jsonObject.take("msg").toString()));
             emit resolvedSuccess();
             return;
         }
@@ -100,7 +100,7 @@ void WeatherQueryCity::searchFinshed()
         }
         else
         {
-            M_LOGGER_ERROR(QString("Error: %1").arg(sc.property("msg").toString()));
+            TTK_LOGGER_ERROR(QString("Error: %1").arg(sc.property("msg").toString()));
             emit resolvedSuccess();
             return;
         }

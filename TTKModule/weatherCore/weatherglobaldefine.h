@@ -22,7 +22,7 @@
 #include <QtCore/qglobal.h>
 
 #ifdef QT_DEBUG
-#   define WEATHER_DEBUG
+#   define TTK_DEBUG
 #endif
 
 #ifdef TTK_LIBRARY
@@ -32,7 +32,7 @@
 #endif
 //////////////////////////////////////
 #ifdef __cplusplus
-#  define WEATHER_CAST
+#  define TTK_CAST
 #endif
 //////////////////////////////////////
 
@@ -69,32 +69,39 @@
 //////////////////////////////////////
 ///cast
 ///
-#ifdef WEATHER_CAST
-#  define MConst_cast(x,y) (const_cast< x >(y))
+#ifdef TTK_CAST
+#  define TTKConst_cast(x,y) (const_cast< x >(y))
 #else
-#  define MConst_cast(x,y) ((x)(y))
+#  define TTKConst_cast(x,y) ((x)(y))
 #endif
 
-#ifdef WEATHER_CAST
-#  define MDynamic_cast(x,y) (dynamic_cast< x >(y))
+#ifdef TTK_CAST
+#  define TTKDynamic_cast(x,y) (dynamic_cast< x >(y))
 #else
-#  define MDynamic_cast(x,y) ((x)(y))
+#  define TTKDynamic_cast(x,y) ((x)(y))
 #endif
 
-#ifdef WEATHER_CAST
-#  define MReinterpret_cast(x,y) (reinterpret_cast< x >(y))
+#ifdef TTK_CAST
+#  define TTKReinterpret_cast(x,y) (reinterpret_cast< x >(y))
 #else
-#  define MReinterpret_cast(x,y) ((x)(y))
+#  define TTKReinterpret_cast(x,y) ((x)(y))
 #endif
 
-#ifdef WEATHER_CAST
-#  define MStatic_cast(x,y) (static_cast< x >(y))
+#ifdef TTK_CAST
+#  define TTKStatic_cast(x,y) (static_cast< x >(y))
 #else
-#  define MStatic_cast(x,y) ((x)(y))
+#  define TTKStatic_cast(x,y) ((x)(y))
 #endif
+
+#ifdef TTK_CAST
+#  define TTKObject_cast(x,y) (qobject_cast< x >(y))
+#else
+#  define TTKObject_cast(x,y) (qobject_cast< x >(y))
+#endif
+
 
 //////////////////////////////////////
 ///load logger
-#include "weatherlogger.h"
+#include "ttklogger.h"
 
 #endif //  WEATHERGLOBALDEFINE_H
