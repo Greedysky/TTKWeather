@@ -13,9 +13,9 @@ add_definitions(-DQT_NO_DEBUG)
 add_definitions(-DQT_THREAD)
 
 set(WEATHER_HEADERS
+    ${WEATHER_CORE_DIR}/ttklogger.h
     ${WEATHER_CORE_DIR}/weatherglobaldefine.h
     ${WEATHER_CORE_DIR}/weatherversion.h
-    ${WEATHER_CORE_DIR}/weatherlogger.h
     ${WEATHER_CORE_DIR}/weatherobject.h
     ${WEATHER_CORE_DIR}/weathersingleton.h
     ${WEATHER_CORE_DIR}/weatherquery.h
