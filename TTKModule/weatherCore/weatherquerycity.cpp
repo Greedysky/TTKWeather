@@ -1,7 +1,6 @@
 #include "weatherquerycity.h"
 
 #include <QStringList>
-#include <QDebug>
 
 WeatherQueryCity::WeatherQueryCity(QObject *parent)
     : WeatherQuery(parent)
