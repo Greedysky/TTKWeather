@@ -28,7 +28,7 @@ BEGIN
                 VALUE "CompanyName", "Greedysky studio, Ltd."
                 VALUE "FileDescription", "TTKCore"
                 VALUE "FileVersion", "1.3.0.0"
-                VALUE "LegalCopyright", "Copyright By Greedysky studio(C)2020"
+                VALUE "LegalCopyright", "Copyright By Greedysky studio(C)2021"
                 VALUE "ProductName", "TTKCore"
                 VALUE "ProductVersion", "1.3.0.0"
             END
