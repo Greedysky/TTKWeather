@@ -42,7 +42,7 @@ else{
 }
 
 unix:{
-    output = $$OUT_PWD/lib/MLanguage
+    output = $$OUT_PWD/bin/MLanguage
     !exists($$output):system(mkdir $$output)
 
     system(find . -name *.ts | xargs $$LRELEASE_EXECUTABLE)

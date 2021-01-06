@@ -16,16 +16,17 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # =================================================
 
-win32:TARGET = ../../bin/TTKCore
-unix:TARGET = ../lib/TTKCore
 TEMPLATE = lib
 
 CONFIG += TTK_BUILD_LIB
 
 INCLUDEPATH += $$PWD
 
-include(../TTKWeather.pri)
-unix:VERSION += $$TTKWeather
+include($$PWD/../TTKWeather.pri)
+DESTDIR = $$OUT_PWD/../bin
+TARGET = TTKCore
+
+CONFIG += plugin lib
 
 SOURCES += \
     weatherapplication.cpp 
