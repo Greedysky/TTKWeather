@@ -43,18 +43,18 @@ else{
 
 unix:{
     output = $$OUT_PWD/bin/MLanguage
-    !exists($$output):system(mkdir $$output)
+    !exists($$output):system(mkdir -p $$output)
 
-    system(find . -name *.ts | xargs $$LRELEASE_EXECUTABLE)
-    system(find . -name *.qm | xargs rename -v -f 's/.qm/.ln/' *  )
-    system(for F in TTKLanguage/*.ln ; do mv $F $$output ;done)
+    system(find $$PWD/TTKLanguage -name *.ts | xargs $$LRELEASE_EXECUTABLE)
+    system(find $$PWD/TTKLanguage -name *.qm | xargs rename -v -f 's/.qm/.ln/' *)
+    system(for F in $$PWD/TTKLanguage/*.ln ; do mv $F $$output ;done)
 }
 win32:{
     output = $$OUT_PWD/bin/MLanguage
     output = $$replace(output, /, \\)
     !exists($$output):system(md $$output)
 
-    system(for /r %i in (*.ts) do $$LRELEASE_EXECUTABLE %i)
-    system(for /r %i in (*.qm) do ren %i *.ln)
-    system(for /r %i in (*.ln) do move /y %i $$output)
+    system(for /r $$PWD %i in (*.ts) do $$LRELEASE_EXECUTABLE %i)
+    system(for /r $$PWD %i in (*.qm) do ren %i *.ln)
+    system(for /r $$PWD %i in (*.ln) do move /y %i $$output)
 }
