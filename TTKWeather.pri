@@ -25,6 +25,9 @@ CONFIG   += gcc
 equals(QT_MAJOR_VERSION, 5){
 QT       += widgets
 }
+equals(QT_MAJOR_VERSION, 6){
+QT       += widgets core5compat
+}
 
 UI_DIR = ./.build/ui/
 MOC_DIR = ./.build/moc/
@@ -60,6 +63,8 @@ DEFINES += TTK_LIBRARY
 contains(CONFIG, TTK_BUILD_LIB){
   include(TTKModule/weatherUi/WeatherUi.pri)
 }
+
+INCLUDEPATH += $$PWD
 
 include(TTKModule/weatherCore/WeatherCore.pri)
 include(TTKModule/weatherWidget/WeatherWidget.pri)

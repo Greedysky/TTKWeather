@@ -41,7 +41,7 @@ void WeatherItemTableWidget::createItem(const WeatherObject::Weather &weather)
           << tr("weather") << tr("wind") << tr("winp") << tr("temp_high")
           << tr("temp_low") << tr("humi_high") << tr("humi_low");
 
-    values << weather.m_citynm << QString("%1  %2").arg(weather.m_days).arg(weather.m_week)
+    values << weather.m_citynm << QString("%1  %2").arg(weather.m_days, weather.m_week)
            << weather.m_temperature << weather.m_humidity << weather.m_weather
            << weather.m_wind << weather.m_winp << weather.m_temp_high << weather.m_temp_low
            << weather.m_humi_high << weather.m_humi_low;
@@ -50,12 +50,20 @@ void WeatherItemTableWidget::createItem(const WeatherObject::Weather &weather)
     for(int i=0; i<names.count(); ++i)
     {
         QTableWidgetItem *item = new QTableWidgetItem( names[i] );
+#if TTK_QT_VERSION_CHECK(5,13,0)
+        item->setForeground(QColor(50, 50, 50));
+#else
         item->setTextColor(QColor(50, 50, 50));
+#endif
         item->setTextAlignment(Qt::AlignCenter);
         setItem(i, 0, item);
 
                           item = new QTableWidgetItem( values[i].isEmpty() ? "-" : values[i]);
+#if TTK_QT_VERSION_CHECK(5,13,0)
+        item->setForeground(QColor(50, 50, 50));
+#else
         item->setTextColor(QColor(50, 50, 50));
+#endif
         item->setTextAlignment(Qt::AlignLeft | Qt::AlignVCenter);
         setItem(i, 1, item);
     }

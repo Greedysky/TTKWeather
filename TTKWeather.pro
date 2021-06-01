@@ -17,6 +17,7 @@
 # =================================================
 
 TEMPLATE = subdirs
+CONFIG += ordered
 SUBDIRS = TTKModule TTKApp
 
 TRANSLATIONS += TTKLanguage/cn.ts

@@ -76,6 +76,10 @@ void WeatherAbstractTableWidget::setRowColor(int row, const QColor &color) const
     for(int col=0; col<columnCount(); col++)
     {
         QTableWidgetItem *item = this->item(row, col);
+#if TTK_QT_VERSION_CHECK(5,13,0)
+        item->setBackground(color);
+#else
         item->setBackgroundColor(color);
+#endif
     }
 }

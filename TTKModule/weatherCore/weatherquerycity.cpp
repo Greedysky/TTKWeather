@@ -19,7 +19,11 @@ void WeatherQueryCity::startToQuery(const QString &id)
 
     m_reply = m_manager->get(QNetworkRequest(QUrl(WeatherCryptographicHash::decryptData(CITY_QUERY_URL, URL_KEY))));
     connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()) );
-    connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), SLOT(replyError(QNetworkReply::NetworkError)) );
+#if TTK_QT_VERSION_CHECK(6,0,0)
+    connect(m_reply, SIGNAL(errorOccurred(QNetworkReply::NetworkError)), SLOT(replyError(QNetworkReply::NetworkError)));
+#else
+    connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), SLOT(replyError(QNetworkReply::NetworkError)));
+#endif
 }
 
 QString WeatherQueryCity::getCityCode(const QString &name) const
@@ -27,7 +31,7 @@ QString WeatherQueryCity::getCityCode(const QString &name) const
     return m_cityMap[name].toString();
 }
 
-const WeatherObject::TTKVariantMap& WeatherQueryCity::getCityCodes() const
+const TTKVariantMap& WeatherQueryCity::getCityCodes() const
 {
     return m_cityMap;
 }
@@ -43,7 +47,7 @@ void WeatherQueryCity::searchFinshed()
     {
         QByteArray bytes = m_reply->readAll();///Get all the data obtained by request
         m_cityMap.clear();
-#ifdef TTK_GREATER_NEW
+#if TTK_QT_VERSION_CHECK(5,0,0)
         QJsonParseError jsonError;
         QJsonDocument parseDoucment = QJsonDocument::fromJson(bytes, &jsonError);
         ///Put the data into Json

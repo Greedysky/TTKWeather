@@ -19,7 +19,7 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ================================================= */
 
-#include <QtCore/qglobal.h>
+#include "ttkglobal.h"
 
 #ifdef QT_DEBUG
 #   define TTK_DEBUG
@@ -98,10 +98,5 @@
 #else
 #  define TTKObject_cast(x,y) (qobject_cast< x >(y))
 #endif
-
-
-//////////////////////////////////////
-///load logger
-#include "ttklogger.h"
 
 #endif //  WEATHERGLOBALDEFINE_H

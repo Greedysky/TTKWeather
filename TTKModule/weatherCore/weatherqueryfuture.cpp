@@ -15,9 +15,13 @@ void WeatherQueryFuture::startToQuery(const QString &id)
         m_reply = nullptr;
     }
 
-    m_reply = m_manager->get(QNetworkRequest( QUrl(WeatherCryptographicHash::decryptData(FUTURE_QUERY_URL, URL_KEY).arg(id)) ));
-    connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()) );
-    connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), SLOT(replyError(QNetworkReply::NetworkError)) );
+    m_reply = m_manager->get(QNetworkRequest( QUrl(WeatherCryptographicHash::decryptData(FUTURE_QUERY_URL, URL_KEY).arg(id))));
+    connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()));
+#if TTK_QT_VERSION_CHECK(6,0,0)
+    connect(m_reply, SIGNAL(errorOccurred(QNetworkReply::NetworkError)), SLOT(replyError(QNetworkReply::NetworkError)));
+#else
+    connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), SLOT(replyError(QNetworkReply::NetworkError)));
+#endif
 }
 
 void WeatherQueryFuture::searchFinshed()
@@ -31,7 +35,7 @@ void WeatherQueryFuture::searchFinshed()
     {
         QByteArray bytes = m_reply->readAll();///Get all the data obtained by request
         m_futureList.clear();
-#ifdef TTK_GREATER_NEW
+#if TTK_QT_VERSION_CHECK(5,0,0)
         QJsonParseError jsonError;
         QJsonDocument parseDoucment = QJsonDocument::fromJson(bytes, &jsonError);
         ///Put the data into Json
