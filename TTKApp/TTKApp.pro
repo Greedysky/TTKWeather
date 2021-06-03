@@ -44,6 +44,4 @@ HEADERS  += \
 SOURCES += \
     weatherapplicationmain.cpp
 
-win32{
-    RC_FILE = TTKApp.rc
-}
+win32:RC_FILE = TTKApp.rc

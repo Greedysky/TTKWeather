@@ -37,6 +37,4 @@ HEADERS  += \
 RESOURCES += \
     ../TTKQrc/TTKWeather.qrc
     
-win32{
-    RC_FILE = TTKCore.rc
-}
+win32:RC_FILE = TTKCore.rc

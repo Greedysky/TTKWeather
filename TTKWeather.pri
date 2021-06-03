@@ -18,15 +18,15 @@
 
 QT       += core gui network
 
-equals(QT_MAJOR_VERSION, 4){
+equals(QT_MAJOR_VERSION, 4){ #Qt4
 QT       += script
 CONFIG   += gcc
 }
-equals(QT_MAJOR_VERSION, 5){
-QT       += widgets
-}
-equals(QT_MAJOR_VERSION, 6){
-QT       += widgets core5compat
+greaterThan(QT_MAJOR_VERSION, 4){ #Qt5
+    QT   += widgets
+    equals(QT_MAJOR_VERSION, 6){ #Qt6
+        QT   += core5compat
+    }
 }
 
 UI_DIR = ./.build/ui/
@@ -44,16 +44,12 @@ win32{
     }
 
     gcc{
-        QMAKE_CXXFLAGS += -std=c++11
-        QMAKE_CXXFLAGS += -Wunused-function
-        QMAKE_CXXFLAGS += -Wswitch
+        QMAKE_CXXFLAGS += -std=c++11  -Wunused-function -Wswitch
     }
 }
 
 unix:!mac{
-    QMAKE_CXXFLAGS += -std=c++11
-    QMAKE_CXXFLAGS += -Wunused-function
-    QMAKE_CXXFLAGS += -Wswitch
+    QMAKE_CXXFLAGS += -std=c++11 -Wunused-function -Wswitch
 }
 
 TTKWeather = 1.3.0.0
