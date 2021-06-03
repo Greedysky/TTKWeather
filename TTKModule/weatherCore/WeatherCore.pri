@@ -18,7 +18,6 @@
 
 INCLUDEPATH += $$PWD
 
-!contains(CONFIG, TTK_NO_MSVC_LINK_NEED){
 HEADERS  += \
     $$PWD/ttklogger.h \
     $$PWD/weatherglobaldefine.h \
@@ -31,14 +30,9 @@ HEADERS  += \
     $$PWD/weatherquerypm2p5.h \
     $$PWD/weathercryptographichash.h
 
-}
-
-contains(CONFIG, TTK_BUILD_LIB){
 SOURCES += \
     $$PWD/weatherquery.cpp \
     $$PWD/weatherquerycity.cpp \
     $$PWD/weatherqueryfuture.cpp \
     $$PWD/weatherquerypm2p5.cpp \
     $$PWD/weathercryptographichash.cpp
-
-}

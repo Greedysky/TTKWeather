@@ -23,25 +23,16 @@ TARGET = TTKWeather
 DESTDIR = $$OUT_PWD/../bin
 LIBS += -L$$DESTDIR -lTTKCore
 
-contains(CONFIG, TTK_BUILD_LIB){
-    CONFIG -= TTK_BUILD_LIB
-}
+INCLUDEPATH += $$PWD/../TTKModule
 
-CONFIG += TTK_NO_MSVC_LINK_NEED
+include($$PWD/../TTKWeather.pri)
+
 win32:msvc{
-    CONFIG -= TTK_NO_MSVC_LINK_NEED
-}
-
-INCLUDEPATH += ../TTKModule
-
-include(../TTKWeather.pri)
-
-!contains(CONFIG, TTK_NO_MSVC_LINK_NEED){
 HEADERS  += \
-    ../TTKModule/weatherapplication.h
+    $$PWD/../TTKModule/weatherapplication.h
 }
 
 SOURCES += \
-    weatherapplicationmain.cpp
+    $$PWD/weatherapplicationmain.cpp
 
 win32:RC_FILE = TTKApp.rc

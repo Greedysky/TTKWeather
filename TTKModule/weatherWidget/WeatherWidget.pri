@@ -18,7 +18,6 @@
 
 INCLUDEPATH += $$PWD
 
-!contains(CONFIG, TTK_NO_MSVC_LINK_NEED){
 HEADERS  += \
     $$PWD/weatherabstractmovedialog.h \
     $$PWD/weatherabstractmovewidget.h \
@@ -29,9 +28,6 @@ HEADERS  += \
     $$PWD/weatherloadingwidget.h \
     $$PWD/weathermessagebox.h
 
-}
-
-contains(CONFIG, TTK_BUILD_LIB){
 SOURCES += \
     $$PWD/weatherabstractmovedialog.cpp \
     $$PWD/weatherabstractmovewidget.cpp \
@@ -41,5 +37,3 @@ SOURCES += \
     $$PWD/weatherabstracttablewidget.cpp \
     $$PWD/weatherloadingwidget.cpp \
     $$PWD/weathermessagebox.cpp
-
-}

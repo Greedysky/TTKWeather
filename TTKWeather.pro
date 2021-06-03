@@ -42,7 +42,7 @@ else{
   message(Found lrelease executable: $$LRELEASE_EXECUTABLE)
 }
 
-unix:{
+unix{
     output = $$OUT_PWD/bin/MLanguage
     !exists($$output):system(mkdir -p $$output)
 
@@ -50,7 +50,7 @@ unix:{
     system(find $$PWD/TTKLanguage -name *.qm | xargs rename -v -f 's/.qm/.ln/' *)
     system(for F in $$PWD/TTKLanguage/*.ln ; do mv $F $$output ;done)
 }
-win32:{
+win32{
     output = $$OUT_PWD/bin/MLanguage
     output = $$replace(output, /, \\)
     !exists($$output):system(md $$output)

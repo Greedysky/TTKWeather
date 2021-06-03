@@ -18,8 +18,6 @@
 
 TEMPLATE = lib
 
-CONFIG += TTK_BUILD_LIB
-
 INCLUDEPATH += $$PWD
 
 include($$PWD/../TTKWeather.pri)
@@ -29,12 +27,12 @@ TARGET = TTKCore
 CONFIG += plugin lib
 
 SOURCES += \
-    weatherapplication.cpp 
+    $$PWD/weatherapplication.cpp
 
 HEADERS  += \
-    weatherapplication.h
+    $$PWD/weatherapplication.h
 
 RESOURCES += \
-    ../TTKQrc/TTKWeather.qrc
+    $$PWD/../TTKUi/TTKWeather.qrc
     
 win32:RC_FILE = TTKCore.rc
