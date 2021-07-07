@@ -17,7 +17,6 @@
 # =================================================
 
 QT       += core gui network
-
 equals(QT_MAJOR_VERSION, 4){ #Qt4
 QT       += script
 CONFIG   += gcc
