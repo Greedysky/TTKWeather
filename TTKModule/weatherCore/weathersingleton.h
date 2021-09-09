@@ -54,10 +54,10 @@ private:
     ///                                                           //
     ////////////////////////////////////////////////////////////////
 
-template<typename T> QMutex WeatherSingleton<T>::m_mutex;
-template<typename T> QScopedPointer<T> WeatherSingleton<T>::m_instance;
+template <typename T> QMutex WeatherSingleton<T>::m_mutex;
+template <typename T> QScopedPointer<T> WeatherSingleton<T>::m_instance;
 
-template<typename T>
+template <typename T>
 T* WeatherSingleton<T>::createInstance()
 {
     if(m_instance.isNull())
@@ -80,7 +80,7 @@ T* WeatherSingleton<T>::createInstance()
 
 ////Class that will implement the singleton mode,
 ////must use the macro in it's delare file
-#define DECLARE_SINGLETON_CLASS( Class )                        \
+#define DECLARE_SINGLETON_CLASS( Class )               \
     friend class WeatherSingleton<Class>;              \
     friend struct QScopedPointerDeleter<Class>;
 
