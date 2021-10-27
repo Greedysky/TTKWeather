@@ -51,7 +51,7 @@ unix:!mac{
     QMAKE_CXXFLAGS += -std=c++11 -Wunused-function -Wswitch
 }
 
-TTKWeather = 1.4.0.0
+TTKWeather = 1.5.0.0
 
 DEFINES += TTK_LIBRARY
 
