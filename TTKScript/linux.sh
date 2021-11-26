@@ -2,7 +2,7 @@
 
 LCEXE="$1"
 SOURCE="$2/TTKLanguage"
-OUTPUT="$3/MLanguage"
+OUTPUT="$3/GLanguage"
 
 #make output dir
 `mkdir -p $OUTPUT`
