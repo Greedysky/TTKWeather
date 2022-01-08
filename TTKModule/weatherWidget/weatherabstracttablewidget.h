@@ -36,7 +36,7 @@ public:
     /*!
      * Object contsructor.
      */
-    virtual ~WeatherAbstractTableWidget();
+    ~WeatherAbstractTableWidget();
 
     void clear();
     /*!

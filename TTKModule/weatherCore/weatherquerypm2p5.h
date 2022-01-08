@@ -33,7 +33,7 @@ public:
      * Object contsructor.
      */
 
-    virtual void startToQuery(const QString &id = 0) override;
+    virtual void startToQuery(const QString &id = 0) override final;
     /*!
      * Start to query data.
      */
@@ -45,7 +45,7 @@ signals:
      */
 
 public slots:
-    virtual void searchFinshed() override;
+    virtual void searchFinshed() override final;
     /*!
      * Download data from net finished.
      */

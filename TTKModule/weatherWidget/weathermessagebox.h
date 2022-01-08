@@ -36,7 +36,7 @@ public:
     /*!
      * Object contsructor.
      */
-    virtual ~WeatherMessageBox();
+    ~WeatherMessageBox();
 
     void setText(const QString &text) const;
     /*!

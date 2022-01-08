@@ -34,12 +34,12 @@ public:
     /*!
      * Object contsructor.
      */
-    virtual ~WeatherAbstractMoveWidget();
+    ~WeatherAbstractMoveWidget();
 
 protected:
-    virtual void mousePressEvent(QMouseEvent *event) override;
-    virtual void mouseMoveEvent(QMouseEvent *event) override;
-    virtual void mouseReleaseEvent(QMouseEvent *event) override;
+    virtual void mousePressEvent(QMouseEvent *event) override final;
+    virtual void mouseMoveEvent(QMouseEvent *event) override final;
+    virtual void mouseReleaseEvent(QMouseEvent *event) override final;
     /*!
      * Override the widget event.
      */

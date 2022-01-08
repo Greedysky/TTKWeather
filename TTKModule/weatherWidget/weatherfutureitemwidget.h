@@ -40,7 +40,7 @@ public:
     /*!
      * Object contsructor.
      */
-    virtual ~WeatherFutureItemWidget();
+    ~WeatherFutureItemWidget();
 
     void setItemName(const QString &name);
     /*!

@@ -33,7 +33,7 @@ public:
     /*!
      * Object contsructor.
      */
-    virtual ~WeatherLoadingWidget();
+    ~WeatherLoadingWidget();
 
     inline WeatherQueryCity *getQueryCity() const { return m_queryCity; }
     /*!

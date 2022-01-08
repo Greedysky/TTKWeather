@@ -32,7 +32,7 @@ public:
     /*!
      * Object contsructor.
      */
-    virtual ~WeatherAddItemTableWidget();
+    ~WeatherAddItemTableWidget();
 
     void loadingIconFinished(const QStringList &icons);
     /*!
@@ -46,7 +46,7 @@ signals:
      */
 
 public slots:
-    virtual void listCellClicked(int row, int column) override;
+    virtual void listCellClicked(int row, int column) override final;
     /*!
      * Table widget list cell click.
      */
@@ -60,7 +60,7 @@ public slots:
      */
 
 protected:
-    virtual void contextMenuEvent(QContextMenuEvent *event) override;
+    virtual void contextMenuEvent(QContextMenuEvent *event) override final;
     /*!
      * Override the widget event.
      */

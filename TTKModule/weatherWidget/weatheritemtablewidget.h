@@ -34,7 +34,7 @@ public:
     /*!
      * Object contsructor.
      */
-    virtual ~WeatherItemTableWidget();
+    ~WeatherItemTableWidget();
 
     void setItemName(const QString &name, int index);
     /*!
@@ -52,7 +52,7 @@ signals:
      */
 
 public slots:
-    virtual void listCellClicked(int row, int column) override;
+    virtual void listCellClicked(int row, int column) override final;
     /*!
      * Table widget list cell click.
      */

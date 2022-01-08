@@ -40,7 +40,7 @@ public:
     /*!
      * Object contsructor.
      */
-    virtual ~WeatherApplication();
+    ~WeatherApplication();
 
 private slots:
     void loadingFinished();
