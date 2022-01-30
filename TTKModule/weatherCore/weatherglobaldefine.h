@@ -30,11 +30,6 @@
 #  define WEATHER_WIDGET
 #  define WEATHER_CORE
 #endif
-//////////////////////////////////////
-#ifdef __cplusplus
-#  define TTK_CAST
-#endif
-//////////////////////////////////////
 
 //////////////////////////////////////
 ///exoprt
@@ -64,39 +59,6 @@
 #  else
 #    define WEATHER_CORE_IMPORT Q_DECL_IMPORT
 #  endif
-#endif
-
-//////////////////////////////////////
-///cast
-///
-#ifdef TTK_CAST
-#  define TTKConst_cast(x,y) (const_cast< x >(y))
-#else
-#  define TTKConst_cast(x,y) ((x)(y))
-#endif
-
-#ifdef TTK_CAST
-#  define TTKDynamic_cast(x,y) (dynamic_cast< x >(y))
-#else
-#  define TTKDynamic_cast(x,y) ((x)(y))
-#endif
-
-#ifdef TTK_CAST
-#  define TTKReinterpret_cast(x,y) (reinterpret_cast< x >(y))
-#else
-#  define TTKReinterpret_cast(x,y) ((x)(y))
-#endif
-
-#ifdef TTK_CAST
-#  define TTKStatic_cast(x,y) (static_cast< x >(y))
-#else
-#  define TTKStatic_cast(x,y) ((x)(y))
-#endif
-
-#ifdef TTK_CAST
-#  define TTKObject_cast(x,y) (qobject_cast< x >(y))
-#else
-#  define TTKObject_cast(x,y) (qobject_cast< x >(y))
 #endif
 
 #endif //  WEATHERGLOBALDEFINE_H
