@@ -16,15 +16,16 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-QT       += core gui network
+QT += core gui network
 equals(QT_MAJOR_VERSION, 4){ #Qt4
-QT       += script
-CONFIG   += gcc
+    QT += script
+    CONFIG += gcc
 }
+
 greaterThan(QT_MAJOR_VERSION, 4){ #Qt5
-    QT   += widgets
+    QT += widgets
     equals(QT_MAJOR_VERSION, 6){ #Qt6
-        QT   += core5compat
+        QT += core5compat
     }
 }
 
@@ -43,12 +44,22 @@ win32{
     }
 
     gcc{
-        QMAKE_CXXFLAGS += -std=c++11  -Wunused-function -Wswitch
+        equals(QT_MAJOR_VERSION, 6){ #Qt6
+            QMAKE_CXXFLAGS += -std=c++17
+        }else{
+            QMAKE_CXXFLAGS += -std=c++11
+        }
+        QMAKE_CXXFLAGS += -Wunused-function -Wswitch
     }
 }
 
 unix:!mac{
-    QMAKE_CXXFLAGS += -std=c++11 -Wunused-function -Wswitch
+    equals(QT_MAJOR_VERSION, 6){ #Qt6
+        QMAKE_CXXFLAGS += -std=c++17
+    }else{
+        QMAKE_CXXFLAGS += -std=c++11
+    }
+    QMAKE_CXXFLAGS += -Wunused-function -Wswitch
 }
 
 TTKWeather = 1.6.0.0

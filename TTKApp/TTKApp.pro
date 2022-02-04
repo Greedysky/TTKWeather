@@ -28,11 +28,9 @@ INCLUDEPATH += $$PWD/../TTKModule
 include($$PWD/../TTKWeather.pri)
 
 win32:msvc{
-HEADERS  += \
-    $$PWD/../TTKModule/weatherapplication.h
+HEADERS += $$PWD/../TTKModule/weatherapplication.h
 }
 
-SOURCES += \
-    $$PWD/weatherapplicationmain.cpp
+SOURCES += $$PWD/weatherapplicationmain.cpp
 
-win32:RC_FILE = TTKApp.rc
+win32:RC_FILE = $$PWD/TTKApp.rc

@@ -16,7 +16,6 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-FORMS    += \
+FORMS += \
     $$PWD/weatherapplication.ui \
     $$PWD/weathermessagebox.ui
-    

@@ -18,7 +18,7 @@
 
 INCLUDEPATH += $$PWD
 
-HEADERS  += \
+HEADERS += \
     $$PWD/ttklogger.h \
     $$PWD/weatherglobaldefine.h \
     $$PWD/weatherversion.h \

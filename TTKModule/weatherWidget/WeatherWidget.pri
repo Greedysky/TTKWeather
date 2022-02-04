@@ -18,7 +18,7 @@
 
 INCLUDEPATH += $$PWD
 
-HEADERS  += \
+HEADERS += \
     $$PWD/weatherabstractmovedialog.h \
     $$PWD/weatherabstractmovewidget.h \
     $$PWD/weatheritemtablewidget.h \
