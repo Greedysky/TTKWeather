@@ -5,7 +5,6 @@
 WeatherAbstractMoveDialog::WeatherAbstractMoveDialog(QWidget *parent)
     : QDialog(parent)
 {
-    ///Remove the title bar
     setWindowFlags( Qt::Window | Qt::FramelessWindowHint );
     m_leftButtonPress = false;
 }

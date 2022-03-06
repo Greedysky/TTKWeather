@@ -3,7 +3,6 @@
 WeatherAbstractMoveWidget::WeatherAbstractMoveWidget(QWidget *parent)
     : QWidget(parent)
 {
-    ///Remove the title bar
     setWindowFlags( Qt::Window | Qt::FramelessWindowHint );
     m_leftButtonPress = false;
 }
