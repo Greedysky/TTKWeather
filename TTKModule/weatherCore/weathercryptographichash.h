@@ -25,17 +25,17 @@
 #define URL_KEY      "13;dg18dgsd"
 
 #ifdef Q_CC_GNU
-    #pragma GCC diagnostic ignored "-Wparentheses"
+#  pragma GCC diagnostic ignored "-Wparentheses"
 #endif
 
 #if defined(_MSC_VER)
 typedef unsigned __int32 xxtea_uint;
-#pragma warning(disable:4267)
+#  pragma warning(disable:4267)
 #else
-# if defined(__FreeBSD__) && __FreeBSD__ < 5
-#   include <inttypes.h>
-# else
-#   include <stdint.h>
+#  if defined(__FreeBSD__) && __FreeBSD__ < 5
+#    include <inttypes.h>
+#  else
+#    include <stdint.h>
 #  endif
 typedef uint32_t xxtea_uint;
 #endif
@@ -46,108 +46,76 @@ typedef uint32_t xxtea_uint;
 class WEATHER_CORE_EXPORT WeatherCryptographicHash
 {
 public:
-    enum Priority
-    {
-        Lower = 1,  ///*Priority Lower*/
-        Low,        ///*Priority Low*/
-        Normal,     ///*Priority Normal*/
-        High,       ///*Priority High*/
-        Higher      ///*Priority Higher*/
-    };
-
-    WeatherCryptographicHash();
     /*!
      * Object contsructor.
      */
+    WeatherCryptographicHash();
 
-    QString encrypt(const QString &data, const QString &key, Priority p = Lower);
     /*!
      * encrypt by QString data.
      */
-    QString decrypt(const QString &data, const QString &key, Priority p = Lower);
+    QString encrypt(const QString &data, const QString &key);
     /*!
      * decrypt by QString data.
      */
-    static QString encryptData(const QString &data, const QString &key, Priority p = Lower);
-    /*!
-     * encrypt by QString data.
-     */
-    static QString decryptData(const QString &data, const QString &key, Priority p = Lower);
-    /*!
-     * decrypt by QString data.
-     */
+    QString decrypt(const QString &data, const QString &key);
 
-    //////////////////////////////////////////////////////////////////////////
-    std::string xxteaEncrypt(std::string data,  std::string key);
+protected:
     /*!
-     * XXTEA encrypt by std::string data.
+     * XXTEA encrypt by TTKString data.
      */
-    QString xxteaEncrypt(const QString &data, const QString &key);
+    TTKString xxteaEncrypt(const TTKString &data, const TTKString &key);
     /*!
      * XXTEA encrypt by QString data.
      */
+    QString xxteaEncrypt(const QString &data, const QString &key);
 
-    std::string xxteaDecrypt(std::string data,  std::string key);
     /*!
-     * XXTEA decrypt by std::string data.
+     * XXTEA decrypt by TTKString data.
      */
-    QString xxteaDecrypt(const QString &data, const QString &key);
+    TTKString xxteaDecrypt(const TTKString &data, const TTKString &key);
     /*!
      * XXTEA decrypt by QString data.
      */
+    QString xxteaDecrypt(const QString &data, const QString &key);
 
-protected:
-    bool isBase64(unsigned char c);
-    /*!
-     * Check current char is base64.
-     */
-    unsigned char *doXxteaEncrypt(unsigned char *data, xxtea_uint len, unsigned char *key, xxtea_uint *ret_len);
     /*!
      * Do XXTEA encrypt.
      */
-    unsigned char *doXxteaDecrypt(unsigned char *data, xxtea_uint len, unsigned char *key, xxtea_uint *ret_len);
+    uchar *doXxteaEncrypt(uchar *data, xxtea_uint len, uchar *key, xxtea_uint *retLength);
     /*!
      * Do XXTEA decrypt.
      */
-    void xxteaUintEncrypt(xxtea_uint *v, xxtea_uint len, xxtea_uint *k);
+    uchar *doXxteaDecrypt(uchar *data, xxtea_uint len, uchar *key, xxtea_uint *retLength);
     /*!
      * XXTEA uint encrypt.
      */
-    void xxteaUintDecrypt(xxtea_uint *v, xxtea_uint len, xxtea_uint *k);
+    void xxteaUintEncrypt(xxtea_uint *v, xxtea_uint len, xxtea_uint *k);
     /*!
      * XXTEA uint decrypt.
      */
-    unsigned char *fixKeyLength(unsigned char *key, xxtea_uint key_len);
+    void xxteaUintDecrypt(xxtea_uint *v, xxtea_uint len, xxtea_uint *k);
     /*!
      * Fix key length.
      */
-    xxtea_uint *xxteaToUintArray(unsigned char *data, xxtea_uint len, int include_length, xxtea_uint *ret_len);
+    uchar *fixKeyLength(uchar *key, xxtea_uint keyLength);
     /*!
      * XXTEA to uint array.
      */
-    unsigned char *xxteaToByteArray(xxtea_uint *data, xxtea_uint len, int include_length, xxtea_uint *ret_len);
+    xxtea_uint *xxteaToUintArray(uchar *data, xxtea_uint len, int includeLength, xxtea_uint *retLength);
     /*!
      * XXTEA to byte array.
      */
-    //////////////////////////////////////////////////////////////////////////
-    std::string base64Encode(unsigned char const* , unsigned int len);
+    uchar *xxteaToByteArray(xxtea_uint *data, xxtea_uint len, int includeLength, xxtea_uint *retLength);
+
     /*!
-     * Base64 encode.
+     * XXTEA encrypt by uchar * data.
      */
-    std::string base64Decode(std::string const& s);
+    uchar *xxteaEncrypt(uchar *data, xxtea_uint dataLength, uchar *key, xxtea_uint keyLength, xxtea_uint *retLengthgth);
     /*!
-     * Base64 dncode.
+     * XXTEA decrypt by uchar * data.
      */
-    //////////////////////////////////////////////////////////////////////////
-    unsigned char *xxteaEncrypt(unsigned char *data, xxtea_uint data_len, unsigned char *key, xxtea_uint key_len, xxtea_uint *ret_length);
-    /*!
-     * XXTEA encrypt by unsigned char * data.
-     */
-    unsigned char *xxteaDecrypt(unsigned char *data, xxtea_uint data_len, unsigned char *key, xxtea_uint key_len, xxtea_uint *ret_length);
-    /*!
-     * XXTEA decrypt by unsigned char * data.
-     */
-    //////////////////////////////////////////////////////////////////////////
+    uchar *xxteaDecrypt(uchar *data, xxtea_uint dataLength, uchar *key, xxtea_uint keyLength, xxtea_uint *retLengthgth);
 
 };
 

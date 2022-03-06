@@ -17,7 +17,7 @@ void WeatherQueryCity::startToQuery(const QString &id)
         m_reply = nullptr;
     }
 
-    m_reply = m_manager->get(QNetworkRequest(QUrl(WeatherCryptographicHash::decryptData(CITY_QUERY_URL, URL_KEY))));
+    m_reply = m_manager->get(QNetworkRequest(QUrl(WeatherCryptographicHash().decrypt(CITY_QUERY_URL, URL_KEY))));
     connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()) );
 #if TTK_QT_VERSION_CHECK(5,15,0)
     connect(m_reply, SIGNAL(errorOccurred(QNetworkReply::NetworkError)), SLOT(replyError(QNetworkReply::NetworkError)));
