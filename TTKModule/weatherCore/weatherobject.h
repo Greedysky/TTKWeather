@@ -23,7 +23,7 @@
 
 namespace WeatherObject
 {
-    typedef struct WeatherPM2P5
+    struct WeatherPM2P5
     {
         QString m_weaidP;
         QString m_aqi;
@@ -31,11 +31,11 @@ namespace WeatherObject
         QString m_aqiLevid;
         QString m_aqiLevnm;
         QString m_aqiRemark;
-    }WeatherPM2P5;
-    typedef QList<WeatherPM2P5> WeatherPM2P5List;
+    };
+    TTK_DECLARE_LIST(WeatherPM2P5);
     ///////////////////////////////////////
 
-    typedef struct Weather
+    struct Weather
     {
         QString m_weaid;
         QString m_days;
@@ -53,8 +53,8 @@ namespace WeatherObject
         QString m_weatidX;
         QString m_weatidY;
         WeatherPM2P5 m_pm2p5;
-    }Weather;
-    typedef QList<Weather> WeatherList;
+    };
+    TTK_DECLARE_LIST(Weather);
     ///////////////////////////////////////
 
 }
