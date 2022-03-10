@@ -88,11 +88,11 @@ void WeatherAddItemTableWidget::loadingIconFinished(const QStringList &icons)
         return;
     }
 
-    QString str = icons.first();
+    QString str = icons.front();
     str = ":" + str.right(str.length() - str.lastIndexOf("/") + 2);
     item(index, 2)->setIcon(QIcon( str ));
 
-    str = icons.last();
+    str = icons.back();
     str = ":" + str.right(str.length() - str.lastIndexOf("/") + 2);
     item(index, 4)->setIcon(QIcon( str ));
 }

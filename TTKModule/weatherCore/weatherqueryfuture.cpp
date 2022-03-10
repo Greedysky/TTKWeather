@@ -153,7 +153,7 @@ const WeatherObject::Weather& WeatherQueryFuture::getToday()
     {
         m_futureList.append( WeatherObject::Weather() );
     }
-    return m_futureList.first();
+    return m_futureList.front();
 }
 
 const WeatherObject::Weather &WeatherQueryFuture::getFuture(int index)
