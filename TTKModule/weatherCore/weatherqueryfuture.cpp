@@ -51,7 +51,7 @@ void WeatherQueryFuture::searchFinshed()
            jsonObject.take("success").toString() == "1")
         {
             QJsonArray array = jsonObject.value("result").toArray();
-            for(int i=0; i<array.count(); ++i)
+            for(int i = 0; i < array.count(); ++i)
             {
                 jsonObject = array.at(i).toObject();
 

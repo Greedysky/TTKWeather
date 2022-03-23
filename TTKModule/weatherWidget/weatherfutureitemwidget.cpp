@@ -12,7 +12,8 @@ WeatherFutureItemWidget::WeatherFutureItemWidget(QWidget *parent)
 {
     m_group = new QButtonGroup(this);
     m_statckedWidget = new QStackedWidget(this);
-    for(int i=0; i<COUNT; ++i)
+
+    for(int i = 0; i < COUNT; ++i)
     {
         WeatherItemTableWidget *item = new WeatherItemTableWidget(parent);
         item->createItem( WeatherObject::Weather() );
@@ -34,7 +35,7 @@ WeatherFutureItemWidget::~WeatherFutureItemWidget()
 
 void WeatherFutureItemWidget::createButton()
 {
-    for(int i=0; i<COUNT; ++i)
+    for(int i = 0; i < COUNT; ++i)
     {
         QPushButton *button = new QPushButton(this);
         button->setText(tr("Button%1").arg(i + 1));
@@ -60,12 +61,12 @@ void WeatherFutureItemWidget::initWidget()
     hbox->setContentsMargins(0, 0, 0, 0);
     hbox->setSpacing(0);
 
-    for(int i=0; i<COUNT; ++i)
+    for(int i = 0; i < COUNT; ++i)
     {
-        hbox->addWidget( m_group->button(i) );
+        hbox->addWidget(m_group->button(i));
     }
     vbox->addLayout(hbox);
-    vbox->addWidget( m_statckedWidget );
+    vbox->addWidget(m_statckedWidget);
     setLayout(vbox);
 }
 
@@ -86,7 +87,7 @@ void WeatherFutureItemWidget::setItemName(const QString &name)
 
 void WeatherFutureItemWidget::createItem(const WeatherObject::Weather &weather)
 {
-    for(int i=0; i<COUNT; ++i)
+    for(int i = 0; i < COUNT; ++i)
     {
         m_itemLists[i]->createItem(weather);
     }

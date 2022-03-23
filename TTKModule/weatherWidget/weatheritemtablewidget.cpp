@@ -46,10 +46,10 @@ void WeatherItemTableWidget::createItem(const WeatherObject::Weather &weather)
            << weather.m_wind << weather.m_winp << weather.m_temp_high << weather.m_temp_low
            << weather.m_humi_high << weather.m_humi_low;
 
-    setRowCount( names.count() );
-    for(int i=0; i<names.count(); ++i)
+    setRowCount(names.count());
+    for(int i = 0; i < names.count(); ++i)
     {
-        QTableWidgetItem *item = new QTableWidgetItem( names[i] );
+        QTableWidgetItem *item = new QTableWidgetItem(names[i]);
 #if TTK_QT_VERSION_CHECK(5,13,0)
         item->setForeground(QColor(50, 50, 50));
 #else
@@ -58,7 +58,7 @@ void WeatherItemTableWidget::createItem(const WeatherObject::Weather &weather)
         item->setTextAlignment(Qt::AlignCenter);
         setItem(i, 0, item);
 
-                          item = new QTableWidgetItem( values[i].isEmpty() ? "-" : values[i]);
+                          item = new QTableWidgetItem(values[i].isEmpty() ? "-" : values[i]);
 #if TTK_QT_VERSION_CHECK(5,13,0)
         item->setForeground(QColor(50, 50, 50));
 #else
@@ -78,6 +78,6 @@ void WeatherItemTableWidget::listCellClicked(int row, int column)
 void WeatherItemTableWidget::searchItemInformationDown()
 {
     WeatherObject::Weather weather = m_queryFuture->getFuture(m_indexOfItem);
-    emit loadingIcon( QStringList()<< weather.m_weatidX << weather.m_weatidY);
+    emit loadingIcon(QStringList()<< weather.m_weatidX << weather.m_weatidY);
     createItem( weather );
 }

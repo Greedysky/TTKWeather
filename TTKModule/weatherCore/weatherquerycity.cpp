@@ -88,7 +88,7 @@ void WeatherQueryCity::searchFinshed()
                 if(sc.property("datas").isValid())
                 {
                     sc = sc.property("datas");
-                    for(int i=1; i<3000; ++i)
+                    for(int i = 1; i < 3000; ++i)
                     {
                         QScriptValue value = sc.property(QString::number(i));
                         if(!value.isValid())
