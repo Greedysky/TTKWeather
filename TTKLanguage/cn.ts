@@ -23,22 +23,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>今天</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>未来五天</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>天气预报</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>添加城市</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Minimization</source>
         <translation>最小化</translation>
     </message>
@@ -47,27 +31,11 @@
         <translation>关闭</translation>
     </message>
     <message>
-        <source>Today</source>
-        <translation>今天</translation>
-    </message>
-    <message>
-        <source>Future</source>
-        <translation>未来五天</translation>
-    </message>
-    <message>
-        <source>AddCity</source>
-        <translation>添加城市</translation>
-    </message>
-    <message>
         <source>About</source>
         <translation>关于..</translation>
     </message>
     <message>
         <source>Directed By Greedysky</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>TTKWeather</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
