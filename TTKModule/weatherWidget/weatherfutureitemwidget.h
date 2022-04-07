@@ -58,7 +58,7 @@ private slots:
      */
 
 protected:
-    void initWidget();
+    void initialize();
     /*!
      * Init future button widget.
      */

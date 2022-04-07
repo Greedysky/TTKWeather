@@ -65,7 +65,7 @@ private slots:
      */
 
 private:
-    void initWidget();
+    void initialize();
     /*!
      * Init main widget.
      */

@@ -28,7 +28,7 @@ WeatherApplication::~WeatherApplication()
     delete ui;
 }
 
-void WeatherApplication::initWidget()
+void WeatherApplication::initialize()
 {
     QPixmap pix(1, 1);
     pix.fill(QColor(73, 166, 253));
@@ -65,7 +65,7 @@ void WeatherApplication::loadingFinished()
     m_loadingWidget->close();
 
     setAttribute(Qt::WA_TranslucentBackground, true);
-    initWidget();
+    initialize();
     show();
 }
 

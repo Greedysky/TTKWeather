@@ -20,7 +20,7 @@ WeatherFutureItemWidget::WeatherFutureItemWidget(QWidget *parent)
         m_itemLists << item;
         m_statckedWidget->addWidget(item);
     }
-    initWidget();
+    initialize();
 }
 
 WeatherFutureItemWidget::~WeatherFutureItemWidget()
@@ -51,7 +51,7 @@ void WeatherFutureItemWidget::createButton()
 #endif
 }
 
-void WeatherFutureItemWidget::initWidget()
+void WeatherFutureItemWidget::initialize()
 {
     createButton();
     QVBoxLayout *vbox = new QVBoxLayout(this);
