@@ -16,20 +16,6 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-INCLUDEPATH += $$PWD
-
-HEADERS += \
-    $$PWD/ttklogger.h \
-    $$PWD/weatherobject.h \
-    $$PWD/weatherquery.h \
-    $$PWD/weatherquerycity.h \
-    $$PWD/weatherqueryfuture.h \
-    $$PWD/weatherquerypm2p5.h \
-    $$PWD/weathercryptographichash.h
-
-SOURCES += \
-    $$PWD/weatherquery.cpp \
-    $$PWD/weatherquerycity.cpp \
-    $$PWD/weatherqueryfuture.cpp \
-    $$PWD/weatherquerypm2p5.cpp \
-    $$PWD/weathercryptographichash.cpp
+TEMPLATE = subdirs
+CONFIG += ordered
+SUBDIRS = TTKApp

@@ -66,8 +66,4 @@ TTKWeather = 1.6.0.0
 
 DEFINES += TTK_LIBRARY
 
-INCLUDEPATH += $$PWD
-
-include($$PWD/TTKModule/weatherUi/WeatherUi.pri)
-include($$PWD/TTKModule/weatherCore/WeatherCore.pri)
-include($$PWD/TTKModule/weatherWidget/WeatherWidget.pri)
+include($$PWD/TTKCommon/TTKCommon.pri)

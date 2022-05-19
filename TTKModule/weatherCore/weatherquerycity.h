@@ -24,7 +24,7 @@
 /*! @brief The class of the weather city query.
  * @author Greedysky <greedysky@163.com>
  */
-class WEATHER_CORE_EXPORT WeatherQueryCity : public WeatherQuery
+class TTK_MODULE_EXPORT WeatherQueryCity : public WeatherQuery
 {
     Q_OBJECT
 public:

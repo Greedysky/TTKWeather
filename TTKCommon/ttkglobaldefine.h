@@ -1,5 +1,5 @@
-#ifndef WEATHERVERSION_H
-#define WEATHERVERSION_H
+#ifndef TTKGLOBALDEFINE_H
+#define TTKGLOBALDEFINE_H
 
 /***************************************************************************
  * This file is part of the TTK Weather project
@@ -19,19 +19,12 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-//update time 2022.01.29
-#define TTK_VERSION_STR	"1.6.0.0"
-#define TTK_APP_STR		"TTKWeather"
+#include "ttkglobal.h"
 
-#define TTK_MAJOR_VERSION 1
-#define TTK_MIDLE_VERSION 6
-#define TTK_MINOR_VERSION 0
-#define TTK_PATCH_VERSION 0
+#ifdef TTK_LIBRARY
+#  define TTK_MODULE_EXPORT Q_DECL_EXPORT
+#else
+#  define TTK_MODULE_EXPORT Q_DECL_IMPORT
+#endif
 
-#define TTK_VERSION 0x01600
-
-#define TTK_VERSION_CHECK(major, middle, minor, patch) ((major<<12)|(middle<<8)|(minor<<4)|(patch))
-
-
-#endif // WEATHERVERSION_H
-
+#endif // TTKGLOBALDEFINE_H

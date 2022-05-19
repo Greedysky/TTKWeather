@@ -28,7 +28,7 @@ class WeatherMessageBox;
 /*! @brief The class of the messagebox widget.
  * @author Greedysky <greedysky@163.com>
  */
-class WEATHER_WIDGET_EXPORT WeatherMessageBox : public WeatherAbstractMoveDialog
+class TTK_MODULE_EXPORT WeatherMessageBox : public WeatherAbstractMoveDialog
 {
     Q_OBJECT
 public:

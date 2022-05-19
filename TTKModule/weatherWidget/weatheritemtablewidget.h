@@ -26,7 +26,7 @@ class WeatherQueryFuture;
 /*! @brief The class of the item table widget.
  * @author Greedysky <greedysky@163.com>
  */
-class WEATHER_WIDGET_EXPORT WeatherItemTableWidget : public WeatherAbstractTableWidget
+class TTK_MODULE_EXPORT WeatherItemTableWidget : public WeatherAbstractTableWidget
 {
     Q_OBJECT
 public:

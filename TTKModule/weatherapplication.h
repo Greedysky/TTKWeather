@@ -32,7 +32,7 @@ class WeatherFutureItemWidget;
 /*! @brief The class of the main applicatin widget.
  * @author Greedysky <greedysky@163.com>
  */
-class WEATHER_GUI_EXPORT WeatherApplication : public WeatherAbstractMoveWidget
+class TTK_MODULE_EXPORT WeatherApplication : public WeatherAbstractMoveWidget
 {
     Q_OBJECT
 public:

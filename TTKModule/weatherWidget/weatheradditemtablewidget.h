@@ -24,7 +24,7 @@
 /*! @brief The class of the add item table widget.
  * @author Greedysky <greedysky@163.com>
  */
-class WEATHER_WIDGET_EXPORT WeatherAddItemTableWidget : public WeatherAbstractTableWidget
+class TTK_MODULE_EXPORT WeatherAddItemTableWidget : public WeatherAbstractTableWidget
 {
     Q_OBJECT
 public:

@@ -20,12 +20,12 @@
  ***************************************************************************/
 
 #include <QDialog>
-#include "weatherglobaldefine.h"
+#include "ttkglobaldefine.h"
 
 /*! @brief The class of the moving dialog base.
  * @author Greedysky <greedysky@163.com>
  */
-class WEATHER_WIDGET_EXPORT WeatherAbstractMoveDialog : public QDialog
+class TTK_MODULE_EXPORT WeatherAbstractMoveDialog : public QDialog
 {
     Q_OBJECT
 public:

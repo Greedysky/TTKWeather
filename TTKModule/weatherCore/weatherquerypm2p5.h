@@ -24,7 +24,7 @@
 /*! @brief The class of the weather pm2p5 query.
  * @author Greedysky <greedysky@163.com>
  */
-class WEATHER_CORE_EXPORT WeatherQuerPM2P5 : public WeatherQuery
+class TTK_MODULE_EXPORT WeatherQuerPM2P5 : public WeatherQuery
 {
     Q_OBJECT
 public:

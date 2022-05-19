@@ -19,7 +19,7 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include "weatherglobaldefine.h"
+#include "ttkglobaldefine.h"
 
 #define URL_KEY      "13;dg18dgsd"
 
@@ -38,7 +38,7 @@ typedef uint32_t xxtea_uint;
 /*! @brief The class of the string cryptographic hash.
  * @author Greedysky <greedysky@163.com>
  */
-class WEATHER_CORE_EXPORT WeatherCryptographicHash
+class TTK_MODULE_EXPORT WeatherCryptographicHash
 {
 public:
     /*!

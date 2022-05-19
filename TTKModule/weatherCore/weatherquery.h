@@ -47,7 +47,7 @@ const QString PM2P5_QUERY_URL  = "WHF6dU85RlRDUmpTanltT3h1elZzQ2ZSU2lnK0hIeC9LYV
 /*! @brief The class of the weather query abstract base.
  * @author Greedysky <greedysky@163.com>
  */
-class WEATHER_CORE_EXPORT WeatherQuery : public QObject
+class TTK_MODULE_EXPORT WeatherQuery : public QObject
 {
     Q_OBJECT
 public:

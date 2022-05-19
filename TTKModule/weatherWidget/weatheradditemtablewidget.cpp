@@ -1,5 +1,4 @@
 #include "weatheradditemtablewidget.h"
-#include "weatherversion.h"
 
 #include <QMenu>
 #include <QInputDialog>
@@ -41,7 +40,7 @@ void WeatherAddItemTableWidget::listCellClicked(int row, int)
 
 void WeatherAddItemTableWidget::addCityClicked()
 {
-    QString text = QInputDialog::getText(nullptr, TTK_APP_STR, tr("Input address!"));
+    QString text = QInputDialog::getText(nullptr, APP_NAME, tr("Input address!"));
     if(!text.isEmpty())
     {
         int index = rowCount();

@@ -21,12 +21,12 @@
 
 #include <QWidget>
 #include <QMouseEvent>
-#include "weatherglobaldefine.h"
+#include "ttkglobaldefine.h"
 
 /*! @brief The class of the moving widget base.
  * @author Greedysky <greedysky@163.com>
  */
-class WEATHER_WIDGET_EXPORT WeatherAbstractMoveWidget : public QWidget
+class TTK_MODULE_EXPORT WeatherAbstractMoveWidget : public QWidget
 {
     Q_OBJECT
 public:

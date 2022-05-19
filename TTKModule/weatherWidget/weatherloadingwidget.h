@@ -25,7 +25,7 @@
 /*! @brief The class of the weather loading widget.
  * @author Greedysky <greedysky@163.com>
  */
-class WEATHER_WIDGET_EXPORT WeatherLoadingWidget : public WeatherAbstractMoveDialog
+class TTK_MODULE_EXPORT WeatherLoadingWidget : public WeatherAbstractMoveDialog
 {
     Q_OBJECT
 public:

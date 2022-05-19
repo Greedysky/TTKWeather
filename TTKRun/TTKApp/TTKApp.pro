@@ -16,20 +16,24 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-INCLUDEPATH += $$PWD
+TEMPLATE = app
 
-HEADERS += \
-    $$PWD/ttklogger.h \
-    $$PWD/weatherobject.h \
-    $$PWD/weatherquery.h \
-    $$PWD/weatherquerycity.h \
-    $$PWD/weatherqueryfuture.h \
-    $$PWD/weatherquerypm2p5.h \
-    $$PWD/weathercryptographichash.h
+TARGET = TTKWeather
 
-SOURCES += \
-    $$PWD/weatherquery.cpp \
-    $$PWD/weatherquerycity.cpp \
-    $$PWD/weatherqueryfuture.cpp \
-    $$PWD/weatherquerypm2p5.cpp \
-    $$PWD/weathercryptographichash.cpp
+DESTDIR = $$OUT_PWD/../../bin
+LIBS += -L$$DESTDIR -lTTKCore
+
+INCLUDEPATH += \
+    $$PWD/../../TTKModule \
+    $$PWD/../../TTKModule/weatherCore \
+    $$PWD/../../TTKModule/weatherWidget
+
+include($$PWD/../../TTKWeather.pri)
+
+win32:msvc{
+HEADERS += $$PWD/../../TTKModule/weatherapplication.h
+}
+
+SOURCES += $$PWD/weatherapplicationmain.cpp
+
+win32:RC_FILE = $$PWD/TTKApp.rc

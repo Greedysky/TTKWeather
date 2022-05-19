@@ -1,6 +1,6 @@
-#ifndef WEATHERGLOBALDEFINE_H
-#define WEATHERGLOBALDEFINE_H
-
+#ifndef TTKVERSION_H
+#define TTKVERSION_H
+ 
 /***************************************************************************
  * This file is part of the TTK Weather project
  * Copyright (C) 2015 - 2022 Greedysky Studio
@@ -19,46 +19,21 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include "ttkglobal.h"
+//update time 2022.01.29
+#define TTK_VERSION             0x01600
+#define TTK_VERSION_STR         "1.6.0.0"
+#define TTK_VERSION_TIME_STR    "(2022/01/29)"
 
-#ifdef QT_DEBUG
-#   define TTK_DEBUG
-#endif
+#define TTK_MAJOR_VERSION 1
+#define TTK_MIDLE_VERSION 6
+#define TTK_MINOR_VERSION 0
+#define TTK_PATCH_VERSION 0
 
-#ifdef TTK_LIBRARY
-#  define WEATHER_GUI
-#  define WEATHER_WIDGET
-#  define WEATHER_CORE
-#endif
+#define TTK_RC_FILEVERSION      1,6,0,0
+#define TTK_RC_PRODUCTVERSION   TTK_VERSION_STR
+#define TTK_RC_COMPANY          "Greedysky Studio, Ltd."
+#define TTK_RC_COPYRIGHT        "Copyright (C) 2022 Greedysky Studio"
 
-//////////////////////////////////////
-///exoprt
-///
-///
-#define WEATHER_EXPORT
+#define TTK_VERSION_CHECK(major, middle, minor, patch) ((major<<12)|(middle<<8)|(minor<<4)|(patch))
 
-#ifdef WEATHER_GUI
-#  ifdef WEATHER_EXPORT
-#    define WEATHER_GUI_EXPORT Q_DECL_EXPORT
-#  else
-#    define WEATHER_GUI_IMPORT Q_DECL_IMPORT
-#  endif
-#endif
-
-#ifdef WEATHER_WIDGET
-#  ifdef WEATHER_EXPORT
-#    define WEATHER_WIDGET_EXPORT Q_DECL_EXPORT
-#  else
-#    define WEATHER_WIDGET_IMPORT Q_DECL_IMPORT
-#  endif
-#endif
-
-#ifdef WEATHER_CORE
-#  ifdef WEATHER_EXPORT
-#    define WEATHER_CORE_EXPORT Q_DECL_EXPORT
-#  else
-#    define WEATHER_CORE_IMPORT Q_DECL_IMPORT
-#  endif
-#endif
-
-#endif //  WEATHERGLOBALDEFINE_H
+#endif // TTKVERSION_H

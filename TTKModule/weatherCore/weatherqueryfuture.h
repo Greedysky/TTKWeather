@@ -24,7 +24,7 @@
 /*! @brief The class of the weather future query.
  * @author Greedysky <greedysky@163.com>
  */
-class WEATHER_CORE_EXPORT WeatherQueryFuture : public WeatherQuery
+class TTK_MODULE_EXPORT WeatherQueryFuture : public WeatherQuery
 {
     Q_OBJECT
 public:

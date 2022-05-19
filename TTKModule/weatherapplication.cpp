@@ -6,7 +6,6 @@
 #include "weatheritemtablewidget.h"
 #include "weatherfutureitemwidget.h"
 #include "weathermessagebox.h"
-#include "weatherversion.h"
 
 #include <QPainter>
 
@@ -90,7 +89,7 @@ void WeatherApplication::loadingIconFinished(const QStringList &icons)
 void WeatherApplication::aboutApplication()
 {
     WeatherMessageBox message;
-    message.setText(tr(TTK_APP_STR) + QString("\n\n") +
+    message.setText(tr(APP_NAME) + QString("\n\n") +
                     tr("Directed By Greedysky") +
                     QString("\nCopyright© 2015-2022") +
                     QString("\nMail:Greedysky@163.com"));

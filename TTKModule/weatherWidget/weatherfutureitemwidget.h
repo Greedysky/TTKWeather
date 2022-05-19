@@ -20,7 +20,7 @@
  ***************************************************************************/
 
 #include <QWidget>
-#include "weatherglobaldefine.h"
+#include "ttkglobaldefine.h"
 #include "weatherobject.h"
 
 #define COUNT 5
@@ -32,7 +32,7 @@ class WeatherItemTableWidget;
 /*! @brief The class of the future item widget.
  * @author Greedysky <greedysky@163.com>
  */
-class WEATHER_WIDGET_EXPORT WeatherFutureItemWidget : public QWidget
+class TTK_MODULE_EXPORT WeatherFutureItemWidget : public QWidget
 {
     Q_OBJECT
 public:

@@ -19,16 +19,16 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include <QTableWidget>
 #include <QHeaderView>
-#include "weatherglobaldefine.h"
+#include <QTableWidget>
+#include "ttkglobaldefine.h"
 #include "weatherobject.h"
 #include "weatheruiobject.h"
 
 /*! @brief The class of the table widget base.
  * @author Greedysky <greedysky@163.com>
  */
-class WEATHER_WIDGET_EXPORT WeatherAbstractTableWidget : public QTableWidget
+class TTK_MODULE_EXPORT WeatherAbstractTableWidget : public QTableWidget
 {
     Q_OBJECT
 public:

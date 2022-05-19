@@ -21,6 +21,8 @@
 
 #include "ttkglobal.h"
 
+#define APP_NAME		"TTKWeather"
+
 namespace WeatherObject
 {
     struct WeatherPM2P5

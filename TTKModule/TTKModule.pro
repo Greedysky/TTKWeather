@@ -21,6 +21,10 @@ TEMPLATE = lib
 INCLUDEPATH += $$PWD
 
 include($$PWD/../TTKWeather.pri)
+include($$PWD/weatherUi/WeatherUi.pri)
+include($$PWD/weatherCore/WeatherCore.pri)
+include($$PWD/weatherWidget/WeatherWidget.pri)
+
 DESTDIR = $$OUT_PWD/../bin
 TARGET = TTKCore
 
