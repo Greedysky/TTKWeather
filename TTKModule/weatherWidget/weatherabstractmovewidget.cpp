@@ -19,11 +19,8 @@ void WeatherAbstractMoveWidget::mousePressEvent(QMouseEvent *event)
     {
         m_leftButtonPress = true;
     }
-#if TTK_QT_VERSION_CHECK(6,0,0)
-    m_pressAt = event->globalPosition().toPoint();
-#else
-    m_pressAt = event->globalPos();
-#endif
+
+    m_pressAt = QtMouseEventGlobalPos(event);
 }
 
 void WeatherAbstractMoveWidget::mouseMoveEvent(QMouseEvent *event)
@@ -34,26 +31,16 @@ void WeatherAbstractMoveWidget::mouseMoveEvent(QMouseEvent *event)
         event->ignore();
         return;
     }
-#if TTK_QT_VERSION_CHECK(6,0,0)
-    const QPoint &globalPos = event->globalPosition().toPoint();
-    const int xpos = globalPos.x() - m_pressAt.x();
-    const int ypos = globalPos.y() - m_pressAt.y();
-    m_pressAt = globalPos;
-#else
-    const int xpos = event->globalX() - m_pressAt.x();
-    const int ypos = event->globalY() - m_pressAt.y();
-    m_pressAt = event->globalPos();
-#endif
-    move( this->x()+xpos, this->y()+ypos);
+
+    const int xpos = QtMouseEventGlobalX(event) - m_pressAt.x();
+    const int ypos = QtMouseEventGlobalY(event) - m_pressAt.y();
+    m_pressAt = QtMouseEventGlobalPos(event);
+    move(x() + xpos, y() + ypos);
 }
 
 void WeatherAbstractMoveWidget::mouseReleaseEvent(QMouseEvent *event)
 {
     QWidget::mouseReleaseEvent(event);
-#if TTK_QT_VERSION_CHECK(6,0,0)
-    m_pressAt = event->globalPosition().toPoint();
-#else
-    m_pressAt = event->globalPos();
-#endif
+    m_pressAt = QtMouseEventGlobalPos(event);
     m_leftButtonPress = false;
 }

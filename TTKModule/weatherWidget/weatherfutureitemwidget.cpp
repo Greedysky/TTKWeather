@@ -44,11 +44,7 @@ void WeatherFutureItemWidget::createButton()
         button->setStyleSheet(WeatherUIObject::MPushButtonStyle04);
         m_group->addButton(button, i);
     }
-#if TTK_QT_VERSION_CHECK(5,15,0)
-    connect(m_group, SIGNAL(idClicked(int)), SLOT(buttonClicked(int)));
-#else
-    connect(m_group, SIGNAL(buttonClicked(int)), SLOT(buttonClicked(int)));
-#endif
+    QtButtonGroupConnect(m_group, this, buttonClicked);
 }
 
 void WeatherFutureItemWidget::initialize()

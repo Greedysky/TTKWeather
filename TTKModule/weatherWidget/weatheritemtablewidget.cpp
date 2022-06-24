@@ -50,20 +50,12 @@ void WeatherItemTableWidget::createItem(const WeatherObject::Weather &weather)
     for(int i = 0; i < names.count(); ++i)
     {
         QTableWidgetItem *item = new QTableWidgetItem(names[i]);
-#if TTK_QT_VERSION_CHECK(5,13,0)
-        item->setForeground(QColor(50, 50, 50));
-#else
-        item->setTextColor(QColor(50, 50, 50));
-#endif
+        QtItemSetForegroundColor(item, QColor(50, 50, 50));
         item->setTextAlignment(Qt::AlignCenter);
         setItem(i, 0, item);
 
                           item = new QTableWidgetItem(values[i].isEmpty() ? "-" : values[i]);
-#if TTK_QT_VERSION_CHECK(5,13,0)
-        item->setForeground(QColor(50, 50, 50));
-#else
-        item->setTextColor(QColor(50, 50, 50));
-#endif
+        QtItemSetForegroundColor(item, QColor(50, 50, 50));
         item->setTextAlignment(Qt::AlignLeft | Qt::AlignVCenter);
         setItem(i, 1, item);
     }

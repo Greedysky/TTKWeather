@@ -29,11 +29,7 @@ WeatherMessageBox::WeatherMessageBox(QWidget *parent)
     groupButton->addButton(ui->topTitleCloseButton, 0);
     groupButton->addButton(ui->confirmButton, 1);
     groupButton->addButton(ui->cancelButton, 2);
-#if TTK_QT_VERSION_CHECK(5,15,0)
-    connect(groupButton, SIGNAL(idClicked(int)), SLOT(buttonClicked(int)));
-#else
-    connect(groupButton, SIGNAL(buttonClicked(int)), SLOT(buttonClicked(int)));
-#endif
+    QtButtonGroupConnect(groupButton, this, buttonClicked);
 }
 
 WeatherMessageBox::~WeatherMessageBox()

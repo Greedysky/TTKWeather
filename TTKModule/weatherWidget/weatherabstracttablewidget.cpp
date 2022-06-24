@@ -4,11 +4,7 @@ WeatherAbstractTableWidget::WeatherAbstractTableWidget(QWidget *parent)
     : QTableWidget(parent)
 {
     setAttribute(Qt::WA_TranslucentBackground, true);
-#if TTK_QT_VERSION_CHECK(6,2,0)
-    setFont(QFont(QStringList() << "Helvetica"));
-#else
-    setFont(QFont("Helvetica"));
-#endif
+    setFont(QtFontInit("Helvetica"));
     setColumnCount(3);
     setRowCount(0);
     setShowGrid(false);//Does not display the grid
@@ -60,14 +56,14 @@ void WeatherAbstractTableWidget::setTransparent(int angle)
 
 void WeatherAbstractTableWidget::listCellEntered(int row, int column)
 {
-    QTableWidgetItem *item = this->item(m_previousColorRow, 0);
-    if(item != 0)
+    QTableWidgetItem *it = item(m_previousColorRow, 0);
+    if(it != 0)
     {
        setRowColor(m_previousColorRow, m_defaultBkColor);
     }
 
-    item = this->item(row, column);
-    if(item != 0 && !item->isSelected() && !item->text().isEmpty())
+    it = item(row, column);
+    if(it != 0 && !it->isSelected() && !it->text().isEmpty())
     {
        setRowColor(row, QColor(20,20,20,10));
     }
@@ -79,11 +75,7 @@ void WeatherAbstractTableWidget::setRowColor(int row, const QColor &color) const
 {
     for(int col = 0; col < columnCount(); ++col)
     {
-        QTableWidgetItem *item = this->item(row, col);
-#if TTK_QT_VERSION_CHECK(5,13,0)
-        item->setBackground(color);
-#else
-        item->setBackgroundColor(color);
-#endif
+        QTableWidgetItem *it = item(row, col);
+        QtItemSetBackgroundColor(it, color);
     }
 }
