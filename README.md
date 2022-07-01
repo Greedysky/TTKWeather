@@ -5,20 +5,19 @@ Usage
 The TTKWeather forecast program, you can query the future weather conditions, based on Qt for windows and linux.
 
 ## CI Status
- * Qt develop version be tested on Qt4.8.x for windows-mingw 32bit and 64bit
- * Qt develop version be tested on Qt4.8.x for ubuntu-linux-gcc 32bit and 64bit
- * Qt develop version be tested on Qt5.x for windows-mingw 32bit and 64bit
- * Qt develop version be tested on Qt5.x for windows-msvc 32bit and 64bit
- * Qt develop version be tested on Qt5.x for ubuntu-linux-gcc 32bit and 64bit
- * Qt develop version be tested on Qt6.x for windows-mingw 64bit
- * Qt develop version be tested on Qt6.x for ubuntu-linux-gcc 64bit
- 
+ * Qt stable version be tested on Qt4.8.7 for windows-mingw 32bit
+ * Qt stable version be tested on Qt4.8.7 for ubuntu-linux-gcc 64bit
+ * Qt stable version be tested on Qt5.9.9 for ubuntu-linux-gcc 64bit
+ * Qt stable version be tested on Qt5.5.1 for windows-msvc 32bit
+ * Qt stable version be tested on Qt5.x for windows-mingw 32bit
+ * Qt stable version be tested on Qt6.x for windows-mingw 64bit
+
 | Platform | Qt & Compiler                 | Status                                                                 |
 | :---:    | :---:                         | :---:                                                                  |
-| Linux    | 4.8.x GCC & 5.x GCC & 6.x GCC | ![Linux](https://img.shields.io/badge/build-passing-brightgreen.svg)   |
-| Windows  | 4.8.x GCC & 5.x GCC & 6.x GCC | ![Windows](https://img.shields.io/badge/build-passing-brightgreen.svg) |
-| Windows  | 5.x MSVC                      | ![Windows](https://img.shields.io/badge/build-passing-brightgreen.svg) |
-| OS X     | 5.x Clang                     | ![OSX](https://img.shields.io/badge/build-unknown-lightgrey.svg)       |
+| Linux    | 4.8.7 GCC & 5.9.9 GCC         | ![Linux](https://img.shields.io/badge/build-passing-brightgreen.svg)   |
+| Windows  | 4.8.7 GCC & 5.x GCC & 6.x GCC | ![Windows](https://img.shields.io/badge/build-passing-brightgreen.svg) |
+| Windows  | 5.5.1 MSVC                    | ![Windows](https://img.shields.io/badge/build-passing-brightgreen.svg) |
+| OS X     | Clang                         | ![OSX](https://img.shields.io/badge/build-unknown-lightgrey.svg)       |
 
 # For Developers
 
@@ -41,7 +40,7 @@ Copyright
  * This file is part of the TTK Weather project.
  * Copyright (C) 2015 - 2022 Greedysky Studio.
  * mail: greedysky@163.com.
- 
+
 How To Contribute
 -------
  * Fork this project on github and make a branch. Commit in that branch, and push, then create a pull request to be reviewed and merged.
