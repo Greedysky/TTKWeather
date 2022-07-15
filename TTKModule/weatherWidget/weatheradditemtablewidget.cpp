@@ -51,18 +51,18 @@ void WeatherAddItemTableWidget::addCityClicked()
         setItem(index, 0, item);
 
                           item = new QTableWidgetItem;
-        item->setText( text );
-        item->setTextAlignment(Qt::AlignCenter);
+        item->setText(text);
+        QtItemSetTextAlignment(item, Qt::AlignCenter);
         setItem(index, 1, item);
 
                           item = new QTableWidgetItem;
-        item->setText( "-" );
+        item->setText("-");
         setItem(index, 2, item);
 
         setItem(index, 3, new QTableWidgetItem);
 
                           item = new QTableWidgetItem;
-        item->setText( "-" );
+        item->setText("-");
         setItem(index, 4, item);
 
         setItem(index, 5, new QTableWidgetItem);

@@ -51,12 +51,12 @@ void WeatherItemTableWidget::createItem(const WeatherObject::Weather &weather)
     {
         QTableWidgetItem *item = new QTableWidgetItem(names[i]);
         QtItemSetForegroundColor(item, QColor(50, 50, 50));
-        item->setTextAlignment(Qt::AlignCenter);
+        QtItemSetTextAlignment(item, Qt::AlignCenter);
         setItem(i, 0, item);
 
                           item = new QTableWidgetItem(values[i].isEmpty() ? "-" : values[i]);
         QtItemSetForegroundColor(item, QColor(50, 50, 50));
-        item->setTextAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        QtItemSetTextAlignment(item, Qt::AlignLeft | Qt::AlignVCenter);
         setItem(i, 1, item);
     }
 }
