@@ -3,17 +3,17 @@
 #include "weatherqueryfuture.h"
 
 WeatherItemTableWidget::WeatherItemTableWidget(QWidget *parent)
-    : WeatherAbstractTableWidget(parent)
+    : WeatherAbstractTableWidget(parent),
+      m_queryFuture(nullptr),
+      m_indexOfItem(-1)
 {
-    m_queryFuture = nullptr;
     setColumnCount(2);
+
     QHeaderView *headerview = horizontalHeader();
     headerview->resizeSection(0, 120);
     headerview->resizeSection(1, 195);
 
-    m_indexOfItem = -1;
-    connect(this, SIGNAL(loadingIcon(QStringList)), parent,
-                  SLOT(loadingIconFinished(QStringList)));
+    connect(this, SIGNAL(loadingIcon(QStringList)), parent, SLOT(loadingIconFinished(QStringList)));
 }
 
 WeatherItemTableWidget::~WeatherItemTableWidget()

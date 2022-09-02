@@ -1,7 +1,8 @@
 #include "weatherquery.h"
 
 WeatherQuery::WeatherQuery(QObject *parent)
-    : QObject(parent), m_reply(nullptr)
+    : QObject(parent),
+      m_reply(nullptr)
 {
     m_manager = new QNetworkAccessManager(this);
 }

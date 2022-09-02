@@ -6,11 +6,11 @@
 
 WeatherMessageBox::WeatherMessageBox(QWidget *parent)
     : WeatherAbstractMoveDialog(parent),
-    ui(new Ui::WeatherMessageBox)
+      ui(new Ui::WeatherMessageBox),
+      m_status(0)
 {
     ui->setupUi(this);
 
-    m_status = 0;
     QPixmap pix(1, 1);
     pix.fill(QColor(73, 166, 253));
     ui->background->setPixmap(pix.scaled(size()));

@@ -32,7 +32,7 @@ class TTK_MODULE_EXPORT WeatherAbstractTableWidget : public QTableWidget
 {
     Q_OBJECT
 public:
-    explicit WeatherAbstractTableWidget(QWidget *parent = 0);
+    explicit WeatherAbstractTableWidget(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */
@@ -64,9 +64,9 @@ protected:
      * Set selected item row color.
      */
 
-    QColor m_defaultBkColor;
     int m_previousColorRow;
     int m_previousClickRow;
+    QColor m_defaultBkColor;
 
 };
 

@@ -16,6 +16,7 @@ WeatherApplication::WeatherApplication(QWidget *parent) :
     ui->setupUi(this);
 
     hide();
+
     m_loadingWidget = new WeatherLoadingWidget(this);
     m_loadingWidget->show();
 }

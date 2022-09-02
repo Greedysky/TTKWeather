@@ -3,10 +3,10 @@
 #include <QMouseEvent>
 
 WeatherAbstractMoveDialog::WeatherAbstractMoveDialog(QWidget *parent)
-    : QDialog(parent)
+    : QDialog(parent),
+      m_leftButtonPress(false)
 {
-    setWindowFlags( Qt::Window | Qt::FramelessWindowHint );
-    m_leftButtonPress = false;
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 }
 
 WeatherAbstractMoveDialog::~WeatherAbstractMoveDialog()

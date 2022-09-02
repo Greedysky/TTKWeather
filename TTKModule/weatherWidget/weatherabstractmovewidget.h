@@ -30,7 +30,7 @@ class TTK_MODULE_EXPORT WeatherAbstractMoveWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit WeatherAbstractMoveWidget(QWidget *parent = 0);
+    explicit WeatherAbstractMoveWidget(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */

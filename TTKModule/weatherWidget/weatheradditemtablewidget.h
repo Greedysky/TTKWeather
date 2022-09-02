@@ -28,7 +28,7 @@ class TTK_MODULE_EXPORT WeatherAddItemTableWidget : public WeatherAbstractTableW
 {
     Q_OBJECT
 public:
-    explicit WeatherAddItemTableWidget(QWidget *parent = 0);
+    explicit WeatherAddItemTableWidget(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */

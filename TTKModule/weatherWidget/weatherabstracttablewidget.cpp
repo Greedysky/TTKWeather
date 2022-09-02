@@ -1,7 +1,10 @@
 #include "weatherabstracttablewidget.h"
 
 WeatherAbstractTableWidget::WeatherAbstractTableWidget(QWidget *parent)
-    : QTableWidget(parent)
+    : QTableWidget(parent),
+      m_previousColorRow(-1),
+      m_previousClickRow(-1),
+      m_defaultBkColor(255, 255, 255, 0)
 {
     setAttribute(Qt::WA_TranslucentBackground, true);
     setFont(QtFontInit("Helvetica"));
@@ -27,10 +30,6 @@ WeatherAbstractTableWidget::WeatherAbstractTableWidget(QWidget *parent)
     setSelectionMode(QAbstractItemView::SingleSelection);
     setFocusPolicy(Qt::NoFocus);
     setTransparent(150);
-
-    m_previousColorRow = -1;
-    m_previousClickRow = -1;
-    m_defaultBkColor = QColor(255,255,255,0);
 
     connect(this, SIGNAL(cellEntered(int,int)), SLOT(listCellEntered(int,int)));
     connect(this, SIGNAL(cellClicked(int,int)), SLOT(listCellClicked(int,int)));

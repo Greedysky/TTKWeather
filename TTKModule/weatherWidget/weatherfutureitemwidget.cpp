@@ -20,6 +20,7 @@ WeatherFutureItemWidget::WeatherFutureItemWidget(QWidget *parent)
         m_itemLists << item;
         m_statckedWidget->addWidget(item);
     }
+
     initialize();
 }
 

@@ -28,7 +28,7 @@ class TTK_MODULE_EXPORT WeatherQuerPM2P5 : public WeatherQuery
 {
     Q_OBJECT
 public:
-    explicit WeatherQuerPM2P5(QObject *parent = 0);
+    explicit WeatherQuerPM2P5(QObject *parent = nullptr);
     /*!
      * Object contsructor.
      */

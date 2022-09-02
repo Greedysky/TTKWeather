@@ -1,10 +1,10 @@
 #include "weatherabstractmovewidget.h"
 
 WeatherAbstractMoveWidget::WeatherAbstractMoveWidget(QWidget *parent)
-    : QWidget(parent)
+    : QWidget(parent),
+      m_leftButtonPress(false)
 {
-    setWindowFlags( Qt::Window | Qt::FramelessWindowHint );
-    m_leftButtonPress = false;
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 }
 
 WeatherAbstractMoveWidget::~WeatherAbstractMoveWidget()

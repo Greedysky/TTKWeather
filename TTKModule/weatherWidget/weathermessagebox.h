@@ -32,7 +32,7 @@ class TTK_MODULE_EXPORT WeatherMessageBox : public WeatherAbstractMoveDialog
 {
     Q_OBJECT
 public:
-    explicit WeatherMessageBox(QWidget *parent = 0);
+    explicit WeatherMessageBox(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */

@@ -7,6 +7,7 @@ WeatherAddItemTableWidget::WeatherAddItemTableWidget(QWidget *parent)
     : WeatherAbstractTableWidget(parent)
 {
     setColumnCount(6);
+
     QHeaderView *headerview = horizontalHeader();
     headerview->resizeSection(0, 20);
     headerview->resizeSection(1, 130);

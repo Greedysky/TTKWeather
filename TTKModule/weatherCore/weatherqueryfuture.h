@@ -28,7 +28,7 @@ class TTK_MODULE_EXPORT WeatherQueryFuture : public WeatherQuery
 {
     Q_OBJECT
 public:
-    explicit WeatherQueryFuture(QObject *parent = 0);
+    explicit WeatherQueryFuture(QObject *parent = nullptr);
     /*!
      * Object contsructor.
      */

@@ -36,7 +36,7 @@ class TTK_MODULE_EXPORT WeatherFutureItemWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit WeatherFutureItemWidget(QWidget *parent = 0);
+    explicit WeatherFutureItemWidget(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */

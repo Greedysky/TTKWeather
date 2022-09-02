@@ -36,7 +36,7 @@ class TTK_MODULE_EXPORT WeatherApplication : public WeatherAbstractMoveWidget
 {
     Q_OBJECT
 public:
-    explicit WeatherApplication(QWidget *parent = 0);
+    explicit WeatherApplication(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */
