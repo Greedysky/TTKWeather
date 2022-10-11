@@ -40,7 +40,7 @@ public:
      * Get query city finished.
      */
 
-protected:
+private:
     WeatherQueryCity *m_queryCity;
 
 };

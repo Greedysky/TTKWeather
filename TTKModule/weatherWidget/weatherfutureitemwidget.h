@@ -51,13 +51,13 @@ public:
      * Set table item by weather object.
      */
 
-private slots:
+private Q_SLOTS:
     void buttonClicked(int index);
     /*!
      * Future button item clicked in which.
      */
 
-protected:
+private:
     void initialize();
     /*!
      * Init future button widget.

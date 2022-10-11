@@ -47,13 +47,13 @@ public:
      * Get all cities code.
      */
 
-public slots:
+public Q_SLOTS:
     virtual void searchFinshed() override final;
     /*!
      * Download data from net finished.
      */
 
-protected:
+private:
     TTKVariantMap m_cityMap;
 
 };

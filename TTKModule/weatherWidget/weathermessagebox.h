@@ -43,13 +43,13 @@ public:
      * Set context text.
      */
 
-public slots:
+public Q_SLOTS:
     void buttonClicked(int index);
     /*!
      * Confirm or cancal button clicked, set the state.
      */
 
-protected:
+private:
     Ui::WeatherMessageBox *ui;
     int m_status;
 

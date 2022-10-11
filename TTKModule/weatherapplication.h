@@ -42,7 +42,7 @@ public:
      */
     ~WeatherApplication();
 
-private slots:
+private Q_SLOTS:
     void loadingFinished();
     /*!
      * Loading main finished.

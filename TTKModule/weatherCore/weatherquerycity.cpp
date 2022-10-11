@@ -49,7 +49,7 @@ void WeatherQueryCity::searchFinshed()
         ///Put the data into Json
         if(jsonError.error != QJsonParseError::NoError || !parseDoucment.isObject())
         {
-            emit resolvedSuccess();
+            Q_EMIT resolvedSuccess();
             return ;
         }
 
@@ -69,7 +69,7 @@ void WeatherQueryCity::searchFinshed()
         else
         {
             TTK_LOGGER_ERROR(QString("Error: %1").arg(jsonObject.take("msg").toString()));
-            emit resolvedSuccess();
+            Q_EMIT resolvedSuccess();
             return;
         }
 #else
@@ -100,10 +100,10 @@ void WeatherQueryCity::searchFinshed()
         else
         {
             TTK_LOGGER_ERROR(QString("Error: %1").arg(sc.property("msg").toString()));
-            emit resolvedSuccess();
+            Q_EMIT resolvedSuccess();
             return;
         }
 #endif
     }
-    emit resolvedSuccess();
+    Q_EMIT resolvedSuccess();
 }

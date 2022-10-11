@@ -37,7 +37,7 @@ void WeatherQuerPM2P5::searchFinshed()
         if(jsonError.error != QJsonParseError::NoError ||
            !parseDoucment.isObject())
         {
-            emit repliedPM2P5Finished(pm2p5List);
+            Q_EMIT repliedPM2P5Finished(pm2p5List);
             return ;
         }
 
@@ -56,7 +56,7 @@ void WeatherQuerPM2P5::searchFinshed()
         else
         {
             TTK_LOGGER_ERROR(QString("Error: %1").arg(jsonObject.take("msg").toString()));
-            emit repliedPM2P5Finished(pm2p5List);
+            Q_EMIT repliedPM2P5Finished(pm2p5List);
             return;
         }
 #else
@@ -80,12 +80,12 @@ void WeatherQuerPM2P5::searchFinshed()
         else
         {
             TTK_LOGGER_ERROR(QString("Error: %1").arg(sc.property("msg").toString()));
-            emit repliedPM2P5Finished(pm2p5List);
+            Q_EMIT repliedPM2P5Finished(pm2p5List);
             return;
         }
 #endif
     }
 
-    emit repliedPM2P5Finished(pm2p5List);
+    Q_EMIT repliedPM2P5Finished(pm2p5List);
     deleteLater();
 }

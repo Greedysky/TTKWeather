@@ -36,7 +36,7 @@ void WeatherAddItemTableWidget::contextMenuEvent(QContextMenuEvent *event)
 
 void WeatherAddItemTableWidget::listCellClicked(int row, int)
 {
-    emit listCellClickedByText( item(row, 1)->text() );
+    Q_EMIT listCellClickedByText( item(row, 1)->text() );
 }
 
 void WeatherAddItemTableWidget::addCityClicked()
@@ -75,7 +75,7 @@ void WeatherAddItemTableWidget::deleteCityClicked()
     if( currentRow() > -1)
     {
         removeRow( currentRow() );
-        emit listCellClickedByText( QString() );
+        Q_EMIT listCellClickedByText( QString() );
     }
 }
 

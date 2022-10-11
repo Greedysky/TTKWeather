@@ -43,7 +43,7 @@ public:
      * Clear current items.
      */
 
-public slots:
+public Q_SLOTS:
     virtual void listCellEntered(int row, int column);
     /*!
      * Table widget list cell enter.

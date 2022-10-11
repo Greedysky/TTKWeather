@@ -45,13 +45,13 @@ public:
      * Set table item by weather object.
      */
 
-signals:
+Q_SIGNALS:
     void loadingIcon(const QStringList &icons);
     /*!
      * Load the current weather state icons.
      */
 
-public slots:
+public Q_SLOTS:
     virtual void listCellClicked(int row, int column) override final;
     /*!
      * Table widget list cell click.
@@ -61,7 +61,7 @@ public slots:
      * Query diffe future weather by index done.
      */
 
-protected:
+private:
     WeatherQueryFuture *m_queryFuture;
     int m_indexOfItem;
 

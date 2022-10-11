@@ -38,13 +38,13 @@ public:
      * Start to query data.
      */
 
-signals:
+Q_SIGNALS:
     void repliedPM2P5Finished(const WeatherObject::WeatherPM2P5 &pm);
     /*!
      * Download PM2P5 data finished.
      */
 
-public slots:
+public Q_SLOTS:
     virtual void searchFinshed() override final;
     /*!
      * Download data from net finished.

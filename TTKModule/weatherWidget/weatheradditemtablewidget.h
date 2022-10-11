@@ -39,13 +39,13 @@ public:
      * Load the current weather state icons.
      */
 
-signals:
+Q_SIGNALS:
     void listCellClickedByText(const QString &name);
     /*!
      * Send query the weather by given name.
      */
 
-public slots:
+public Q_SLOTS:
     virtual void listCellClicked(int row, int column) override final;
     /*!
      * Table widget list cell click.
@@ -59,7 +59,7 @@ public slots:
      * Delete city button click.
      */
 
-protected:
+private:
     virtual void contextMenuEvent(QContextMenuEvent *event) override final;
     /*!
      * Override the widget event.

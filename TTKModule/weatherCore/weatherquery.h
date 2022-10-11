@@ -62,13 +62,13 @@ public:
      * Subclass should implement this function.
      */
 
-signals:
+Q_SIGNALS:
     void resolvedSuccess();
     /*!
      * Send download data from net.
      */
 
-public slots:
+public Q_SLOTS:
     virtual void searchFinshed() = 0;
     /*!
      * Download data from net finished.

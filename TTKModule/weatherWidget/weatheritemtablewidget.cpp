@@ -70,6 +70,6 @@ void WeatherItemTableWidget::listCellClicked(int row, int column)
 void WeatherItemTableWidget::searchItemInformationDown()
 {
     WeatherObject::Weather weather = m_queryFuture->getFuture(m_indexOfItem);
-    emit loadingIcon(QStringList()<< weather.m_weatidX << weather.m_weatidY);
+    Q_EMIT loadingIcon(QStringList()<< weather.m_weatidX << weather.m_weatidY);
     createItem( weather );
 }

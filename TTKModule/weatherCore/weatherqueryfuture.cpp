@@ -38,7 +38,7 @@ void WeatherQueryFuture::searchFinshed()
         if(jsonError.error != QJsonParseError::NoError ||
            !parseDoucment.isObject())
         {
-            emit resolvedSuccess();
+            Q_EMIT resolvedSuccess();
             return ;
         }
 
@@ -74,7 +74,7 @@ void WeatherQueryFuture::searchFinshed()
         else
         {
             TTK_LOGGER_ERROR(QString("Error: %1").arg(jsonObject.take("msg").toString()));
-            emit resolvedSuccess();
+            Q_EMIT resolvedSuccess();
             return;
         }
 #else
@@ -115,13 +115,13 @@ void WeatherQueryFuture::searchFinshed()
         else
         {
             TTK_LOGGER_ERROR(QString("Error: %1").arg(sc.property("msg").toString()));
-            emit resolvedSuccess();
+            Q_EMIT resolvedSuccess();
             return;
         }
 #endif
     }
 
-    emit resolvedSuccess();
+    Q_EMIT resolvedSuccess();
 //    foreach(Weather var, m_futureList)
 //    {
 //        WeatherQuerPM2P5 *pm = new WeatherQuerPM2P5(this);
@@ -140,7 +140,7 @@ void WeatherQueryFuture::repliedPM2P5Finished(const WeatherObject::WeatherPM2P5 
            var.m_pm2p5 = pm;
         }
     }
-    emit resolvedSuccess();
+    Q_EMIT resolvedSuccess();
 }
 
 const WeatherObject::Weather& WeatherQueryFuture::getToday()

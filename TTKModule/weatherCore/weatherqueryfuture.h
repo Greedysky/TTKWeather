@@ -51,7 +51,7 @@ public:
      * Get all future weather information.
      */
 
-public slots:
+public Q_SLOTS:
     virtual void searchFinshed() override final;
     /*!
      * Download data from net finished.
@@ -61,7 +61,7 @@ public slots:
      * Download PM2P5 data finished.
      */
 
-protected:
+private:
     WeatherObject::WeatherList m_futureList;
 
 };
