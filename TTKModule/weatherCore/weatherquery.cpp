@@ -28,6 +28,6 @@ void WeatherQuery::deleteAll()
 
 void WeatherQuery::replyError(QNetworkReply::NetworkError)
 {
-    TTK_LOGGER_ERROR("Abnormal network connection");
+    TTK_ERROR_STREAM("Abnormal network connection");
     deleteAll();
 }

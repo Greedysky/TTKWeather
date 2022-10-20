@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     QTranslator translator;
     if(!translator.load(QApplication::applicationDirPath() + "/GLanguage/cn.ln"))
     {
-        TTK_LOGGER_ERROR("Load translation error");
+        TTK_ERROR_STREAM("Load translation error");
     }
     a.installTranslator(&translator);
 
