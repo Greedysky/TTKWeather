@@ -1,4 +1,4 @@
-#include "weathercryptographichash.h"
+#include "ttkcryptographichash.h"
 
 #define XXTEA_MX (z >> 5 ^ y << 2) + (y >> 3 ^ z << 4) ^ (sum ^ y) + (k[p & 3 ^ e] ^ z)
 #define XXTEA_DELTA 0x9E3779B9
@@ -120,22 +120,22 @@ TTKString base64Decode(const TTKString &bytes)
 }
 
 
-WeatherCryptographicHash::WeatherCryptographicHash()
+TTKCryptographicHash::TTKCryptographicHash()
 {
 
 }
 
-QString WeatherCryptographicHash::encrypt(const QString &data, const QString &key)
+QString TTKCryptographicHash::encrypt(const QString &data, const QString &key)
 {
     return xxteaEncrypt(data, key).toUtf8().toBase64();
 }
 
-QString WeatherCryptographicHash::decrypt(const QString &data, const QString &key)
+QString TTKCryptographicHash::decrypt(const QString &data, const QString &key)
 {
     return xxteaDecrypt(QByteArray::fromBase64(data.toUtf8()), key);
 }
 
-TTKString WeatherCryptographicHash::xxteaEncrypt(const TTKString &data, const TTKString &key)
+TTKString TTKCryptographicHash::xxteaEncrypt(const TTKString &data, const TTKString &key)
 {
     const TTKString &raw = QString(QString(data.c_str()).toUtf8()).toStdString();
 
@@ -153,7 +153,7 @@ TTKString WeatherCryptographicHash::xxteaEncrypt(const TTKString &data, const TT
     return encode;
 }
 
-TTKString WeatherCryptographicHash::xxteaDecrypt(const TTKString &data, const TTKString &key)
+TTKString TTKCryptographicHash::xxteaDecrypt(const TTKString &data, const TTKString &key)
 {
     const TTKString &decode = QAlgorithm::base64Decode(data);
     if(decode.empty())
@@ -182,17 +182,17 @@ TTKString WeatherCryptographicHash::xxteaDecrypt(const TTKString &data, const TT
     return raw;
 }
 
-QString WeatherCryptographicHash::xxteaEncrypt(const QString &data, const QString &key)
+QString TTKCryptographicHash::xxteaEncrypt(const QString &data, const QString &key)
 {
     return xxteaEncrypt(data.toStdString(), key.toStdString()).c_str();
 }
 
-QString WeatherCryptographicHash::xxteaDecrypt(const QString &data, const QString &key)
+QString TTKCryptographicHash::xxteaDecrypt(const QString &data, const QString &key)
 {
     return xxteaDecrypt(data.toStdString(), key.toStdString()).c_str();
 }
 
-void WeatherCryptographicHash::xxteaUintEncrypt(xxtea_uint *v, xxtea_uint len, xxtea_uint *k)
+void TTKCryptographicHash::xxteaUintEncrypt(xxtea_uint *v, xxtea_uint len, xxtea_uint *k)
 {
     xxtea_uint n = len - 1;
     xxtea_uint z = v[n], y = v[0], p, q = 6 + 52 / (n + 1), sum = 0, e;
@@ -216,7 +216,7 @@ void WeatherCryptographicHash::xxteaUintEncrypt(xxtea_uint *v, xxtea_uint len, x
     }
 }
 
-void WeatherCryptographicHash::xxteaUintDecrypt(xxtea_uint *v, xxtea_uint len, xxtea_uint *k)
+void TTKCryptographicHash::xxteaUintDecrypt(xxtea_uint *v, xxtea_uint len, xxtea_uint *k)
 {
     xxtea_uint n = len - 1;
     xxtea_uint z = v[n], y = v[0], p, q = 6 + 52 / (n + 1), sum = q * XXTEA_DELTA, e;
@@ -240,7 +240,7 @@ void WeatherCryptographicHash::xxteaUintDecrypt(xxtea_uint *v, xxtea_uint len, x
     }
 }
 
-uchar *WeatherCryptographicHash::fixKeyLength(uchar *key, xxtea_uint keyLength)
+uchar *TTKCryptographicHash::fixKeyLength(uchar *key, xxtea_uint keyLength)
 {
     uchar *tmp = (uchar *)malloc(16);
     memcpy(tmp, key, keyLength);
@@ -248,7 +248,7 @@ uchar *WeatherCryptographicHash::fixKeyLength(uchar *key, xxtea_uint keyLength)
     return tmp;
 }
 
-xxtea_uint *WeatherCryptographicHash::xxteaToUintArray(uchar *data, xxtea_uint len, int includeLength, xxtea_uint *retLength)
+xxtea_uint *TTKCryptographicHash::xxteaToUintArray(uchar *data, xxtea_uint len, int includeLength, xxtea_uint *retLength)
 {
     xxtea_uint i, n, *result;
 
@@ -275,7 +275,7 @@ xxtea_uint *WeatherCryptographicHash::xxteaToUintArray(uchar *data, xxtea_uint l
     return result;
 }
 
-uchar *WeatherCryptographicHash::xxteaToByteArray(xxtea_uint *data, xxtea_uint len, int includeLength, xxtea_uint *retLength)
+uchar *TTKCryptographicHash::xxteaToByteArray(xxtea_uint *data, xxtea_uint len, int includeLength, xxtea_uint *retLength)
 {
     xxtea_uint i, n, m;
     uchar *result;
@@ -303,7 +303,7 @@ uchar *WeatherCryptographicHash::xxteaToByteArray(xxtea_uint *data, xxtea_uint l
     return result;
 }
 
-uchar *WeatherCryptographicHash::doXxteaEncrypt(uchar *data, xxtea_uint len, uchar *key, xxtea_uint *retLength)
+uchar *TTKCryptographicHash::doXxteaEncrypt(uchar *data, xxtea_uint len, uchar *key, xxtea_uint *retLength)
 {
     uchar *result;
     xxtea_uint *v, *k, vlen, klen;
@@ -320,7 +320,7 @@ uchar *WeatherCryptographicHash::doXxteaEncrypt(uchar *data, xxtea_uint len, uch
     return result;
 }
 
-uchar *WeatherCryptographicHash::doXxteaDecrypt(uchar *data, xxtea_uint len, uchar *key, xxtea_uint *retLength)
+uchar *TTKCryptographicHash::doXxteaDecrypt(uchar *data, xxtea_uint len, uchar *key, xxtea_uint *retLength)
 {
     uchar *result;
     xxtea_uint *v, *k, vlen, klen;
@@ -337,7 +337,7 @@ uchar *WeatherCryptographicHash::doXxteaDecrypt(uchar *data, xxtea_uint len, uch
     return result;
 }
 
-uchar *WeatherCryptographicHash::xxteaEncrypt(uchar *data, xxtea_uint dataLength, uchar *key, xxtea_uint keyLength, xxtea_uint *retLength)
+uchar *TTKCryptographicHash::xxteaEncrypt(uchar *data, xxtea_uint dataLength, uchar *key, xxtea_uint keyLength, xxtea_uint *retLength)
 {
     uchar *result;
     *retLength = 0;
@@ -356,7 +356,7 @@ uchar *WeatherCryptographicHash::xxteaEncrypt(uchar *data, xxtea_uint dataLength
     return result;
 }
 
-uchar *WeatherCryptographicHash::xxteaDecrypt(uchar *data, xxtea_uint dataLength, uchar *key, xxtea_uint keyLength, xxtea_uint *retLength)
+uchar *TTKCryptographicHash::xxteaDecrypt(uchar *data, xxtea_uint dataLength, uchar *key, xxtea_uint keyLength, xxtea_uint *retLength)
 {
     uchar *result;
     *retLength = 0;

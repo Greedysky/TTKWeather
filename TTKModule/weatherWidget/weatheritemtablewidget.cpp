@@ -35,7 +35,7 @@ void WeatherItemTableWidget::setItemName(const QString &name, int index)
 
 void WeatherItemTableWidget::createItem(const WeatherObject::Weather &weather)
 {
-    clear();
+    removeItems();
     QStringList names, values;
     names << tr("citynm") << tr("days") << tr("temperature") << tr("humidity")
           << tr("weather") << tr("wind") << tr("winp") << tr("temp_high")
@@ -59,12 +59,6 @@ void WeatherItemTableWidget::createItem(const WeatherObject::Weather &weather)
         QtItemSetTextAlignment(item, Qt::AlignLeft | Qt::AlignVCenter);
         setItem(i, 1, item);
     }
-}
-
-void WeatherItemTableWidget::listCellClicked(int row, int column)
-{
-    Q_UNUSED(row);
-    Q_UNUSED(column);
 }
 
 void WeatherItemTableWidget::searchItemInformationDown()

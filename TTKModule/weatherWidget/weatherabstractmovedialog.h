@@ -19,13 +19,12 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include <QDialog>
-#include "ttkglobaldefine.h"
+#include "ttkabstractmovedialog.h"
 
 /*! @brief The class of the moving dialog base.
  * @author Greedysky <greedysky@163.com>
  */
-class TTK_MODULE_EXPORT WeatherAbstractMoveDialog : public QDialog
+class TTK_MODULE_EXPORT WeatherAbstractMoveDialog : public TTKAbstractMoveDialog
 {
     Q_OBJECT
 public:
@@ -33,18 +32,6 @@ public:
     /*!
      * Object contsructor.
      */
-    ~WeatherAbstractMoveDialog();
-
-protected:
-    virtual void mousePressEvent(QMouseEvent *event) override final;
-    virtual void mouseMoveEvent(QMouseEvent *event) override final;
-    virtual void mouseReleaseEvent(QMouseEvent *event) override final;
-    /*!
-     * Override the widget event.
-     */
-
-    QPoint m_pressAt;
-    bool m_leftButtonPress;
 
 };
 

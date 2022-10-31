@@ -19,8 +19,7 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include <QObject>
-#include <QDebug>
+#include "ttkglobal.h"
 
 namespace WeatherUIObject
 {
@@ -56,9 +55,12 @@ namespace WeatherUIObject
 
 ///TableWidget
 //////////////////////////////////////////////////////
-    const QString MTableWidgetStyle01 = " \
-            QTableWidget{selection-background-color: rgba(20,20,20,40);}";
-
+    const QString MTableWidgetStyle01 =
+#if defined Q_OS_UNIX && !TTK_QT_VERSION_CHECK(5,7,0) //Fix linux selection-background-color stylesheet bug
+            "QTableWidget::item:selected{ background:rgba(20, 20, 20, 40); }";
+#else
+            "QTableWidget{ selection-background-color:rgba(20, 20, 20, 40); }";
+#endif
 ///ScrollBar
 //////////////////////////////////////////////////////
     const QString MScrollBarStyle01 = " \

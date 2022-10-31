@@ -20,7 +20,7 @@ WeatherAddItemTableWidget::WeatherAddItemTableWidget(QWidget *parent)
 
 WeatherAddItemTableWidget::~WeatherAddItemTableWidget()
 {
-    clear();
+    removeItems();
 }
 
 void WeatherAddItemTableWidget::contextMenuEvent(QContextMenuEvent *event)
@@ -34,9 +34,9 @@ void WeatherAddItemTableWidget::contextMenuEvent(QContextMenuEvent *event)
     menu.exec(QCursor::pos());
 }
 
-void WeatherAddItemTableWidget::listCellClicked(int row, int)
+void WeatherAddItemTableWidget::itemCellClicked(int row, int)
 {
-    Q_EMIT listCellClickedByText( item(row, 1)->text() );
+    Q_EMIT itemCellClickedByText(item(row, 1)->text());
 }
 
 void WeatherAddItemTableWidget::addCityClicked()
@@ -75,7 +75,7 @@ void WeatherAddItemTableWidget::deleteCityClicked()
     if( currentRow() > -1)
     {
         removeRow( currentRow() );
-        Q_EMIT listCellClickedByText( QString() );
+        Q_EMIT itemCellClickedByText(QString());
     }
 }
 

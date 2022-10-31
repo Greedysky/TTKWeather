@@ -53,7 +53,7 @@ void WeatherApplication::initialize()
     ui->windowAbout->setIcon(QIcon(QPixmap(QString::fromUtf8(":/image/about")).scaled(25,25)));
     connect(ui->windowAbout, SIGNAL(clicked()), SLOT(aboutApplication()));
 
-    connect(ui->addItemTableWidget, SIGNAL(listCellClickedByText(QString)), SLOT(listCellClickedByText(QString)));
+    connect(ui->addItemTableWidget, SIGNAL(itemCellClickedByText(QString)), SLOT(itemCellClickedByText(QString)));
 
     m_futureItem = new WeatherFutureItemWidget(this);
     ui->stackedWidget->addWidget(m_futureItem);
@@ -76,7 +76,7 @@ void WeatherApplication::changeStack2Today()
                                : m_futureItem->createItem( WeatherObject::Weather() );
 }
 
-void WeatherApplication::listCellClickedByText(const QString &name)
+void WeatherApplication::itemCellClickedByText(const QString &name)
 {
     m_currentItemId = m_queryCity->getCityCode(name);
     changeStack2Today();

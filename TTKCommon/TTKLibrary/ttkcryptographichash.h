@@ -1,8 +1,8 @@
-#ifndef WEATHERCRYPTOGRAPHICHASH_H
-#define WEATHERCRYPTOGRAPHICHASH_H
+#ifndef TTKCRYPTOGRAPHICHASH_H
+#define TTKCRYPTOGRAPHICHASH_H
 
 /***************************************************************************
- * This file is part of the TTK Weather project
+ * This file is part of the TTK Library Module project
  * Copyright (C) 2015 - 2022 Greedysky Studio
 
  * This program is free software; you can redistribute it and/or modify
@@ -21,8 +21,6 @@
 
 #include "ttkglobaldefine.h"
 
-#define URL_KEY      "13;dg18dgsd"
-
 #if defined(_MSC_VER)
 typedef unsigned __int32 xxtea_uint;
 #  pragma warning(disable:4267)
@@ -38,13 +36,14 @@ typedef uint32_t xxtea_uint;
 /*! @brief The class of the string cryptographic hash.
  * @author Greedysky <greedysky@163.com>
  */
-class TTK_MODULE_EXPORT WeatherCryptographicHash
+class TTK_MODULE_EXPORT TTKCryptographicHash
 {
+    TTK_DECLARE_MODULE(TTKCryptographicHash)
 public:
     /*!
      * Object contsructor.
      */
-    WeatherCryptographicHash();
+    TTKCryptographicHash();
 
     /*!
      * encrypt by QString data.
@@ -114,4 +113,4 @@ private:
 
 };
 
-#endif // WEATHERCRYPTOGRAPHICHASH_H
+#endif // TTKCRYPTOGRAPHICHASH_H

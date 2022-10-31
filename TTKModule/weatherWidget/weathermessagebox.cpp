@@ -6,15 +6,14 @@
 
 WeatherMessageBox::WeatherMessageBox(QWidget *parent)
     : WeatherAbstractMoveDialog(parent),
-      ui(new Ui::WeatherMessageBox),
-      m_status(0)
+      ui(new Ui::WeatherMessageBox)
 {
     ui->setupUi(this);
 
     QPixmap pix(1, 1);
     pix.fill(QColor(73, 166, 253));
     ui->background->setPixmap(pix.scaled(size()));
-    ////////////////////////////////////////////////
+    
     ui->topTitleCloseButton->setIcon(QIcon(":/image/close"));
     ui->topTitleCloseButton->setStyleSheet(WeatherUIObject::MToolButtonStyle01);
     ui->topTitleCloseButton->setCursor(QCursor(Qt::PointingHandCursor));
@@ -46,8 +45,9 @@ void WeatherMessageBox::buttonClicked(int index)
 {
     switch(index)
     {
-        case 0: case 2: m_status = 1; break;
-        case 1: m_status = 0; break;
+        case 0:
+        case 2: reject(); break;
+        case 1: accept(); break;
+        default: break;
     }
-    close();
 }

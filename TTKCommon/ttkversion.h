@@ -1,6 +1,6 @@
 #ifndef TTKVERSION_H
 #define TTKVERSION_H
- 
+
 /***************************************************************************
  * This file is part of the TTK Weather project
  * Copyright (C) 2015 - 2022 Greedysky Studio
@@ -37,3 +37,4 @@
 #define TTK_VERSION_CHECK(major, middle, minor, patch) ((major<<12)|(middle<<8)|(minor<<4)|(patch))
 
 #endif // TTKVERSION_H
+

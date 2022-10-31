@@ -51,7 +51,6 @@ public Q_SLOTS:
 
 private:
     Ui::WeatherMessageBox *ui;
-    int m_status;
 
 };
 

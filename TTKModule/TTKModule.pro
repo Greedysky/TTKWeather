@@ -25,7 +25,7 @@ include($$PWD/weatherUi/WeatherUi.pri)
 include($$PWD/weatherCore/WeatherCore.pri)
 include($$PWD/weatherWidget/WeatherWidget.pri)
 
-DESTDIR = $$OUT_PWD/../bin
+DESTDIR = $$OUT_PWD/../bin/$$TTKVersion
 TARGET = TTKCore
 
 CONFIG += plugin lib

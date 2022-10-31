@@ -52,10 +52,6 @@ Q_SIGNALS:
      */
 
 public Q_SLOTS:
-    virtual void listCellClicked(int row, int column) override final;
-    /*!
-     * Table widget list cell click.
-     */
     void searchItemInformationDown();
     /*!
      * Query diffe future weather by index done.

@@ -19,17 +19,14 @@
 INCLUDEPATH += $$PWD
 
 HEADERS += \
-    $$PWD/ttklogger.h \
     $$PWD/weatherobject.h \
     $$PWD/weatherquery.h \
     $$PWD/weatherquerycity.h \
     $$PWD/weatherqueryfuture.h \
-    $$PWD/weatherquerypm2p5.h \
-    $$PWD/weathercryptographichash.h
+    $$PWD/weatherquerypm2p5.h
 
 SOURCES += \
     $$PWD/weatherquery.cpp \
     $$PWD/weatherquerycity.cpp \
     $$PWD/weatherqueryfuture.cpp \
-    $$PWD/weatherquerypm2p5.cpp \
-    $$PWD/weathercryptographichash.cpp
+    $$PWD/weatherquerypm2p5.cpp

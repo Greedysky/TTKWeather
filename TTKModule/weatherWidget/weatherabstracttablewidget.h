@@ -38,27 +38,22 @@ public:
      */
     ~WeatherAbstractTableWidget();
 
-    void clear();
-    /*!
-     * Clear current items.
-     */
-
 public Q_SLOTS:
-    virtual void listCellEntered(int row, int column);
+    virtual void itemCellEntered(int row, int column);
     /*!
-     * Table widget list cell enter.
+     * Table widget item cell enter.
      */
-    virtual void listCellClicked(int row, int column) = 0;
+    virtual void itemCellClicked(int row, int column);
     /*!
-     * Table widget list cell click.
+     * Table widget item cell click.
      * Subclass should implement this function.
+     */
+    virtual void removeItems();
+    /*!
+     * Remove all items.
      */
 
 protected:
-    void setTransparent(int angle);
-    /*!
-     * Set widget transparent.
-     */
     void setRowColor(int row, const QColor &color) const;
     /*!
      * Set selected item row color.
@@ -66,7 +61,7 @@ protected:
 
     int m_previousColorRow;
     int m_previousClickRow;
-    QColor m_defaultBkColor;
+    QColor m_backgroundColor;
 
 };
 

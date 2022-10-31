@@ -51,7 +51,7 @@ private Q_SLOTS:
     /*!
      * Changed the stacked widget to today.
      */
-    void listCellClickedByText(const QString &name);
+    void itemCellClickedByText(const QString &name);
     /*!
      * Send query the weather by given name.
      */

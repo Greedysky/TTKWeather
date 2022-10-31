@@ -29,18 +29,17 @@ greaterThan(QT_MAJOR_VERSION, 4){ #Qt5
     }
 }
 
-UI_DIR = ./.build/ui/
-MOC_DIR = ./.build/moc/
-OBJECTS_DIR = ./.build/obj
-RCC_DIR = ./.build/rcc
+include($$PWD/TTKVersion.pri)
 
 win32{
     msvc{
+        CONFIG += c++11
         !contains(QMAKE_TARGET.arch, x86_64){
              #support on windows XP
              QMAKE_LFLAGS_WINDOWS = /SUBSYSTEM:WINDOWS,5.01
              QMAKE_LFLAGS_CONSOLE = /SUBSYSTEM:CONSOLE,5.01
         }
+        LIBS += -L$$DESTDIR -lTTKLibrary
     }
 
     gcc{
@@ -50,6 +49,7 @@ win32{
             QMAKE_CXXFLAGS += -std=c++11
         }
         QMAKE_CXXFLAGS += -Wunused-function -Wswitch
+        LIBS += -L$$DESTDIR -lTTKLibrary
     }
 }
 
@@ -60,9 +60,8 @@ unix:!mac{
         QMAKE_CXXFLAGS += -std=c++11
     }
     QMAKE_CXXFLAGS += -Wunused-function -Wswitch
+    LIBS += -L$$DESTDIR -lTTKLibrary
 }
-
-TTKWeather = 1.6.0.0
 
 DEFINES += TTK_LIBRARY
 

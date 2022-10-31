@@ -19,14 +19,12 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include <QWidget>
-#include <QMouseEvent>
-#include "ttkglobaldefine.h"
+#include "ttkabstractmovewidget.h"
 
 /*! @brief The class of the moving widget base.
  * @author Greedysky <greedysky@163.com>
  */
-class TTK_MODULE_EXPORT WeatherAbstractMoveWidget : public QWidget
+class TTK_MODULE_EXPORT WeatherAbstractMoveWidget : public TTKAbstractMoveWidget
 {
     Q_OBJECT
 public:
@@ -34,18 +32,6 @@ public:
     /*!
      * Object contsructor.
      */
-    ~WeatherAbstractMoveWidget();
-
-protected:
-    virtual void mousePressEvent(QMouseEvent *event) override final;
-    virtual void mouseMoveEvent(QMouseEvent *event) override final;
-    virtual void mouseReleaseEvent(QMouseEvent *event) override final;
-    /*!
-     * Override the widget event.
-     */
-
-    QPoint m_pressAt;
-    bool m_leftButtonPress;
 
 };
 

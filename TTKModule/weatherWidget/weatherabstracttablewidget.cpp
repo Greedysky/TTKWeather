@@ -4,7 +4,7 @@ WeatherAbstractTableWidget::WeatherAbstractTableWidget(QWidget *parent)
     : QTableWidget(parent),
       m_previousColorRow(-1),
       m_previousClickRow(-1),
-      m_defaultBkColor(255, 255, 255, 0)
+      m_backgroundColor(255, 255, 255, 0)
 {
     setAttribute(Qt::WA_TranslucentBackground, true);
     setFont(QtFontInit("Helvetica"));
@@ -20,8 +20,7 @@ WeatherAbstractTableWidget::WeatherAbstractTableWidget(QWidget *parent)
     verticalHeader()->setVisible(false);
 
     setMouseTracking(true);  //Open the capture mouse function
-    setStyleSheet(WeatherUIObject::MTableWidgetStyle01 + \
-                  WeatherUIObject::MScrollBarStyle01);
+    setStyleSheet(WeatherUIObject::MTableWidgetStyle01 + WeatherUIObject::MScrollBarStyle01);
     //Set the color of selected row
     setFrameShape(QFrame::NoFrame);//Set No Border
     setEditTriggers(QTableWidget::NoEditTriggers);//No edit
@@ -29,10 +28,16 @@ WeatherAbstractTableWidget::WeatherAbstractTableWidget(QWidget *parent)
     //Multi-line election
     setSelectionMode(QAbstractItemView::SingleSelection);
     setFocusPolicy(Qt::NoFocus);
-    setTransparent(150);
 
-    connect(this, SIGNAL(cellEntered(int,int)), SLOT(listCellEntered(int,int)));
-    connect(this, SIGNAL(cellClicked(int,int)), SLOT(listCellClicked(int,int)));
+    QPalette plt = palette();
+    plt.setBrush(QPalette::Base, QBrush(QColor(255, 255, 255, 150)));
+#if defined Q_OS_UNIX && !TTK_QT_VERSION_CHECK(5,7,0) //Fix linux selection-background-color stylesheet bug
+    plt.setBrush(QPalette::Highlight, QColor(20, 20, 20, 20));
+#endif
+    setPalette(plt);
+
+    connect(this, SIGNAL(cellEntered(int,int)), SLOT(itemCellEntered(int,int)));
+    connect(this, SIGNAL(cellClicked(int,int)), SLOT(itemCellClicked(int,int)));
 }
 
 WeatherAbstractTableWidget::~WeatherAbstractTableWidget()
@@ -40,41 +45,45 @@ WeatherAbstractTableWidget::~WeatherAbstractTableWidget()
 
 }
 
-void WeatherAbstractTableWidget::clear()
+void WeatherAbstractTableWidget::itemCellEntered(int row, int column)
 {
-    clearContents();
-    setRowCount(0);
-}
-
-void WeatherAbstractTableWidget::setTransparent(int angle)
-{
-    QPalette pal = palette();
-    pal.setBrush(QPalette::Base, QBrush(QColor(255, 255, 255, angle)));
-    setPalette(pal);
-}
-
-void WeatherAbstractTableWidget::listCellEntered(int row, int column)
-{
-    QTableWidgetItem *it = item(m_previousColorRow, 0);
-    if(it != 0)
+    if(item(m_previousColorRow, 0))
     {
-       setRowColor(m_previousColorRow, m_defaultBkColor);
+       setRowColor(m_previousColorRow, m_backgroundColor);
     }
 
-    it = item(row, column);
-    if(it != 0 && !it->isSelected() && !it->text().isEmpty())
+    if(item(row, column))
     {
-       setRowColor(row, QColor(20,20,20,10));
+       setRowColor(row, QColor(20, 20, 20, 20));
     }
 
     m_previousColorRow = row;
 }
 
+void WeatherAbstractTableWidget::itemCellClicked(int row, int column)
+{
+    Q_UNUSED(row);
+    Q_UNUSED(column);
+}
+
+void WeatherAbstractTableWidget::removeItems()
+{
+    clearContents();
+    setRowCount(0);
+
+    m_previousColorRow = -1;
+    m_previousClickRow = -1;
+    m_backgroundColor = Qt::transparent;
+}
+
 void WeatherAbstractTableWidget::setRowColor(int row, const QColor &color) const
 {
-    for(int col = 0; col < columnCount(); ++col)
+    for(int i = 0; i < columnCount(); ++i)
     {
-        QTableWidgetItem *it = item(row, col);
-        QtItemSetBackgroundColor(it, color);
+        QTableWidgetItem *it = item(row, i);
+        if(it)
+        {
+            QtItemSetBackgroundColor(it, color);
+        }
     }
 }

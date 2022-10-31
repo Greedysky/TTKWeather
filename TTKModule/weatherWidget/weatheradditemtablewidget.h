@@ -40,15 +40,15 @@ public:
      */
 
 Q_SIGNALS:
-    void listCellClickedByText(const QString &name);
+    void itemCellClickedByText(const QString &name);
     /*!
      * Send query the weather by given name.
      */
 
 public Q_SLOTS:
-    virtual void listCellClicked(int row, int column) override final;
+    virtual void itemCellClicked(int row, int column) override final;
     /*!
-     * Table widget list cell click.
+     * Table widget item cell click.
      */
     void addCityClicked();
     /*!
