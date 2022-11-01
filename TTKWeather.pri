@@ -31,6 +31,8 @@ greaterThan(QT_MAJOR_VERSION, 4){ #Qt5
 
 include($$PWD/TTKVersion.pri)
 
+DESTDIR = $$OUT_PWD/../bin/$$TTKVersion
+
 win32{
     msvc{
         CONFIG += c++11

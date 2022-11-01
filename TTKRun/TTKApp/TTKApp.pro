@@ -20,7 +20,7 @@ TEMPLATE = app
 
 TARGET = TTKWeather
 
-include($$PWD/../../TTKVersion.pri)
+include($$PWD/../../TTKWeather.pri)
 DESTDIR = $$OUT_PWD/../../bin/$$TTKVersion
 LIBS += -L$$DESTDIR -lTTKCore
 
@@ -28,8 +28,6 @@ INCLUDEPATH += \
     $$PWD/../../TTKModule \
     $$PWD/../../TTKModule/weatherCore \
     $$PWD/../../TTKModule/weatherWidget
-
-include($$PWD/../../TTKWeather.pri)
 
 win32:msvc{
 HEADERS += \
