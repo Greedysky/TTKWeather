@@ -16,15 +16,13 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-include($$PWD/TTKVersion.pri)
-
 TEMPLATE = subdirs
 CONFIG += ordered
 SUBDIRS = TTKCommon TTKModule TTKRun
 
 TRANSLATIONS += $$PWD/TTKLanguage/cn.ts
 
-##update translation
+##find translation
 unix:exists($$[QT_INSTALL_BINS]/lrelease){
     LRELEASE_EXECUTABLE = $$[QT_INSTALL_BINS]/lrelease
 }
@@ -43,6 +41,9 @@ isEmpty(LRELEASE_EXECUTABLE){
     message(Found lrelease executable: $$LRELEASE_EXECUTABLE)
 }
 
+include($$PWD/TTKVersion.pri)
+
+##update translation
 unix{
     output = $$OUT_PWD/bin/$$TTKVersion/GLanguage
     !exists($$output):system(mkdir -p $$output)
@@ -57,7 +58,7 @@ win32{
     output = $$replace(output, /, \\)
     !exists($$output):system(md $$output)
 
-    system(for /r $$PWD %i in (*.ts) do $$LRELEASE_EXECUTABLE %i)
-    system(for /r $$PWD %i in (*.qm) do ren %i *.ln)
-    system(for /r $$PWD %i in (*.ln) do move /y %i $$output)
+    system(for /r $$PWD/TTKLanguage %i in (*.ts) do $$LRELEASE_EXECUTABLE %i)
+    system(for /r $$PWD/TTKLanguage %i in (*.qm) do ren %i *.ln)
+    system(for /r $$PWD/TTKLanguage %i in (*.ln) do move /y %i $$output)
 }

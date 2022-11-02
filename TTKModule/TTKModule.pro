@@ -17,8 +17,7 @@
 # ***************************************************************************
 
 TEMPLATE = lib
-
-INCLUDEPATH += $$PWD
+CONFIG += plugin lib
 
 include($$PWD/../TTKWeather.pri)
 include($$PWD/weatherUi/WeatherUi.pri)
@@ -28,7 +27,7 @@ include($$PWD/weatherWidget/WeatherWidget.pri)
 DESTDIR = $$OUT_PWD/../bin/$$TTKVersion
 TARGET = TTKCore
 
-CONFIG += plugin lib
+INCLUDEPATH += $$PWD
 
 HEADERS += $$PWD/weatherapplication.h
 
