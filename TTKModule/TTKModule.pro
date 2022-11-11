@@ -24,7 +24,7 @@ include($$PWD/weatherUi/WeatherUi.pri)
 include($$PWD/weatherCore/WeatherCore.pri)
 include($$PWD/weatherWidget/WeatherWidget.pri)
 
-DESTDIR = $$OUT_PWD/../bin/$$TTKVersion
+DESTDIR = $$OUT_PWD/../bin/$$TTK_VERSION
 TARGET = TTKCore
 
 INCLUDEPATH += $$PWD

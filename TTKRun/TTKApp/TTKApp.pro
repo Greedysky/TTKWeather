@@ -20,7 +20,7 @@ TEMPLATE = app
 
 include($$PWD/../../TTKWeather.pri)
 
-DESTDIR = $$OUT_PWD/../../bin/$$TTKVersion
+DESTDIR = $$OUT_PWD/../../bin/$$TTK_VERSION
 TARGET = TTKWeather
 
 LIBS += -L$$DESTDIR -lTTKCore
