@@ -24,6 +24,7 @@
 
 namespace TTKObject
 {
+    TTK_MODULE_EXPORT void setApplicationFont(QApplication* app);
     /*!
      * Set widget border shadow.
      */
