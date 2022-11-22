@@ -1,27 +1,23 @@
 #!/bin/bash
 
 LCEXE="$1"
-SOURCE="$2/TTKLanguage"
-OUTPUT="$3/GLanguage"
+OUTPUT="$2/GLanguage"
+SOURCE="$3/TTKLanguage"
 
 #make output dir
-`mkdir -p $OUTPUT`
-
+mkdir -p "$OUTPUT"
 #make
 for i in $SOURCE/*.ts
 do
-  $LCEXE $i
+  $LCEXE "$i"
 done
-
 #rename
 for i in $SOURCE/*.qm
 do
-  `rename -vf 's/.qm/.ln/' $i`
+  rename -v -f 's/.qm/.ln/' "$i"
 done
-
 #move
 for i in $SOURCE/*.ln
 do
-  `mv $i $OUTPUT`
+  mv "$i" "$OUTPUT"
 done
-
