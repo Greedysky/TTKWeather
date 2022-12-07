@@ -27,8 +27,6 @@ include($$PWD/weatherWidget/WeatherWidget.pri)
 DESTDIR = $$OUT_PWD/../bin/$$TTK_VERSION
 TARGET = TTKCore
 
-INCLUDEPATH += $$PWD
-
 HEADERS += $$PWD/weatherapplication.h
 
 SOURCES += $$PWD/weatherapplication.cpp
