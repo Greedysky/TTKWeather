@@ -27,10 +27,9 @@ void WeatherItemTableWidget::setItemName(const QString &name, int index)
     if(m_queryFuture == nullptr)
     {
         m_queryFuture = new WeatherQueryFuture(this);
-        connect(m_queryFuture, SIGNAL(resolvedSuccess()),
-                               SLOT(searchItemInformationDown()));
+        connect(m_queryFuture, SIGNAL(resolvedSuccess()), SLOT(searchItemInformationDown()));
     }
-    m_queryFuture->startToQuery(name);
+    m_queryFuture->startRequest(name);
 }
 
 void WeatherItemTableWidget::createItem(const WeatherObject::Weather &weather)
@@ -63,7 +62,7 @@ void WeatherItemTableWidget::createItem(const WeatherObject::Weather &weather)
 
 void WeatherItemTableWidget::searchItemInformationDown()
 {
-    WeatherObject::Weather weather = m_queryFuture->getFuture(m_indexOfItem);
-    Q_EMIT loadingIcon(QStringList()<< weather.m_weatidX << weather.m_weatidY);
-    createItem( weather );
+    const WeatherObject::Weather &weather = m_queryFuture->future(m_indexOfItem);
+    Q_EMIT loadingIcon(QStringList() << weather.m_weatidX << weather.m_weatidY);
+    createItem(weather);
 }

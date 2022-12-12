@@ -1,5 +1,5 @@
-#ifndef WEATHERLOADINGWIDGET_H
-#define WEATHERLOADINGWIDGET_H
+#ifndef WEATHERADDITEMTABLEWIDGET_H
+#define WEATHERADDITEMTABLEWIDGET_H
 
 /***************************************************************************
  * This file is part of the TTK Weather project
@@ -19,30 +19,52 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include "weatherquerycity.h"
-#include "weatherabstractmovedialog.h"
+#include "weatherabstracttablewidget.h"
 
-/*! @brief The class of the weather loading widget.
+/*! @brief The class of the add item table widget.
  * @author Greedysky <greedysky@163.com>
  */
-class TTK_MODULE_EXPORT WeatherLoadingWidget : public WeatherAbstractMoveDialog
+class TTK_MODULE_EXPORT WeatherAddItemTableWidget : public WeatherAbstractTableWidget
 {
     Q_OBJECT
 public:
-    explicit WeatherLoadingWidget(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */
-    ~WeatherLoadingWidget();
+    explicit WeatherAddItemTableWidget(QWidget *parent = nullptr);
+    ~WeatherAddItemTableWidget();
 
-    inline WeatherQueryCity *getQueryCity() const { return m_queryCity; }
     /*!
-     * Get query city finished.
+     * Load the current weather state icons.
      */
+    void loadingIconFinished(const QStringList &icons);
+
+Q_SIGNALS:
+    /*!
+     * Send query the weather by given name.
+     */
+    void itemCellClickedByText(const QString &name);
+
+public Q_SLOTS:
+    /*!
+     * Table widget item cell click.
+     */
+    virtual void itemCellClicked(int row, int column) override final;
+    /*!
+     * Add city button click.
+     */
+    void addCityClicked();
+    /*!
+     * Delete city button click.
+     */
+    void deleteCityClicked();
 
 private:
-    WeatherQueryCity *m_queryCity;
+    /*!
+     * Override the widget event.
+     */
+    virtual void contextMenuEvent(QContextMenuEvent *event) override final;
 
 };
 
-#endif // WEATHERLOADINGWIDGET_H
+#endif // WEATHERADDITEMTABLEWIDGET_H

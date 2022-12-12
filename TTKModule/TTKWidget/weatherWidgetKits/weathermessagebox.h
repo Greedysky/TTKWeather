@@ -1,5 +1,5 @@
-#ifndef WEATHERABSTRACTMOVEDIALOG_H
-#define WEATHERABSTRACTMOVEDIALOG_H
+#ifndef WEATHERMESSAGEBOX_H
+#define WEATHERMESSAGEBOX_H
 
 /***************************************************************************
  * This file is part of the TTK Weather project
@@ -19,20 +19,39 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include "ttkabstractmovedialog.h"
+#include "weatherabstractmovedialog.h"
 
-/*! @brief The class of the moving dialog base.
+namespace Ui {
+class WeatherMessageBox;
+}
+
+/*! @brief The class of the messagebox widget.
  * @author Greedysky <greedysky@163.com>
  */
-class TTK_MODULE_EXPORT WeatherAbstractMoveDialog : public TTKAbstractMoveDialog
+class TTK_MODULE_EXPORT WeatherMessageBox : public WeatherAbstractMoveDialog
 {
     Q_OBJECT
 public:
-    explicit WeatherAbstractMoveDialog(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */
+    explicit WeatherMessageBox(QWidget *parent = nullptr);
+    ~WeatherMessageBox();
+
+    /*!
+     * Set context text.
+     */
+    void setText(const QString &text) const;
+
+public Q_SLOTS:
+    /*!
+     * Confirm or cancal button clicked, set the state.
+     */
+    void buttonClicked(int index);
+
+private:
+    Ui::WeatherMessageBox *ui;
 
 };
 
-#endif // WEATHERABSTRACTMOVEDIALOG_H
+#endif // WEATHERMESSAGEBOX_H

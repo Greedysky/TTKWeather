@@ -1,5 +1,5 @@
-#ifndef WEATHERADDITEMTABLEWIDGET_H
-#define WEATHERADDITEMTABLEWIDGET_H
+#ifndef WEATHERABSTRACTTABLEWIDGET_H
+#define WEATHERABSTRACTTABLEWIDGET_H
 
 /***************************************************************************
  * This file is part of the TTK Weather project
@@ -19,52 +19,50 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include "weatherabstracttablewidget.h"
+#include <QHeaderView>
+#include <QTableWidget>
+#include "ttkglobaldefine.h"
+#include "weatherobject.h"
+#include "weatheruiobject.h"
 
-/*! @brief The class of the add item table widget.
+/*! @brief The class of the table widget base.
  * @author Greedysky <greedysky@163.com>
  */
-class TTK_MODULE_EXPORT WeatherAddItemTableWidget : public WeatherAbstractTableWidget
+class TTK_MODULE_EXPORT WeatherAbstractTableWidget : public QTableWidget
 {
     Q_OBJECT
 public:
-    explicit WeatherAddItemTableWidget(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */
-    ~WeatherAddItemTableWidget();
-
-    void loadingIconFinished(const QStringList &icons);
-    /*!
-     * Load the current weather state icons.
-     */
-
-Q_SIGNALS:
-    void itemCellClickedByText(const QString &name);
-    /*!
-     * Send query the weather by given name.
-     */
+    explicit WeatherAbstractTableWidget(QWidget *parent = nullptr);
+    ~WeatherAbstractTableWidget();
 
 public Q_SLOTS:
-    virtual void itemCellClicked(int row, int column) override final;
+    /*!
+     * Table widget item cell enter.
+     */
+    virtual void itemCellEntered(int row, int column);
     /*!
      * Table widget item cell click.
+     * Subclass should implement this function.
      */
-    void addCityClicked();
+    virtual void itemCellClicked(int row, int column);
     /*!
-     * Add city button click.
+     * Remove all items.
      */
-    void deleteCityClicked();
-    /*!
-     * Delete city button click.
-     */
+    virtual void removeItems();
 
-private:
-    virtual void contextMenuEvent(QContextMenuEvent *event) override final;
+protected:
     /*!
-     * Override the widget event.
+     * Set selected item row color.
      */
+    void setRowColor(int row, const QColor &color) const;
+
+    int m_previousColorRow;
+    int m_previousClickRow;
+    QColor m_backgroundColor;
 
 };
 
-#endif // WEATHERADDITEMTABLEWIDGET_H
+#endif // WEATHERABSTRACTTABLEWIDGET_H

@@ -1,5 +1,5 @@
-#ifndef WEATHERMESSAGEBOX_H
-#define WEATHERMESSAGEBOX_H
+#ifndef WEATHEROBJECT_H
+#define WEATHEROBJECT_H
 
 /***************************************************************************
  * This file is part of the TTK Weather project
@@ -19,39 +19,44 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include "weatherabstractmovedialog.h"
+#include "ttkglobal.h"
 
-namespace Ui {
-class WeatherMessageBox;
+#define APP_NAME		"TTKWeather"
+
+namespace WeatherObject
+{
+    struct WeatherPM2P5
+    {
+        QString m_weaidP;
+        QString m_aqi;
+        QString m_aqiScope;
+        QString m_aqiLevid;
+        QString m_aqiLevnm;
+        QString m_aqiRemark;
+    };
+    TTK_DECLARE_LIST(WeatherPM2P5);
+
+    struct Weather
+    {
+        QString m_weaid;
+        QString m_days;
+        QString m_week;
+        QString m_citynm;
+        QString m_temperature;
+        QString m_humidity;
+        QString m_weather;
+        QString m_wind;
+        QString m_winp;
+        QString m_temp_high;
+        QString m_temp_low;
+        QString m_humi_high;
+        QString m_humi_low;
+        QString m_weatidX;
+        QString m_weatidY;
+        WeatherPM2P5 m_pm2p5;
+    };
+    TTK_DECLARE_LIST(Weather);
+
 }
 
-/*! @brief The class of the messagebox widget.
- * @author Greedysky <greedysky@163.com>
- */
-class TTK_MODULE_EXPORT WeatherMessageBox : public WeatherAbstractMoveDialog
-{
-    Q_OBJECT
-public:
-    explicit WeatherMessageBox(QWidget *parent = nullptr);
-    /*!
-     * Object contsructor.
-     */
-    ~WeatherMessageBox();
-
-    void setText(const QString &text) const;
-    /*!
-     * Set context text.
-     */
-
-public Q_SLOTS:
-    void buttonClicked(int index);
-    /*!
-     * Confirm or cancal button clicked, set the state.
-     */
-
-private:
-    Ui::WeatherMessageBox *ui;
-
-};
-
-#endif // WEATHERMESSAGEBOX_H
+#endif //  WEATHEROBJECT_H

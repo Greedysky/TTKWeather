@@ -7,7 +7,7 @@ WeatherQueryFuture::WeatherQueryFuture(QObject *parent)
 
 }
 
-void WeatherQueryFuture::startToQuery(const QString &id)
+void WeatherQueryFuture::startRequest(const QString &id)
 {
     if(m_reply)
     {
@@ -15,7 +15,7 @@ void WeatherQueryFuture::startToQuery(const QString &id)
         m_reply = nullptr;
     }
 
-    m_reply = m_manager->get(QNetworkRequest(QUrl(TTKCryptographicHash().decrypt(FUTURE_QUERY_URL, URL_KEY).arg(id))));
+    m_reply = m_manager->get(QNetworkRequest(WeatherUtils::Algorithm::mdII(FUTURE_QUERY_URL, false).arg(id)));
     connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()));
     QtNetworkErrorConnect(m_reply, this, replyError);
 }
@@ -35,16 +35,14 @@ void WeatherQueryFuture::searchFinshed()
         QJsonParseError jsonError;
         QJsonDocument parseDoucment = QJsonDocument::fromJson(bytes, &jsonError);
         ///Put the data into Json
-        if(jsonError.error != QJsonParseError::NoError ||
-           !parseDoucment.isObject())
+        if(jsonError.error != QJsonParseError::NoError || !parseDoucment.isObject())
         {
             Q_EMIT resolvedSuccess();
             return ;
         }
 
         QJsonObject jsonObject = parseDoucment.object();
-        if(jsonObject.contains("success") &&
-           jsonObject.take("success").toString() == "1")
+        if(jsonObject.contains("success") && jsonObject.take("success").toString() == "1")
         {
             QJsonArray array = jsonObject.value("result").toArray();
             for(int i = 0; i < array.count(); ++i)
@@ -80,8 +78,7 @@ void WeatherQueryFuture::searchFinshed()
 #else
         QScriptEngine engine;
         QScriptValue sc = engine.evaluate("value=" + QString(bytes));
-        if(sc.property("success").isValid() &&
-           sc.property("success").toString() == "1")
+        if(sc.property("success").isValid() && sc.property("success").toString() == "1")
         {
             if(sc.property("result").isArray())
             {
@@ -125,8 +122,7 @@ void WeatherQueryFuture::searchFinshed()
 //    foreach(Weather var, m_futureList)
 //    {
 //        WeatherQuerPM2P5 *pm = new WeatherQuerPM2P5(this);
-//        connect(pm, SIGNAL(repliedPM2P5Finished(WeatherPM2P5)),
-//                    SLOT(repliedPM2P5Finished(WeatherPM2P5)));
+//        connect(pm, SIGNAL(repliedPM2P5Finished(WeatherPM2P5)), SLOT(repliedPM2P5Finished(WeatherPM2P5)));
 //        pm->startToQuery(var.m_weaid);
 //    }
 }
@@ -143,25 +139,25 @@ void WeatherQueryFuture::repliedPM2P5Finished(const WeatherObject::WeatherPM2P5 
     Q_EMIT resolvedSuccess();
 }
 
-const WeatherObject::Weather& WeatherQueryFuture::getToday()
+const WeatherObject::Weather& WeatherQueryFuture::today()
 {
     if(m_futureList.empty())
     {
-        m_futureList.append( WeatherObject::Weather() );
+        m_futureList.append(WeatherObject::Weather());
     }
     return m_futureList.front();
 }
 
-const WeatherObject::Weather &WeatherQueryFuture::getFuture(int index)
+const WeatherObject::Weather &WeatherQueryFuture::future(int index)
 {
     if(index < 0 || index >= m_futureList.count())
     {
-        return getToday();
+        return today();
     }
     return m_futureList[index];
 }
 
-const WeatherObject::WeatherList& WeatherQueryFuture::getFuture() const
+const WeatherObject::WeatherList& WeatherQueryFuture::future() const
 {
     return m_futureList;
 }

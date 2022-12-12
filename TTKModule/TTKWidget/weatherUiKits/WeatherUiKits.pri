@@ -16,26 +16,8 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-TEMPLATE = app
+INCLUDEPATH += $$PWD
 
-include($$PWD/../../TTKWeather.pri)
-
-DESTDIR = $$OUT_PWD/../../bin/$$TTK_VERSION
-TARGET = TTKWeather
-
-LIBS += -L$$DESTDIR -lTTKCore
-
-INCLUDEPATH += \
-    $$PWD/../../TTKModule \
-    $$PWD/../../TTKModule/TTKCore/weatherCoreKits \
-    $$PWD/../../TTKModule/TTKWidget/weatherWidgetKits
-
-win32:msvc{
-HEADERS += \
-    $$PWD/../../TTKModule/weatherapplication.h \
-    $$PWD/../../TTKModule/TTKWidget/weatherWidgetKits\weatherabstractmovewidget.h
-}
-
-SOURCES += $$PWD/weatherapplicationmain.cpp
-
-win32:RC_FILE = $$PWD/TTKApp.rc
+FORMS += \
+    $$PWD/weatherapplication.ui \
+    $$PWD/weathermessagebox.ui

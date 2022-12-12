@@ -1,5 +1,5 @@
-#ifndef WEATHERQUERYFUTURE_H
-#define WEATHERQUERYFUTURE_H
+#ifndef WEATHERLOADINGWIDGET_H
+#define WEATHERLOADINGWIDGET_H
 
 /***************************************************************************
  * This file is part of the TTK Weather project
@@ -19,51 +19,30 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include "weatherquery.h"
+#include "weatherquerycity.h"
+#include "weatherabstractmovedialog.h"
 
-/*! @brief The class of the weather future query.
+/*! @brief The class of the weather loading widget.
  * @author Greedysky <greedysky@163.com>
  */
-class TTK_MODULE_EXPORT WeatherQueryFuture : public WeatherQuery
+class TTK_MODULE_EXPORT WeatherLoadingWidget : public WeatherAbstractMoveDialog
 {
     Q_OBJECT
 public:
-    explicit WeatherQueryFuture(QObject *parent = nullptr);
     /*!
      * Object contsructor.
      */
+    explicit WeatherLoadingWidget(QWidget *parent = nullptr);
+    ~WeatherLoadingWidget();
 
-    virtual void startToQuery(const QString &id = 0) override final;
     /*!
-     * Start to query data.
+     * Get query city finished.
      */
-
-    const WeatherObject::Weather &getToday();
-    /*!
-     * Get today weather information.
-     */
-    const WeatherObject::Weather &getFuture(int index);
-    /*!
-     * Get future weather information by day.
-     */
-    const WeatherObject::WeatherList &getFuture() const;
-    /*!
-     * Get all future weather information.
-     */
-
-public Q_SLOTS:
-    virtual void searchFinshed() override final;
-    /*!
-     * Download data from net finished.
-     */
-    void repliedPM2P5Finished(const WeatherObject::WeatherPM2P5 &pm);
-    /*!
-     * Download PM2P5 data finished.
-     */
+    inline WeatherQueryCity *queryCity() const { return m_queryCity; }
 
 private:
-    WeatherObject::WeatherList m_futureList;
+    WeatherQueryCity *m_queryCity;
 
 };
 
-#endif // WEATHERQUERYFUTURE_H
+#endif // WEATHERLOADINGWIDGET_H

@@ -6,7 +6,7 @@ WeatherQuerPM2P5::WeatherQuerPM2P5(QObject *parent)
 
 }
 
-void WeatherQuerPM2P5::startToQuery(const QString &id)
+void WeatherQuerPM2P5::startRequest(const QString &id)
 {
     if(m_reply)
     {
@@ -14,7 +14,7 @@ void WeatherQuerPM2P5::startToQuery(const QString &id)
         m_reply = nullptr;
     }
 
-    m_reply = m_manager->get(QNetworkRequest(QUrl(TTKCryptographicHash().decrypt(PM2P5_QUERY_URL, URL_KEY).arg(id))));
+    m_reply = m_manager->get(QNetworkRequest(WeatherUtils::Algorithm::mdII(PM2P5_QUERY_URL, false).arg(id)));
     connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()));
     QtNetworkErrorConnect(m_reply, this, replyError);
 }
@@ -34,8 +34,7 @@ void WeatherQuerPM2P5::searchFinshed()
         QJsonParseError jsonError;
         QJsonDocument parseDoucment = QJsonDocument::fromJson(bytes, &jsonError);
         ///Put the data into Json
-        if(jsonError.error != QJsonParseError::NoError ||
-           !parseDoucment.isObject())
+        if(jsonError.error != QJsonParseError::NoError || !parseDoucment.isObject())
         {
             Q_EMIT repliedPM2P5Finished(pm2p5List);
             return ;
@@ -62,8 +61,7 @@ void WeatherQuerPM2P5::searchFinshed()
 #else
         QScriptEngine engine;
         QScriptValue sc = engine.evaluate("value=" + QString(bytes));
-        if(sc.property("success").isValid() &&
-           sc.property("success").toString() == "1")
+        if(sc.property("success").isValid() && sc.property("success").toString() == "1")
         {
 
             if(sc.property("result").isValid())

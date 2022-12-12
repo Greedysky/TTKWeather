@@ -28,30 +28,26 @@ class TTK_MODULE_EXPORT WeatherQueryCity : public WeatherQuery
 {
     Q_OBJECT
 public:
-    explicit WeatherQueryCity(QObject *parent = nullptr);
     /*!
      * Object contsructor.
      */
+    explicit WeatherQueryCity(QObject *parent = nullptr);
 
-    virtual void startToQuery(const QString &id = 0) override final;
     /*!
      * Start to query data.
      */
+    virtual void startRequest(const QString &id) override final;
 
-    QString getCityCode(const QString &name) const;
     /*!
      * Get city code by name.
      */
-    const TTKVariantMap& getCityCodes() const;
-    /*!
-     * Get all cities code.
-     */
+    QString cityCode(const QString &name) const;
 
 public Q_SLOTS:
-    virtual void searchFinshed() override final;
     /*!
      * Download data from net finished.
      */
+    virtual void searchFinshed() override final;
 
 private:
     TTKVariantMap m_cityMap;

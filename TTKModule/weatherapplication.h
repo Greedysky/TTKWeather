@@ -25,8 +25,8 @@ namespace Ui {
 class WeatherApplication;
 }
 
-class WeatherLoadingWidget;
 class WeatherQueryCity;
+class WeatherLoadingWidget;
 class WeatherFutureItemWidget;
 
 /*! @brief The class of the main applicatin widget.
@@ -36,39 +36,39 @@ class TTK_MODULE_EXPORT WeatherApplication : public WeatherAbstractMoveWidget
 {
     Q_OBJECT
 public:
-    explicit WeatherApplication(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */
+    explicit WeatherApplication(QWidget *parent = nullptr);
     ~WeatherApplication();
 
 private Q_SLOTS:
-    void loadingFinished();
     /*!
      * Loading main finished.
      */
-    void changeStack2Today();
+    void loadingFinished();
     /*!
      * Changed the stacked widget to today.
      */
-    void itemCellClickedByText(const QString &name);
+    void changeStack2Today();
     /*!
      * Send query the weather by given name.
      */
-    void loadingIconFinished(const QStringList &icons);
+    void itemCellClickedByText(const QString &name);
     /*!
      * Load the current weather state icons.
      */
-    void aboutApplication();
+    void loadingIconFinished(const QStringList &icons);
     /*!
      * Show about dialog.
      */
+    void aboutApplication();
 
 private:
-    void initialize();
     /*!
      * Init main widget.
      */
+    void initialize();
 
     Ui::WeatherApplication *ui;
     WeatherLoadingWidget *m_loadingWidget;

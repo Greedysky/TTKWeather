@@ -8,7 +8,7 @@ WeatherLoadingWidget::WeatherLoadingWidget(QWidget *parent)
 
     m_queryCity = new WeatherQueryCity(this);
     connect(m_queryCity, SIGNAL(resolvedSuccess()), parent, SLOT(loadingFinished()));
-    m_queryCity->startToQuery();
+    m_queryCity->startRequest(QString());
 }
 
 WeatherLoadingWidget::~WeatherLoadingWidget()

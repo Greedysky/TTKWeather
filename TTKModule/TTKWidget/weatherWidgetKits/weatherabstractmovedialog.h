@@ -1,5 +1,5 @@
-#ifndef WEATHERABSTRACTMOVEWIDGET_H
-#define WEATHERABSTRACTMOVEWIDGET_H
+#ifndef WEATHERABSTRACTMOVEDIALOG_H
+#define WEATHERABSTRACTMOVEDIALOG_H
 
 /***************************************************************************
  * This file is part of the TTK Weather project
@@ -19,20 +19,20 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include "ttkabstractmovewidget.h"
+#include "ttkabstractmovedialog.h"
 
-/*! @brief The class of the moving widget base.
+/*! @brief The class of the moving dialog base.
  * @author Greedysky <greedysky@163.com>
  */
-class TTK_MODULE_EXPORT WeatherAbstractMoveWidget : public TTKAbstractMoveWidget
+class TTK_MODULE_EXPORT WeatherAbstractMoveDialog : public TTKAbstractMoveDialog
 {
     Q_OBJECT
 public:
-    explicit WeatherAbstractMoveWidget(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */
+    explicit WeatherAbstractMoveDialog(QWidget *parent = nullptr);
 
 };
 
-#endif // WEATHERABSTRACTMOVEWIDGET_H
+#endif // WEATHERABSTRACTMOVEDIALOG_H

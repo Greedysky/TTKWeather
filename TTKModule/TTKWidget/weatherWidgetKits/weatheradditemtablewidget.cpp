@@ -41,7 +41,7 @@ void WeatherAddItemTableWidget::itemCellClicked(int row, int)
 
 void WeatherAddItemTableWidget::addCityClicked()
 {
-    QString text = QInputDialog::getText(nullptr, APP_NAME, tr("Input address!"));
+    const QString &text = QInputDialog::getText(nullptr, APP_NAME, tr("Input address!"));
     if(!text.isEmpty())
     {
         int index = rowCount();
@@ -72,9 +72,9 @@ void WeatherAddItemTableWidget::addCityClicked()
 
 void WeatherAddItemTableWidget::deleteCityClicked()
 {
-    if( currentRow() > -1)
+    if(currentRow() > -1)
     {
-        removeRow( currentRow() );
+        removeRow(currentRow());
         Q_EMIT itemCellClickedByText(QString());
     }
 }
@@ -82,7 +82,7 @@ void WeatherAddItemTableWidget::deleteCityClicked()
 void WeatherAddItemTableWidget::loadingIconFinished(const QStringList &icons)
 {
     Q_ASSERT(icons.count() == 2);
-    int index = currentRow();
+    const int index = currentRow();
     if(index < 0)
     {
         return;

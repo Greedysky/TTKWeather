@@ -1,5 +1,5 @@
 # ***************************************************************************
-# * This file is part of the TTK Weather project
+# * This file is part of the TTK Downloader project
 # * Copyright (C) 2015 - 2022 Greedysky Studio
 #
 # * This program is free software; you can redistribute it and/or modify
@@ -16,26 +16,8 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-TEMPLATE = app
+INCLUDEPATH += $$PWD
 
-include($$PWD/../../TTKWeather.pri)
+HEADERS += $$PWD/weatheralgorithmutils.h
 
-DESTDIR = $$OUT_PWD/../../bin/$$TTK_VERSION
-TARGET = TTKWeather
-
-LIBS += -L$$DESTDIR -lTTKCore
-
-INCLUDEPATH += \
-    $$PWD/../../TTKModule \
-    $$PWD/../../TTKModule/TTKCore/weatherCoreKits \
-    $$PWD/../../TTKModule/TTKWidget/weatherWidgetKits
-
-win32:msvc{
-HEADERS += \
-    $$PWD/../../TTKModule/weatherapplication.h \
-    $$PWD/../../TTKModule/TTKWidget/weatherWidgetKits\weatherabstractmovewidget.h
-}
-
-SOURCES += $$PWD/weatherapplicationmain.cpp
-
-win32:RC_FILE = $$PWD/TTKApp.rc
+SOURCES += $$PWD/weatheralgorithmutils.cpp

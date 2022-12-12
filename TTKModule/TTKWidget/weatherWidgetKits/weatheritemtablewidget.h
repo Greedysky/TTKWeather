@@ -1,5 +1,5 @@
-#ifndef WEATHERABSTRACTTABLEWIDGET_H
-#define WEATHERABSTRACTTABLEWIDGET_H
+#ifndef WEATHERITEMTABLEWIDGET_H
+#define WEATHERITEMTABLEWIDGET_H
 
 /***************************************************************************
  * This file is part of the TTK Weather project
@@ -19,50 +19,48 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include <QHeaderView>
-#include <QTableWidget>
-#include "ttkglobaldefine.h"
-#include "weatherobject.h"
-#include "weatheruiobject.h"
+#include "weatherabstracttablewidget.h"
 
-/*! @brief The class of the table widget base.
+class WeatherQueryFuture;
+
+/*! @brief The class of the item table widget.
  * @author Greedysky <greedysky@163.com>
  */
-class TTK_MODULE_EXPORT WeatherAbstractTableWidget : public QTableWidget
+class TTK_MODULE_EXPORT WeatherItemTableWidget : public WeatherAbstractTableWidget
 {
     Q_OBJECT
 public:
-    explicit WeatherAbstractTableWidget(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */
-    ~WeatherAbstractTableWidget();
+    explicit WeatherItemTableWidget(QWidget *parent = nullptr);
+    ~WeatherItemTableWidget();
+
+    /*!
+     * Set table item to query differ future weather.
+     */
+    void setItemName(const QString &name, int index);
+    /*!
+     * Set table item by weather object.
+     */
+    void createItem(const WeatherObject::Weather &weather);
+
+Q_SIGNALS:
+    /*!
+     * Load the current weather state icons.
+     */
+    void loadingIcon(const QStringList &icons);
 
 public Q_SLOTS:
-    virtual void itemCellEntered(int row, int column);
     /*!
-     * Table widget item cell enter.
+     * Query diffe future weather by index done.
      */
-    virtual void itemCellClicked(int row, int column);
-    /*!
-     * Table widget item cell click.
-     * Subclass should implement this function.
-     */
-    virtual void removeItems();
-    /*!
-     * Remove all items.
-     */
+    void searchItemInformationDown();
 
-protected:
-    void setRowColor(int row, const QColor &color) const;
-    /*!
-     * Set selected item row color.
-     */
-
-    int m_previousColorRow;
-    int m_previousClickRow;
-    QColor m_backgroundColor;
+private:
+    WeatherQueryFuture *m_queryFuture;
+    int m_indexOfItem;
 
 };
 
-#endif // WEATHERABSTRACTTABLEWIDGET_H
+#endif // WEATHERITEMTABLEWIDGET_H

@@ -2,10 +2,10 @@
 #include "weatheritemtablewidget.h"
 #include "weatherqueryfuture.h"
 
-#include <QStackedWidget>
 #include <QPushButton>
 #include <QBoxLayout>
 #include <QButtonGroup>
+#include <QStackedWidget>
 
 WeatherFutureItemWidget::WeatherFutureItemWidget(QWidget *parent)
     : QWidget(parent)
@@ -16,7 +16,7 @@ WeatherFutureItemWidget::WeatherFutureItemWidget(QWidget *parent)
     for(int i = 0; i < COUNT; ++i)
     {
         WeatherItemTableWidget *item = new WeatherItemTableWidget(parent);
-        item->createItem( WeatherObject::Weather() );
+        item->createItem(WeatherObject::Weather());
         m_itemLists << item;
         m_statckedWidget->addWidget(item);
     }
@@ -27,10 +27,7 @@ WeatherFutureItemWidget::WeatherFutureItemWidget(QWidget *parent)
 WeatherFutureItemWidget::~WeatherFutureItemWidget()
 {
     delete m_group;
-    while(!m_itemLists.isEmpty())
-    {
-        delete m_itemLists.takeLast();
-    }
+    qDeleteAll(m_itemLists);
     delete m_statckedWidget;
 }
 
@@ -51,6 +48,7 @@ void WeatherFutureItemWidget::createButton()
 void WeatherFutureItemWidget::initialize()
 {
     createButton();
+
     QVBoxLayout *vbox = new QVBoxLayout(this);
     vbox->setContentsMargins(0, 0, 0, 0);
     vbox->setSpacing(0);
@@ -62,6 +60,7 @@ void WeatherFutureItemWidget::initialize()
     {
         hbox->addWidget(m_group->button(i));
     }
+
     vbox->addLayout(hbox);
     vbox->addWidget(m_statckedWidget);
     setLayout(vbox);

@@ -61,7 +61,7 @@ void WeatherApplication::initialize()
 
 void WeatherApplication::loadingFinished()
 {
-    m_queryCity = m_loadingWidget->getQueryCity();
+    m_queryCity = m_loadingWidget->queryCity();
     m_loadingWidget->close();
 
     setAttribute(Qt::WA_TranslucentBackground, true);
@@ -72,13 +72,12 @@ void WeatherApplication::loadingFinished()
 void WeatherApplication::changeStack2Today()
 {
     ui->stackedWidget->setCurrentIndex(0);
-    !m_currentItemId.isEmpty() ? m_futureItem->setItemName(m_currentItemId)
-                               : m_futureItem->createItem( WeatherObject::Weather() );
+    !m_currentItemId.isEmpty() ? m_futureItem->setItemName(m_currentItemId) : m_futureItem->createItem(WeatherObject::Weather());
 }
 
 void WeatherApplication::itemCellClickedByText(const QString &name)
 {
-    m_currentItemId = m_queryCity->getCityCode(name);
+    m_currentItemId = m_queryCity->cityCode(name);
     changeStack2Today();
 }
 

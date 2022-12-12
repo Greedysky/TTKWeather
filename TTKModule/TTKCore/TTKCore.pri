@@ -1,5 +1,5 @@
 # ***************************************************************************
-# * This file is part of the TTK Weather project
+# * This file is part of the TTK Music Player project
 # * Copyright (C) 2015 - 2022 Greedysky Studio
 #
 # * This program is free software; you can redistribute it and/or modify
@@ -16,6 +16,5 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-FORMS += \
-    $$PWD/weatherapplication.ui \
-    $$PWD/weathermessagebox.ui
+include($$PWD/weatherCoreKits/WeatherCoreKits.pri)
+include($$PWD/weatherUtilsKits/WeatherUtilsKits.pri)

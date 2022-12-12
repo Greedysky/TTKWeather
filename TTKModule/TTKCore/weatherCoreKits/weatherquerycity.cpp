@@ -8,7 +8,7 @@ WeatherQueryCity::WeatherQueryCity(QObject *parent)
 
 }
 
-void WeatherQueryCity::startToQuery(const QString &id)
+void WeatherQueryCity::startRequest(const QString &id)
 {
     Q_UNUSED(id);
     if(m_reply)
@@ -17,19 +17,14 @@ void WeatherQueryCity::startToQuery(const QString &id)
         m_reply = nullptr;
     }
 
-    m_reply = m_manager->get(QNetworkRequest(QUrl(TTKCryptographicHash().decrypt(CITY_QUERY_URL, URL_KEY))));
-    connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()) );
+    m_reply = m_manager->get(QNetworkRequest(WeatherUtils::Algorithm::mdII(CITY_QUERY_URL, false)));
+    connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()));
     QtNetworkErrorConnect(m_reply, this, replyError);
 }
 
-QString WeatherQueryCity::getCityCode(const QString &name) const
+QString WeatherQueryCity::cityCode(const QString &name) const
 {
     return m_cityMap[name].toString();
-}
-
-const TTKVariantMap& WeatherQueryCity::getCityCodes() const
-{
-    return m_cityMap;
 }
 
 void WeatherQueryCity::searchFinshed()
@@ -75,8 +70,7 @@ void WeatherQueryCity::searchFinshed()
 #else
         QScriptEngine engine;
         QScriptValue sc = engine.evaluate("value=" + QString(bytes));
-        if(sc.property("success").isValid() &&
-           sc.property("success").toString() == "1")
+        if(sc.property("success").isValid() && sc.property("success").toString() == "1")
         {
             if(sc.property("result").isValid())
             {
@@ -105,5 +99,6 @@ void WeatherQueryCity::searchFinshed()
         }
 #endif
     }
+
     Q_EMIT resolvedSuccess();
 }

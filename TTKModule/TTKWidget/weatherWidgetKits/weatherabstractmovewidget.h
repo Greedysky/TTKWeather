@@ -1,5 +1,5 @@
-#ifndef WEATHERITEMTABLEWIDGET_H
-#define WEATHERITEMTABLEWIDGET_H
+#ifndef WEATHERABSTRACTMOVEWIDGET_H
+#define WEATHERABSTRACTMOVEWIDGET_H
 
 /***************************************************************************
  * This file is part of the TTK Weather project
@@ -19,48 +19,20 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include "weatherabstracttablewidget.h"
+#include "ttkabstractmovewidget.h"
 
-class WeatherQueryFuture;
-
-/*! @brief The class of the item table widget.
+/*! @brief The class of the moving widget base.
  * @author Greedysky <greedysky@163.com>
  */
-class TTK_MODULE_EXPORT WeatherItemTableWidget : public WeatherAbstractTableWidget
+class TTK_MODULE_EXPORT WeatherAbstractMoveWidget : public TTKAbstractMoveWidget
 {
     Q_OBJECT
 public:
-    explicit WeatherItemTableWidget(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */
-    ~WeatherItemTableWidget();
-
-    void setItemName(const QString &name, int index);
-    /*!
-     * Set table item to query differ future weather.
-     */
-    void createItem(const WeatherObject::Weather &weather);
-    /*!
-     * Set table item by weather object.
-     */
-
-Q_SIGNALS:
-    void loadingIcon(const QStringList &icons);
-    /*!
-     * Load the current weather state icons.
-     */
-
-public Q_SLOTS:
-    void searchItemInformationDown();
-    /*!
-     * Query diffe future weather by index done.
-     */
-
-private:
-    WeatherQueryFuture *m_queryFuture;
-    int m_indexOfItem;
+    explicit WeatherAbstractMoveWidget(QWidget *parent = nullptr);
 
 };
 
-#endif // WEATHERITEMTABLEWIDGET_H
+#endif // WEATHERABSTRACTMOVEWIDGET_H

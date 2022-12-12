@@ -1,5 +1,5 @@
-#ifndef WEATHERQUERYPM2P5_H
-#define WEATHERQUERYPM2P5_H
+#ifndef WEATHERALGORITHMUTILS_H
+#define WEATHERALGORITHMUTILS_H
 
 /***************************************************************************
  * This file is part of the TTK Weather project
@@ -19,37 +19,30 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include "weatherquery.h"
+#include "ttkglobaldefine.h"
 
-/*! @brief The class of the weather pm2p5 query.
+/*! @brief The namespace of the utils algorithm.
  * @author Greedysky <greedysky@163.com>
  */
-class TTK_MODULE_EXPORT WeatherQuerPM2P5 : public WeatherQuery
+namespace WeatherUtils
 {
-    Q_OBJECT
-public:
-    explicit WeatherQuerPM2P5(QObject *parent = nullptr);
-    /*!
-     * Object contsructor.
-     */
+    namespace Algorithm
+    {
+        /*!
+         * Get sha1 algorithm.
+         */
+        TTK_MODULE_EXPORT QByteArray sha1(const QByteArray &data);
 
-    virtual void startToQuery(const QString &id = 0) override final;
-    /*!
-     * Start to query data.
-     */
+        /*!
+         * Get mdII(greedysky) algorithm.
+         */
+        TTK_MODULE_EXPORT QString mdII(const QString &data, bool encode);
+        /*!
+         * Get mdII(greedysky) algorithm.
+         */
+        TTK_MODULE_EXPORT QString mdII(const QString &data, const QString &key, bool encode);
 
-Q_SIGNALS:
-    void repliedPM2P5Finished(const WeatherObject::WeatherPM2P5 &pm);
-    /*!
-     * Download PM2P5 data finished.
-     */
+    }
+}
 
-public Q_SLOTS:
-    virtual void searchFinshed() override final;
-    /*!
-     * Download data from net finished.
-     */
-
-};
-
-#endif // WEATHERQUERYPM2P5_H
+#endif // WEATHERALGORITHMUTILS_H

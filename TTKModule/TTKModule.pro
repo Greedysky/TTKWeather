@@ -20,9 +20,8 @@ TEMPLATE = lib
 CONFIG += plugin lib
 
 include($$PWD/../TTKWeather.pri)
-include($$PWD/weatherUi/WeatherUi.pri)
-include($$PWD/weatherCore/WeatherCore.pri)
-include($$PWD/weatherWidget/WeatherWidget.pri)
+include($$PWD/TTKCore/TTKCore.pri)
+include($$PWD/TTKWidget/TTKWidget.pri)
 
 DESTDIR = $$OUT_PWD/../bin/$$TTK_VERSION
 TARGET = TTKCore

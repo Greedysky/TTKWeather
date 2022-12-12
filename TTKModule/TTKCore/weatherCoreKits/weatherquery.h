@@ -20,15 +20,13 @@
  ***************************************************************************/
 
 #include "weatherobject.h"
-#include "ttkcryptographichash.h"
-///////////////////////////////////////
-#define URL_KEY "13;dg18dgsd"
+#include "weatheralgorithmutils.h"
+
 const QString CITY_QUERY_URL   = "NW8yM1YwWUIrYytySHVON1F4NVJ1UG55UXhCOURHKzBtTjVvenBpUUVWN3lNNGtoVWtmdGdPK3VNU0k5ZXNTeDRIeE0zMmdUK1NTN3JPK2pSZDZqaEE2aU9RRi8zOTRoWVpUYmRVV2prNGZzQXVvdE1xb2JDaldLem4rRXFKckRzbERtcTl4OTVUd2lGU040UlRCdnpBPT0=";
 const QString FUTURE_QUERY_URL = "cXVteW9ic3NEenNTVVN1SkcvdUh0WkVvbXhGaFExRHdOS3JCckVDYzd3c0VwSTYxZzNaZDhnUkNGdlJBdXE5b09Yb0c4MUNEbW1LQWJTSkFuWWRRb3dnc3B1RU5ENFVWTFlpTkFPdTRjTVpCUHRnNk5XMURzTm5sZGx3K0N6VmdjM0dUc2VHWVJVaW5qQVh6blhvVFRmQ3QvQVU9";
 const QString PM2P5_QUERY_URL  = "WHF6dU85RlRDUmpTanltT3h1elZzQ2ZSU2lnK0hIeC9LYVQvMUtYcGY4Qm9Ka2llanhDNWM2bExaOHJ4NE5BZmdub0xBTUMxckVqZUtsRUZkMTRBMnlDSGFQMHBpWUxDQ1ZWSlczV1QxZXZ0cUdBMy92ZlJDdnY5eEdlRFA2M2lZQmxaZ1lvRW05OGRwMlpta0NnTzdFVVhhSlE9";
 ///Attention: the interface can be accessed only 750 times per hour
-///////////////////////////////////////
-///
+
 #if TTK_QT_VERSION_CHECK(5,0,0)
 #   include <QJsonParseError>
 #   include <QJsonDocument>
@@ -51,40 +49,40 @@ class TTK_MODULE_EXPORT WeatherQuery : public QObject
 {
     Q_OBJECT
 public:
-    explicit WeatherQuery(QObject *parent = nullptr);
     /*!
      * Object contsructor.
      */
+    explicit WeatherQuery(QObject *parent = nullptr);
     ~WeatherQuery();
 
-    virtual void startToQuery(const QString &id = 0) = 0;
     /*!
      * Start to query data.
      * Subclass should implement this function.
      */
+    virtual void startRequest(const QString &id) = 0;
 
 Q_SIGNALS:
-    void resolvedSuccess();
     /*!
      * Send download data from net.
      */
+    void resolvedSuccess();
 
 public Q_SLOTS:
-    virtual void searchFinshed() = 0;
     /*!
      * Download data from net finished.
      * Subclass should implement this function.
      */
-    void replyError(QNetworkReply::NetworkError error);
+    virtual void searchFinshed() = 0;
     /*!
      * Download reply error.
      */
+    void replyError(QNetworkReply::NetworkError error);
 
 protected:
-    void deleteAll();
     /*!
      * Release the network object.
      */
+    void deleteAll();
 
     QNetworkAccessManager *m_manager;
     QNetworkReply *m_reply;

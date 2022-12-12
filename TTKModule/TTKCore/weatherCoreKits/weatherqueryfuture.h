@@ -1,5 +1,5 @@
-#ifndef WEATHERFUTUREITEMWIDGET_H
-#define WEATHERFUTUREITEMWIDGET_H
+#ifndef WEATHERQUERYFUTURE_H
+#define WEATHERQUERYFUTURE_H
 
 /***************************************************************************
  * This file is part of the TTK Weather project
@@ -19,59 +19,51 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include <QWidget>
-#include "ttkglobaldefine.h"
-#include "weatherobject.h"
+#include "weatherquery.h"
 
-#define COUNT 5
-
-class QButtonGroup;
-class QStackedWidget;
-class WeatherItemTableWidget;
-
-/*! @brief The class of the future item widget.
+/*! @brief The class of the weather future query.
  * @author Greedysky <greedysky@163.com>
  */
-class TTK_MODULE_EXPORT WeatherFutureItemWidget : public QWidget
+class TTK_MODULE_EXPORT WeatherQueryFuture : public WeatherQuery
 {
     Q_OBJECT
 public:
-    explicit WeatherFutureItemWidget(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */
-    ~WeatherFutureItemWidget();
+    explicit WeatherQueryFuture(QObject *parent = nullptr);
 
-    void setItemName(const QString &name);
     /*!
-     * Set table item to query differ future weather.
+     * Start to query data.
      */
-    void createItem(const WeatherObject::Weather &weather);
-    /*!
-     * Set table item by weather object.
-     */
+    virtual void startRequest(const QString &id) override final;
 
-private Q_SLOTS:
-    void buttonClicked(int index);
     /*!
-     * Future button item clicked in which.
+     * Get today weather information.
      */
+    const WeatherObject::Weather &today();
+    /*!
+     * Get future weather information by day.
+     */
+    const WeatherObject::Weather &future(int index);
+    /*!
+     * Get all future weather information.
+     */
+    const WeatherObject::WeatherList &future() const;
+
+public Q_SLOTS:
+    /*!
+     * Download data from net finished.
+     */
+    virtual void searchFinshed() override final;
+    /*!
+     * Download PM2P5 data finished.
+     */
+    void repliedPM2P5Finished(const WeatherObject::WeatherPM2P5 &pm);
 
 private:
-    void initialize();
-    /*!
-     * Init future button widget.
-     */
-    void createButton();
-    /*!
-     * Create future buttons.
-     */
-
-    QString m_itemId;
-    QStackedWidget *m_statckedWidget;
-    QButtonGroup *m_group;
-    QList<WeatherItemTableWidget*> m_itemLists;
+    WeatherObject::WeatherList m_futureList;
 
 };
 
-#endif // WEATHERFUTUREITEMWIDGET_H
+#endif // WEATHERQUERYFUTURE_H
