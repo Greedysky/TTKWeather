@@ -24,23 +24,13 @@
 
 const QString CITY_QUERY_URL   = "NW8yM1YwWUIrYytySHVON1F4NVJ1UG55UXhCOURHKzBtTjVvenBpUUVWN3lNNGtoVWtmdGdPK3VNU0k5ZXNTeDRIeE0zMmdUK1NTN3JPK2pSZDZqaEE2aU9RRi8zOTRoWVpUYmRVV2prNGZzQXVvdE1xb2JDaldLem4rRXFKckRzbERtcTl4OTVUd2lGU040UlRCdnpBPT0=";
 const QString FUTURE_QUERY_URL = "cXVteW9ic3NEenNTVVN1SkcvdUh0WkVvbXhGaFExRHdOS3JCckVDYzd3c0VwSTYxZzNaZDhnUkNGdlJBdXE5b09Yb0c4MUNEbW1LQWJTSkFuWWRRb3dnc3B1RU5ENFVWTFlpTkFPdTRjTVpCUHRnNk5XMURzTm5sZGx3K0N6VmdjM0dUc2VHWVJVaW5qQVh6blhvVFRmQ3QvQVU9";
-const QString PM2P5_QUERY_URL  = "WHF6dU85RlRDUmpTanltT3h1elZzQ2ZSU2lnK0hIeC9LYVQvMUtYcGY4Qm9Ka2llanhDNWM2bExaOHJ4NE5BZmdub0xBTUMxckVqZUtsRUZkMTRBMnlDSGFQMHBpWUxDQ1ZWSlczV1QxZXZ0cUdBMy92ZlJDdnY5eEdlRFA2M2lZQmxaZ1lvRW05OGRwMlpta0NnTzdFVVhhSlE9";
 ///Attention: the interface can be accessed only 750 times per hour
-
-#if TTK_QT_VERSION_CHECK(5,0,0)
-#   include <QJsonParseError>
-#   include <QJsonDocument>
-#   include <QJsonObject>
-#   include <QJsonArray>
-#else
-#   include <QtScript/QScriptEngine>
-#   include <QtScript/QScriptValue>
-#   include <QtScript/QScriptValueIterator>
-#endif
 
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
+
+#include "qjson/parser.h"
 
 /*! @brief The class of the weather query abstract base.
  * @author Greedysky <greedysky@163.com>

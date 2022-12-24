@@ -19,12 +19,17 @@
 INCLUDEPATH += $$PWD
 
 HEADERS += \
-    $$PWD/weatherobject.h \
-    $$PWD/weatherquery.h \
-    $$PWD/weatherquerycity.h \
-    $$PWD/weatherqueryfuture.h
+    $$PWD/parser.h \
+    $$PWD/parserrunnable.h \
+    $$PWD/qobjecthelper.h \
+    $$PWD/serializer.h \
+    $$PWD/serializerrunnable.h
 
 SOURCES += \
-    $$PWD/weatherquery.cpp \
-    $$PWD/weatherquerycity.cpp \
-    $$PWD/weatherqueryfuture.cpp
+    $$PWD/parser.cpp \
+    $$PWD/qobjecthelper.cpp \
+    $$PWD/json_scanner.cpp \
+    $$PWD/json_parser.cc \
+    $$PWD/parserrunnable.cpp \
+    $$PWD/serializer.cpp \
+    $$PWD/serializerrunnable.cpp

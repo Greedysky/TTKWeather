@@ -16,15 +16,6 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-INCLUDEPATH += $$PWD
-
-HEADERS += \
-    $$PWD/weatherobject.h \
-    $$PWD/weatherquery.h \
-    $$PWD/weatherquerycity.h \
-    $$PWD/weatherqueryfuture.h
-
-SOURCES += \
-    $$PWD/weatherquery.cpp \
-    $$PWD/weatherquerycity.cpp \
-    $$PWD/weatherqueryfuture.cpp
+TEMPLATE = subdirs
+CONFIG += ordered
+SUBDIRS += TTKExtras

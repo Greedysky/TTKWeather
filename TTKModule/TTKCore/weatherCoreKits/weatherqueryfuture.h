@@ -56,10 +56,6 @@ public Q_SLOTS:
      * Download data from net finished.
      */
     virtual void searchFinshed() override final;
-    /*!
-     * Download PM2P5 data finished.
-     */
-    void repliedPM2P5Finished(const WeatherObject::WeatherPM2P5 &pm);
 
 private:
     WeatherObject::WeatherList m_futureList;

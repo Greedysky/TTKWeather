@@ -81,18 +81,12 @@ void WeatherAddItemTableWidget::deleteCityClicked()
 
 void WeatherAddItemTableWidget::loadingIconFinished(const QStringList &icons)
 {
-    Q_ASSERT(icons.count() == 2);
     const int index = currentRow();
-    if(index < 0)
+    if(index < 0 || icons.count() < 2)
     {
         return;
     }
 
-    QString str = icons.front();
-    str = ":" + str.right(str.length() - str.lastIndexOf("/") + 2);
-    item(index, 2)->setIcon(QIcon( str ));
-
-    str = icons.back();
-    str = ":" + str.right(str.length() - str.lastIndexOf("/") + 2);
-    item(index, 4)->setIcon(QIcon( str ));
+    item(index, 2)->setIcon(QIcon(":/" + icons.front().section("/", -2)));
+    item(index, 4)->setIcon(QIcon(":/" + icons.back().section("/", -2)));
 }

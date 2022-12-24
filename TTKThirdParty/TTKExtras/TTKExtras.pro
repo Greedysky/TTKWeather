@@ -16,11 +16,7 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-QT += core gui network
-equals(QT_MAJOR_VERSION, 4){ #Qt4
-    CONFIG += gcc
-}
-
+QT += core gui
 greaterThan(QT_MAJOR_VERSION, 4){ #Qt5
     QT += widgets
     equals(QT_MAJOR_VERSION, 6){ #Qt6
@@ -28,45 +24,30 @@ greaterThan(QT_MAJOR_VERSION, 4){ #Qt5
     }
 }
 
-include($$PWD/TTKVersion.pri)
+TEMPLATE = lib
+CONFIG += plugin lib
 
-DESTDIR = $$OUT_PWD/../bin/$$TTK_VERSION
+include($$PWD/../../TTKVersion.pri)
 
-win32{
-    msvc{
-        CONFIG += c++11
-        !contains(QMAKE_TARGET.arch, x86_64){
-             #support on windows XP
-             QMAKE_LFLAGS_WINDOWS = /SUBSYSTEM:WINDOWS,5.01
-             QMAKE_LFLAGS_CONSOLE = /SUBSYSTEM:CONSOLE,5.01
-        }
-        LIBS += -L$$DESTDIR -lTTKLibrary -lTTKExtras
-    }
+DESTDIR = $$OUT_PWD/../../bin/$$TTK_VERSION
+TARGET = TTKExtras
 
-    gcc{
-        equals(QT_MAJOR_VERSION, 6){ #Qt6
-            QMAKE_CXXFLAGS += -std=c++17
-        }else{
-            QMAKE_CXXFLAGS += -std=c++11
-        }
-        QMAKE_CXXFLAGS += -Wunused-function -Wswitch
-        LIBS += -L$$DESTDIR -lTTKLibrary -lTTKExtras
-    }
-}
+DEFINES += TTK_LIBRARY
 
-unix:!mac{
+win32:msvc{
+    LIBS += -luser32
+    CONFIG += c++11
+}else{
     equals(QT_MAJOR_VERSION, 6){ #Qt6
         QMAKE_CXXFLAGS += -std=c++17
     }else{
         QMAKE_CXXFLAGS += -std=c++11
     }
-    QMAKE_CXXFLAGS += -Wunused-function -Wswitch
-    LIBS += -L$$DESTDIR -lTTKLibrary -lTTKExtras
 }
 
-DEFINES += TTK_LIBRARY
+#load extra define
+include($$PWD/../TTKThirdParty.pri)
 
-#########################################
-include($$PWD/TTKCommon/TTKCommon.pri)
-include($$PWD/TTKThirdParty/TTKThirdParty.pri)
-#########################################
+include($$PWD/qjson/QJson.pri)
+
+win32:RC_FILE = $$PWD/TTKExtras.rc

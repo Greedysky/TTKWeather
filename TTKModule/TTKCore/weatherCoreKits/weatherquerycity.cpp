@@ -31,73 +31,36 @@ void WeatherQueryCity::searchFinshed()
 {
     if(m_reply == nullptr)
     {
+        Q_EMIT resolvedSuccess();
         return;
     }
 
     if(m_reply->error() == QNetworkReply::NoError)
     {
-        QByteArray bytes = m_reply->readAll();///Get all the data obtained by request
         m_cityMap.clear();
-#if TTK_QT_VERSION_CHECK(5,0,0)
-        QJsonParseError jsonError;
-        QJsonDocument parseDoucment = QJsonDocument::fromJson(bytes, &jsonError);
-        ///Put the data into Json
-        if(jsonError.error != QJsonParseError::NoError || !parseDoucment.isObject())
-        {
-            Q_EMIT resolvedSuccess();
-            return ;
-        }
 
-        QJsonObject jsonObject = parseDoucment.object();
-        if(jsonObject.contains("success") && jsonObject.take("success").toString() == "1")
+        QJson::Parser json;
+        bool ok;
+        const QVariant &data = json.parse(m_reply->readAll(), &ok);
+        if(ok)
         {
-            jsonObject = jsonObject.take("result").toObject();
-            jsonObject = jsonObject.take("datas").toObject();
+            QVariantMap value = data.toMap();
+            if(value["success"] == "1")
+            {
+                value = value["result"].toMap();
+                value = value["datas"].toMap();
 
-            QJsonObject indata;
-            foreach(QString key, jsonObject.keys())
-            {
-                indata = jsonObject.value(key).toObject();
-                m_cityMap[indata.value("citynm").toString()] = indata.value("weaid").toString();
-            }
-        }
-        else
-        {
-            TTK_ERROR_STREAM(QString("Error: %1").arg(jsonObject.take("msg").toString()));
-            Q_EMIT resolvedSuccess();
-            return;
-        }
-#else
-        QScriptEngine engine;
-        QScriptValue sc = engine.evaluate("value=" + QString(bytes));
-        if(sc.property("success").isValid() && sc.property("success").toString() == "1")
-        {
-            if(sc.property("result").isValid())
-            {
-                sc = sc.property("result");
-                if(sc.property("datas").isValid())
+                for(const QString &key : value.keys())
                 {
-                    sc = sc.property("datas");
-                    for(int i = 1; i < 3000; ++i)
-                    {
-                        QScriptValue value = sc.property(QString::number(i));
-                        if(!value.isValid())
-                        {
-                            continue;
-                        }
-
-                        m_cityMap[value.property("citynm").toString()] = value.property("weaid").toString();
-                    }
+                    const QVariantMap &city = value[key].toMap();
+                    m_cityMap[city["citynm"].toString()] = city["weaid"].toString();
                 }
             }
         }
         else
         {
-            TTK_ERROR_STREAM(QString("Error: %1").arg(sc.property("msg").toString()));
-            Q_EMIT resolvedSuccess();
-            return;
+            TTK_ERROR_STREAM("Reply Error");
         }
-#endif
     }
 
     Q_EMIT resolvedSuccess();

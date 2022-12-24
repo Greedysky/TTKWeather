@@ -25,17 +25,6 @@
 
 namespace WeatherObject
 {
-    struct WeatherPM2P5
-    {
-        QString m_weaidP;
-        QString m_aqi;
-        QString m_aqiScope;
-        QString m_aqiLevid;
-        QString m_aqiLevnm;
-        QString m_aqiRemark;
-    };
-    TTK_DECLARE_LIST(WeatherPM2P5);
-
     struct Weather
     {
         QString m_weaid;
@@ -53,7 +42,6 @@ namespace WeatherObject
         QString m_humi_low;
         QString m_weatidX;
         QString m_weatidY;
-        WeatherPM2P5 m_pm2p5;
     };
     TTK_DECLARE_LIST(Weather);
 
