@@ -83,7 +83,7 @@ void WeatherAbstractTableWidget::setRowColor(int row, const QColor &color) const
         QTableWidgetItem *it = item(row, i);
         if(it)
         {
-            QtItemSetBackgroundColor(it, color);
+            it->setBackground(color);
         }
     }
 }
