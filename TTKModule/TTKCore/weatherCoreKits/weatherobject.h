@@ -21,8 +21,24 @@
 
 #include "ttkglobal.h"
 
-#define APP_NAME		"TTKWeather"
+//
+#define EXE_FILE_SUFFIX         "exe"
+#define COM_FILE_SUFFIX         "com"
 
+
+#define EXE_FILE                TTK_STRCAT(TTK_DOT, EXE_FILE_SUFFIX)
+#define COM_FILE                TTK_STRCAT(TTK_DOT, COM_FILE_SUFFIX)
+
+
+#define APP_NAME                "TTKWeather"
+#define APP_DOT_NAME            TTK_STRCAT(APP_NAME, TTK_DOT)
+#define APP_COME_NAME           TTK_STRCAT(APP_NAME, COM_FILE)
+#define APP_EXE_NAME            TTK_STRCAT(APP_NAME, EXE_FILE)
+
+
+/*! @brief The namespace of the application object.
+ * @author Greedysky <greedysky@163.com>
+ */
 namespace WeatherObject
 {
     struct Weather
