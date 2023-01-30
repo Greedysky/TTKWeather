@@ -20,7 +20,7 @@ WeatherAbstractTableWidget::WeatherAbstractTableWidget(QWidget *parent)
     verticalHeader()->setVisible(false);
 
     setMouseTracking(true);  //Open the capture mouse function
-    setStyleSheet(WeatherUIObject::MTableWidgetStyle01 + WeatherUIObject::MScrollBarStyle01);
+    setStyleSheet(WeatherUIObject::TableWidgetStyle01 + WeatherUIObject::ScrollBarStyle01);
     //Set the color of selected row
     setFrameShape(QFrame::NoFrame);//Set No Border
     setEditTriggers(QAbstractItemView::NoEditTriggers);//No edit
