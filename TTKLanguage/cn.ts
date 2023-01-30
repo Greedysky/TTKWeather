@@ -2,6 +2,13 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
+    <name>QJson::ParserRunnable</name>
+    <message>
+        <source>An error occurred while parsing json: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>WeatherAddItemTableWidget</name>
     <message>
         <source>Add</source>
