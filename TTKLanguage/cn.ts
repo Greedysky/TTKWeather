@@ -19,8 +19,8 @@
         <translation>删除城市</translation>
     </message>
     <message>
-        <source>Input address!</source>
-        <translation>请输入要查询的城市！</translation>
+        <source>Input address</source>
+        <translation>请输入要查询的城市</translation>
     </message>
 </context>
 <context>
