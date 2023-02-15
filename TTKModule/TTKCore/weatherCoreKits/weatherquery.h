@@ -27,8 +27,6 @@ const QString FUTURE_QUERY_URL = "cXVteW9ic3NEenNTVVN1SkcvdUh0WkVvbXhGaFExRHdOS3
 ///Attention: the interface can be accessed only 750 times per hour
 
 #include <QNetworkReply>
-#include <QNetworkRequest>
-#include <QNetworkAccessManager>
 
 #include "qjson/parser.h"
 
@@ -74,8 +72,8 @@ protected:
      */
     void deleteAll();
 
-    QNetworkAccessManager *m_manager;
     QNetworkReply *m_reply;
+    QNetworkAccessManager *m_manager;
 
 };
 
