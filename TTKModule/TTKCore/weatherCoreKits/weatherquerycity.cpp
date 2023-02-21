@@ -40,7 +40,7 @@ void WeatherQueryCity::searchFinshed()
         m_cityMap.clear();
 
         QJson::Parser json;
-        bool ok;
+        bool ok = false;
         const QVariant &data = json.parse(m_reply->readAll(), &ok);
         if(ok)
         {
