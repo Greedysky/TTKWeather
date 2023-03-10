@@ -43,7 +43,7 @@ public:
     /*!
      * Set table item by weather object.
      */
-    void createItem(const WeatherObject::Weather &weather);
+    void createItem(const TTK::Weather &weather);
 
 Q_SIGNALS:
     /*!

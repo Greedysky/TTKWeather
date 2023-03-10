@@ -14,7 +14,7 @@ void WeatherQueryFuture::startRequest(const QString &id)
         m_reply = nullptr;
     }
 
-    m_reply = m_manager->get(QNetworkRequest(WeatherUtils::Algorithm::mdII(FUTURE_QUERY_URL, false).arg(id)));
+    m_reply = m_manager->get(QNetworkRequest(TTK::Algorithm::mdII(FUTURE_QUERY_URL, false).arg(id)));
     connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()));
     QtNetworkErrorConnect(m_reply, this, replyError);
 }
@@ -48,7 +48,7 @@ void WeatherQueryFuture::searchFinshed()
 
                     value = var.toMap();
 
-                    WeatherObject::Weather weather;
+                    TTK::Weather weather;
                     weather.m_weaid = value["weaid"].toString();
                     weather.m_days = value["days"].toString();
                     weather.m_week = value["week"].toString();
@@ -77,16 +77,16 @@ void WeatherQueryFuture::searchFinshed()
     Q_EMIT resolvedSuccess();
 }
 
-const WeatherObject::Weather& WeatherQueryFuture::today()
+const TTK::Weather& WeatherQueryFuture::today()
 {
     if(m_futureList.empty())
     {
-        m_futureList.append(WeatherObject::Weather());
+        m_futureList.append(TTK::Weather());
     }
     return m_futureList.front();
 }
 
-const WeatherObject::Weather &WeatherQueryFuture::future(int index)
+const TTK::Weather &WeatherQueryFuture::future(int index)
 {
     if(index < 0 || index >= m_futureList.count())
     {
@@ -95,7 +95,7 @@ const WeatherObject::Weather &WeatherQueryFuture::future(int index)
     return m_futureList[index];
 }
 
-const WeatherObject::WeatherList& WeatherQueryFuture::future() const
+const TTK::WeatherList& WeatherQueryFuture::future() const
 {
     return m_futureList;
 }

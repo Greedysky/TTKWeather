@@ -39,7 +39,7 @@
 /*! @brief The namespace of the application object.
  * @author Greedysky <greedysky@163.com>
  */
-namespace WeatherObject
+namespace TTK
 {
     struct Weather
     {

@@ -72,7 +72,7 @@ void WeatherApplication::loadingFinished()
 void WeatherApplication::changeStack2Today()
 {
     ui->stackedWidget->setCurrentIndex(0);
-    !m_currentItemId.isEmpty() ? m_futureItem->setItemName(m_currentItemId) : m_futureItem->createItem(WeatherObject::Weather());
+    !m_currentItemId.isEmpty() ? m_futureItem->setItemName(m_currentItemId) : m_futureItem->createItem(TTK::Weather());
 }
 
 void WeatherApplication::itemCellClickedByText(const QString &name)

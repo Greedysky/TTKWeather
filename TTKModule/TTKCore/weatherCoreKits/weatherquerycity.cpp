@@ -17,7 +17,7 @@ void WeatherQueryCity::startRequest(const QString &id)
         m_reply = nullptr;
     }
 
-    m_reply = m_manager->get(QNetworkRequest(WeatherUtils::Algorithm::mdII(CITY_QUERY_URL, false)));
+    m_reply = m_manager->get(QNetworkRequest(TTK::Algorithm::mdII(CITY_QUERY_URL, false)));
     connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()));
     QtNetworkErrorConnect(m_reply, this, replyError);
 }

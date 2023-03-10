@@ -41,15 +41,15 @@ public:
     /*!
      * Get today weather information.
      */
-    const WeatherObject::Weather &today();
+    const TTK::Weather &today();
     /*!
      * Get future weather information by day.
      */
-    const WeatherObject::Weather &future(int index);
+    const TTK::Weather &future(int index);
     /*!
      * Get all future weather information.
      */
-    const WeatherObject::WeatherList &future() const;
+    const TTK::WeatherList &future() const;
 
 public Q_SLOTS:
     /*!
@@ -58,7 +58,7 @@ public Q_SLOTS:
     virtual void searchFinshed() override final;
 
 private:
-    WeatherObject::WeatherList m_futureList;
+    TTK::WeatherList m_futureList;
 
 };
 
