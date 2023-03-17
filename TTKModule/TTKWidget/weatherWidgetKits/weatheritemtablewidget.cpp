@@ -63,6 +63,6 @@ void WeatherItemTableWidget::createItem(const TTK::Weather &weather)
 void WeatherItemTableWidget::searchItemInformationDown()
 {
     const TTK::Weather &weather = m_queryFuture->future(m_indexOfItem);
-    Q_EMIT loadingIcon(QStringList() << weather.m_weatidX << weather.m_weatidY);
+    Q_EMIT loadingIcon({weather.m_weatidX, weather.m_weatidY});
     createItem(weather);
 }
