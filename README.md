@@ -1,8 +1,15 @@
 # TTKWeather
+![TTKWeather](https://img.shields.io/badge/Greedysky-TTKWeather-green.svg?style=flat-square)
+![Version](https://img.shields.io/badge/Version-2.6.0.0-blue.svg?style=flat-square)
+![License](https://img.shields.io/badge/License-GPL%20V3-yellowgreen.svg?style=flat-square)
+
+![LOGO](https://github.com/Greedysky/TTKWeather/blob/master/TTKResource/logo_banner.png?raw=true)
+
+### **|[About](https://github.com/Greedysky/TTKWeather#usage)|[License](https://github.com/Greedysky/TTKWeather#license)|[Download](https://github.com/Greedysky/TTKWeather#download)|[Features](https://github.com/Greedysky/TTKWeather#features)|[Screenshots](https://github.com/Greedysky/TTKWeather#screenshots)|[Copyright](https://github.com/Greedysky/TTKWeather#copyright)|[Contribute](https://github.com/Greedysky/TTKWeather#how-to-contribute)|**
 
 Usage
-----
-The TTKWeather forecast program, you can query the future weather conditions, based on Qt for windows and linux.
+--------
+**TTKWeather forecast program, you can query the future weather conditions, based on Qt for windows and linux.**
 
 ## CI Status
  * Qt stable version is tested on Qt4.x for windows-mingw 32bit
@@ -23,27 +30,32 @@ The TTKWeather forecast program, you can query the future weather conditions, ba
 # For Developers
 
 License
----
+--------
 TTKWeather is free software licensed under the term of [Licence GPL v3](https://github.com/Greedysky/TTKWeather/blob/master/LICENSE). If you use TTKWeather or its constituent libraries, you must adhere to the terms of the license in question.
 
+Download
+--------
+Github: **<u>https://github.com/Greedysky/TTKWeather</u>**
+
+Features
+--------
+
 Screenshots
-----
+--------
+![Demo](https://github.com/Greedysky/Resource/blob/master/Screen/TTKWeather/1.png?raw=true)
 
-![Rungholt](https://github.com/Greedysky/Resource/blob/master/Screen/TTKWeather/1.png?raw=true)
+![Demo](https://github.com/Greedysky/Resource/blob/master/Screen/TTKWeather/2.png?raw=true)
 
-![Rungholt](https://github.com/Greedysky/Resource/blob/master/Screen/TTKWeather/2.png?raw=true)
-
-![Rungholt](https://github.com/Greedysky/Resource/blob/master/Screen/TTKWeather/3.png?raw=true)
-
+![Demo](https://github.com/Greedysky/Resource/blob/master/Screen/TTKWeather/3.png?raw=true)
 
 Copyright
--------
+--------
  * This file is part of the TTK Weather project.
  * Copyright (C) 2015 - 2023 Greedysky Studio.
- * mail: greedysky@163.com.
+ * Mail: greedysky@163.com.
 
 How To Contribute
--------
+--------
  * Fork this project on github and make a branch. Commit in that branch, and push, then create a pull request to be reviewed and merged.
  * Create an issue if you have any problem when using project or you find a bug, etc.
  * What you can do: translation, write document, wiki, find or fix bugs, give your idea for this project etc.
