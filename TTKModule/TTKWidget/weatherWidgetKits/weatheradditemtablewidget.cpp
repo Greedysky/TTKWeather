@@ -6,15 +6,12 @@
 WeatherAddItemTableWidget::WeatherAddItemTableWidget(QWidget *parent)
     : WeatherAbstractTableWidget(parent)
 {
-    setColumnCount(6);
+    setColumnCount(3);
 
     QHeaderView *headerview = horizontalHeader();
-    headerview->resizeSection(0, 20);
-    headerview->resizeSection(1, 130);
-    headerview->resizeSection(2, 35);
-    headerview->resizeSection(3, 20);
-    headerview->resizeSection(4, 35);
-    headerview->resizeSection(5, 15);
+    headerview->resizeSection(0, 151);
+    headerview->resizeSection(1, 55);
+    headerview->resizeSection(2, 55);
     setIconSize(QSize(28, 20));
 }
 
@@ -36,7 +33,7 @@ void WeatherAddItemTableWidget::contextMenuEvent(QContextMenuEvent *event)
 
 void WeatherAddItemTableWidget::itemCellClicked(int row, int)
 {
-    Q_EMIT itemCellClickedByText(item(row, 1)->text());
+    Q_EMIT itemCellClickedByText(item(row, 0)->text());
 }
 
 void WeatherAddItemTableWidget::addCityClicked()
@@ -49,24 +46,17 @@ void WeatherAddItemTableWidget::addCityClicked()
         setRowHeight(index, 35);
 
         QTableWidgetItem *item = new QTableWidgetItem;
+        item->setText(text);
+        QtItemSetTextAlignment(item, Qt::AlignCenter);
         setItem(index, 0, item);
 
                           item = new QTableWidgetItem;
-        item->setText(text);
-        QtItemSetTextAlignment(item, Qt::AlignCenter);
+        item->setText("-");
         setItem(index, 1, item);
 
                           item = new QTableWidgetItem;
         item->setText("-");
         setItem(index, 2, item);
-
-        setItem(index, 3, new QTableWidgetItem);
-
-                          item = new QTableWidgetItem;
-        item->setText("-");
-        setItem(index, 4, item);
-
-        setItem(index, 5, new QTableWidgetItem);
     }
 }
 
@@ -87,6 +77,9 @@ void WeatherAddItemTableWidget::loadingIconFinished(const QStringList &icons)
         return;
     }
 
-    item(index, 2)->setIcon(QIcon(":/" + icons.front().section("/", -2)));
-    item(index, 4)->setIcon(QIcon(":/" + icons.back().section("/", -2)));
+    item(index, 1)->setText(QString());
+    item(index, 1)->setIcon(QIcon(":/" + icons.front().section("/", -2)));
+
+    item(index, 2)->setText(QString());
+    item(index, 2)->setIcon(QIcon(":/" + icons.back().section("/", -2)));
 }

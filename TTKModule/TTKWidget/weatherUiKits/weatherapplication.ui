@@ -14,7 +14,7 @@
    <string>WeatherApplication</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../TTKQrc/TTKWeather.qrc">
+   <iconset resource="../../../TTKUi/TTKWeather.qrc">
     <normaloff>:/image/lb_app_icon</normaloff>:/image/lb_app_icon</iconset>
   </property>
   <property name="styleSheet">
@@ -106,7 +106,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../../TTKQrc/TTKWeather.qrc"/>
+  <include location="../../../TTKUi/TTKWeather.qrc"/>
  </resources>
  <connections/>
 </ui>
