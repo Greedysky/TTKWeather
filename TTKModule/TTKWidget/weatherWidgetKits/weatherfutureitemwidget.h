@@ -20,7 +20,7 @@
  ***************************************************************************/
 
 #include <QWidget>
-#include "ttkglobaldefine.h"
+#include "ttkmoduleexport.h"
 #include "weatherobject.h"
 
 #define COUNT 5

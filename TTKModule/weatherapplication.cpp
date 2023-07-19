@@ -9,9 +9,9 @@
 
 #include <QPainter>
 
-WeatherApplication::WeatherApplication(QWidget *parent) :
-    WeatherAbstractMoveWidget(parent),
-    ui(new Ui::WeatherApplication)
+WeatherApplication::WeatherApplication(QWidget *parent)
+    : WeatherAbstractMoveWidget(parent),
+      ui(new Ui::WeatherApplication)
 {
     ui->setupUi(this);
 

@@ -1,3 +1,4 @@
+#include "ttkrunapplication.h"
 #include "weatherapplication.h"
 #include "weatherobject.h"
 #include "ttkdumper.h"
@@ -6,7 +7,6 @@
 #include <QScreen>
 #include <QTextCodec>
 #include <QTranslator>
-#include <QApplication>
 
 #ifdef Q_OS_UNIX
 #  include <malloc.h>
@@ -42,7 +42,17 @@ int main(int argc, char *argv[])
 {
     loadAppScaledFactor(argc, argv);
 
-    QApplication app(argc, argv);
+    TTKRunApplication app(argc, argv);
+
+    QCoreApplication::setOrganizationName(APP_NAME);
+    QCoreApplication::setOrganizationDomain(APP_COME_NAME);
+    QCoreApplication::setApplicationName(APP_NAME);
+
+    if(app.isRunning())
+    {
+        TTK_INFO_STREAM("One app has already run");
+        return -1;
+    }
 
     QTextCodec *codec = QTextCodec::codecForName("UTF-8");
     QTextCodec::setCodecForLocale(codec);

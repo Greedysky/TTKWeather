@@ -19,6 +19,7 @@
 TEMPLATE = app
 
 include($$PWD/../../TTKWeather.pri)
+include($$PWD/../../TTKCommon/TTKApplication/TTKApplication.pri)
 
 DESTDIR = $$OUT_PWD/../../bin/$$TTK_VERSION
 TARGET = TTKWeather

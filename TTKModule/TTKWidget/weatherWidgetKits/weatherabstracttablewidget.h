@@ -21,7 +21,7 @@
 
 #include <QHeaderView>
 #include <QTableWidget>
-#include "ttkglobaldefine.h"
+#include "ttkmoduleexport.h"
 #include "weatherobject.h"
 #include "weatheruiobject.h"
 

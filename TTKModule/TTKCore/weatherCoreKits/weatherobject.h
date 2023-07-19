@@ -19,29 +19,7 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include "ttkglobal.h"
-
-//
-#define EXE_FILE_SUFFIX         "exe"
-#define COM_FILE_SUFFIX         "com"
-
-
-#define EXE_FILE                TTK_STRCAT(TTK_DOT, EXE_FILE_SUFFIX)
-#define COM_FILE                TTK_STRCAT(TTK_DOT, COM_FILE_SUFFIX)
-
-
-#define SERVICE_NAME            "TTKService"
-#define APP_NAME                "TTKWeather"
-#define APP_DOT_NAME            TTK_STRCAT(APP_NAME, TTK_DOT)
-#define APP_COME_NAME           TTK_STRCAT(APP_NAME, COM_FILE)
-#ifdef Q_OS_WIN
-#  define APP_EXE_NAME          TTK_STRCAT(APP_NAME, EXE_FILE)
-#  define SERVICE_EXE_NAME      TTK_STRCAT(SERVICE_NAME, EXE_FILE)
-#else
-#  define APP_EXE_NAME          APP_NAME
-#  define SERVICE_EXE_NAME      SERVICE_NAME
-#endif
-
+#include "ttkqtglobal.h"
 
 /*! @brief The namespace of the application object.
  * @author Greedysky <greedysky@163.com>
