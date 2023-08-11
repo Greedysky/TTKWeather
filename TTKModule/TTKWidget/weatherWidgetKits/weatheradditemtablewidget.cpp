@@ -38,7 +38,7 @@ void WeatherAddItemTableWidget::itemCellClicked(int row, int)
 
 void WeatherAddItemTableWidget::addCityClicked()
 {
-    const QString &text = QInputDialog::getText(nullptr, APP_NAME, tr("Input address"));
+    const QString &text = QInputDialog::getText(nullptr, TTK_APP_NAME, tr("Input address"));
     if(!text.isEmpty())
     {
         int index = rowCount();
