@@ -14,12 +14,15 @@ void WeatherQueryFuture::startRequest(const QString &id)
         m_reply = nullptr;
     }
 
-    m_reply = m_manager->get(QNetworkRequest(TTK::Algorithm::mdII(FUTURE_QUERY_URL, false).arg(id)));
-    connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()));
+    QNetworkRequest request(TTK::Algorithm::mdII(FUTURE_QUERY_URL, false).arg(id));
+    TTK::makeUserAgentHeader(&request);
+
+    m_reply = m_manager.get(request);
+    connect(m_reply, SIGNAL(finished()), SLOT(downLoadFinished()));
     QtNetworkErrorConnect(m_reply, this, replyError);
 }
 
-void WeatherQueryFuture::searchFinshed()
+void WeatherQueryFuture::downLoadFinished()
 {
     if(m_reply == nullptr)
     {
@@ -74,7 +77,7 @@ void WeatherQueryFuture::searchFinshed()
         }
     }
 
-    Q_EMIT resolvedSuccess();
+    Q_EMIT downLoadDataChanged({});
 }
 
 const TTK::Weather& WeatherQueryFuture::today()

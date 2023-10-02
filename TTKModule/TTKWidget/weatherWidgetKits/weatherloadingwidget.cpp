@@ -7,7 +7,7 @@ WeatherLoadingWidget::WeatherLoadingWidget(QWidget *parent)
     setStyleSheet("background-image:url(':/image/loading')");
 
     m_queryCity = new WeatherQueryCity(this);
-    connect(m_queryCity, SIGNAL(resolvedSuccess()), parent, SLOT(loadingFinished()));
+    connect(m_queryCity, SIGNAL(downLoadDataChanged(QString)), parent, SLOT(loadingFinished()));
     m_queryCity->startRequest(QString());
 }
 

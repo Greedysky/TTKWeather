@@ -17,8 +17,11 @@ void WeatherQueryCity::startRequest(const QString &id)
         m_reply = nullptr;
     }
 
-    m_reply = m_manager->get(QNetworkRequest(TTK::Algorithm::mdII(CITY_QUERY_URL, false)));
-    connect(m_reply, SIGNAL(finished()), SLOT(searchFinshed()));
+    QNetworkRequest request(TTK::Algorithm::mdII(CITY_QUERY_URL, false));
+    TTK::makeUserAgentHeader(&request);
+
+    m_reply = m_manager.get(request);
+    connect(m_reply, SIGNAL(finished()), SLOT(downLoadFinished()));
     QtNetworkErrorConnect(m_reply, this, replyError);
 }
 
@@ -27,11 +30,11 @@ QString WeatherQueryCity::cityCode(const QString &name) const
     return m_cityMap[name].toString();
 }
 
-void WeatherQueryCity::searchFinshed()
+void WeatherQueryCity::downLoadFinished()
 {
     if(m_reply == nullptr)
     {
-        Q_EMIT resolvedSuccess();
+        Q_EMIT downLoadDataChanged({});
         return;
     }
 
@@ -63,5 +66,5 @@ void WeatherQueryCity::searchFinshed()
         }
     }
 
-    Q_EMIT resolvedSuccess();
+    Q_EMIT downLoadDataChanged({});
 }

@@ -55,7 +55,7 @@ public Q_SLOTS:
     /*!
      * Download data from net finished.
      */
-    virtual void searchFinshed() override final;
+    virtual void downLoadFinished() override final;
 
 private:
     TTK::WeatherList m_futureList;
