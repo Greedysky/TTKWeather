@@ -65,7 +65,7 @@ void WeatherAddItemTableWidget::deleteCityClicked()
     if(currentRow() > -1)
     {
         removeRow(currentRow());
-        Q_EMIT itemCellClickedByText(QString());
+        Q_EMIT itemCellClickedByText({});
     }
 }
 
@@ -77,9 +77,9 @@ void WeatherAddItemTableWidget::loadingIconFinished(const QStringList &icons)
         return;
     }
 
-    item(index, 1)->setText(QString());
+    item(index, 1)->setText({});
     item(index, 1)->setIcon(QIcon(":/" + icons.front().section("/", -2)));
 
-    item(index, 2)->setText(QString());
+    item(index, 2)->setText({});
     item(index, 2)->setIcon(QIcon(":/" + icons.back().section("/", -2)));
 }
