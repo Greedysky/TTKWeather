@@ -18,6 +18,8 @@
 
 INCLUDEPATH += $$PWD
 
+HEADERS += $$PWD/weatheruiobject.h
+
 FORMS += \
     $$PWD/weatherapplication.ui \
     $$PWD/weathermessagebox.ui

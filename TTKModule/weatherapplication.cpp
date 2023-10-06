@@ -36,20 +36,20 @@ void WeatherApplication::initialize()
 
     QPixmap minPix  = style()->standardPixmap(QStyle::SP_TitleBarMinButton);
     ui->minimization->setIcon(QIcon(minPix.scaled(25, 25)));
-    ui->minimization->setStyleSheet(WeatherUIObject::ToolButtonStyle01);
+    ui->minimization->setStyleSheet(TTK::UI::ToolButtonStyle01);
     ui->minimization->setCursor(QCursor(Qt::PointingHandCursor));
     ui->minimization->setToolTip(tr("Minimization"));
     connect(ui->minimization, SIGNAL(clicked()), SLOT(showMinimized()));
 
     ui->windowClose->setToolTip(tr("Close"));
     ui->windowClose->setCursor(QCursor(Qt::PointingHandCursor));
-    ui->windowClose->setStyleSheet(WeatherUIObject::ToolButtonStyle01);
+    ui->windowClose->setStyleSheet(TTK::UI::ToolButtonStyle01);
     ui->windowClose->setIcon(QIcon(QPixmap(QString::fromUtf8(":/image/close")).scaled(25,25)));
     connect(ui->windowClose, SIGNAL(clicked()), SLOT(close()));
 
     ui->windowAbout->setToolTip(tr("About"));
     ui->windowAbout->setCursor(QCursor(Qt::PointingHandCursor));
-    ui->windowAbout->setStyleSheet(WeatherUIObject::ToolButtonStyle01);
+    ui->windowAbout->setStyleSheet(TTK::UI::ToolButtonStyle01);
     ui->windowAbout->setIcon(QIcon(QPixmap(QString::fromUtf8(":/image/about")).scaled(25,25)));
     connect(ui->windowAbout, SIGNAL(clicked()), SLOT(aboutApplication()));
 

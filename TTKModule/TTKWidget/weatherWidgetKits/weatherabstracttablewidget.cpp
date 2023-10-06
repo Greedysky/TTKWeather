@@ -3,7 +3,7 @@
 WeatherAbstractTableWidget::WeatherAbstractTableWidget(QWidget *parent)
     : TTKAbstractTableWidget(parent)
 {
-    setStyleSheet(WeatherUIObject::TableWidgetStyle01 + WeatherUIObject::ScrollBarStyle01);
+    setStyleSheet(TTK::UI::TableWidgetStyle01 + TTK::UI::ScrollBarStyle01);
 
     QPalette plt = palette();
     plt.setBrush(QPalette::Base, QBrush(QColor(255, 255, 255, 150)));

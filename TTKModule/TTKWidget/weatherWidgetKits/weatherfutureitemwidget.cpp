@@ -39,7 +39,7 @@ void WeatherFutureItemWidget::createButton()
         button->setText(tr("Button%1").arg(i + 1));
         button->setToolTip(tr("Button%1").arg(i + 1));
         button->setFixedSize(65, 30);
-        button->setStyleSheet(WeatherUIObject::PushButtonStyle01);
+        button->setStyleSheet(TTK::UI::PushButtonStyle01);
         m_group->addButton(button, i);
     }
     QtButtonGroupConnect(m_group, this, buttonClicked);

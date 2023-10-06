@@ -25,7 +25,7 @@ void WeatherAddItemTableWidget::contextMenuEvent(QContextMenuEvent *event)
     WeatherAbstractTableWidget::contextMenuEvent(event);
 
     QMenu menu(this);
-    menu.setStyleSheet(WeatherUIObject::MenuStyle01);
+    menu.setStyleSheet(TTK::UI::MenuStyle01);
     menu.addAction(tr("Add"), this, SLOT(addCityClicked()));
     menu.addAction(tr("Delete"), this, SLOT(deleteCityClicked()));
     menu.exec(QCursor::pos());

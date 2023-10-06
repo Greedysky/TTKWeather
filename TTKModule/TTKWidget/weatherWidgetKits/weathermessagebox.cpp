@@ -15,12 +15,12 @@ WeatherMessageBox::WeatherMessageBox(QWidget *parent)
     ui->background->setPixmap(pix.scaled(size()));
     
     ui->topTitleCloseButton->setIcon(QIcon(":/image/close"));
-    ui->topTitleCloseButton->setStyleSheet(WeatherUIObject::ToolButtonStyle01);
+    ui->topTitleCloseButton->setStyleSheet(TTK::UI::ToolButtonStyle01);
     ui->topTitleCloseButton->setCursor(QCursor(Qt::PointingHandCursor));
     ui->topTitleCloseButton->setToolTip(tr("Close"));
 
-    ui->confirmButton->setStyleSheet(WeatherUIObject::PushButtonStyle01);
-    ui->cancelButton->setStyleSheet(WeatherUIObject::PushButtonStyle01);
+    ui->confirmButton->setStyleSheet(TTK::UI::PushButtonStyle01);
+    ui->cancelButton->setStyleSheet(TTK::UI::PushButtonStyle01);
     ui->confirmButton->setCursor(QCursor(Qt::PointingHandCursor));
     ui->cancelButton->setCursor(QCursor(Qt::PointingHandCursor));
 
