@@ -33,9 +33,12 @@ class TTK_MODULE_EXPORT WeatherMessageBox : public WeatherAbstractMoveDialog
     Q_OBJECT
 public:
     /*!
-     * Object contsructor.
+     * Object constructor.
      */
     explicit WeatherMessageBox(QWidget *parent = nullptr);
+    /*!
+     * Object destructor.
+     */
     ~WeatherMessageBox();
 
     /*!

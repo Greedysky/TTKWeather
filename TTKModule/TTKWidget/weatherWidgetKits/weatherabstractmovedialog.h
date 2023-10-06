@@ -29,7 +29,7 @@ class TTK_MODULE_EXPORT WeatherAbstractMoveDialog : public TTKAbstractMoveDialog
     Q_OBJECT
 public:
     /*!
-     * Object contsructor.
+     * Object constructor.
      */
     explicit WeatherAbstractMoveDialog(QWidget *parent = nullptr);
 
