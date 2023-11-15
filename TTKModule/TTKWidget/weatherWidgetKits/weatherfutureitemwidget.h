@@ -23,11 +23,11 @@
 #include "ttkmoduleexport.h"
 #include "weatherobject.h"
 
-#define COUNT 5
-
 class QButtonGroup;
 class QStackedWidget;
 class WeatherItemTableWidget;
+
+static constexpr int COUNT = 5;
 
 /*! @brief The class of the future item widget.
  * @author Greedysky <greedysky@163.com>

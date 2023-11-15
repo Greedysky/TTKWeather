@@ -3,7 +3,7 @@
 
 #include <QCryptographicHash>
 
-#define URL_KEY "13;dg18dgsd"
+static constexpr const char *URL_KEY = "13;dg18dgsd";
 
 QByteArray TTK::Algorithm::sha1(const QByteArray &data)
 {
