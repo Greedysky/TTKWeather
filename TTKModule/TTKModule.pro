@@ -31,5 +31,5 @@ HEADERS += $$PWD/weatherapplication.h
 SOURCES += $$PWD/weatherapplication.cpp
 
 RESOURCES += $$PWD/../TTKUi/TTKWeather.qrc
-    
+
 win32:RC_FILE = $$PWD/TTKCore.rc
