@@ -42,7 +42,7 @@ void WeatherFutureItemWidget::createButton()
         button->setStyleSheet(TTK::UI::PushButtonStyle01);
         m_group->addButton(button, i);
     }
-    QtButtonGroupConnect(m_group, this, buttonClicked);
+    QtButtonGroupConnect(m_group, this, buttonClicked, TTK_SLOT);
 }
 
 void WeatherFutureItemWidget::initialize()
