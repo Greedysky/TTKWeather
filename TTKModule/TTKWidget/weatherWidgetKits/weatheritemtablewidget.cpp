@@ -29,7 +29,7 @@ void WeatherItemTableWidget::setItemName(const QString &name, int index)
         m_queryFuture = new WeatherQueryFuture(this);
         connect(m_queryFuture, SIGNAL(downLoadDataChanged(QString)), SLOT(searchItemInformationDown()));
     }
-    m_queryFuture->startRequest(name);
+    m_queryFuture->startToRequest(name);
 }
 
 void WeatherItemTableWidget::createItem(const TTK::Weather &weather)

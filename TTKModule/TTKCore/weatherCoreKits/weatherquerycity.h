@@ -36,7 +36,7 @@ public:
     /*!
      * Start to query data.
      */
-    virtual void startRequest(const QString &id) override final;
+    virtual void startToRequest(const QString &id) override final;
 
     /*!
      * Get city code by name.

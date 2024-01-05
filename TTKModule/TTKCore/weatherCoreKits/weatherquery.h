@@ -45,7 +45,7 @@ public:
      * Start to query data.
      * Subclass should implement this function.
      */
-    virtual void startRequest(const QString &id) = 0;
+    virtual void startToRequest(const QString &id) = 0;
 
 };
 

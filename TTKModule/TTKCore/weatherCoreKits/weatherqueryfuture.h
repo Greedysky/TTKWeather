@@ -36,20 +36,20 @@ public:
     /*!
      * Start to query data.
      */
-    virtual void startRequest(const QString &id) override final;
+    virtual void startToRequest(const QString &id) override final;
 
     /*!
      * Get today weather information.
      */
-    const TTK::Weather &today();
+    const TTK::Weather& today();
     /*!
      * Get future weather information by day.
      */
-    const TTK::Weather &future(int index);
+    const TTK::Weather& future(int index);
     /*!
      * Get all future weather information.
      */
-    const TTK::WeatherList &future() const;
+    const TTK::WeatherList& future() const;
 
 public Q_SLOTS:
     /*!

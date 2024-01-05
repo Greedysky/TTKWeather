@@ -8,7 +8,7 @@ WeatherQueryCity::WeatherQueryCity(QObject *parent)
 
 }
 
-void WeatherQueryCity::startRequest(const QString &id)
+void WeatherQueryCity::startToRequest(const QString &id)
 {
     Q_UNUSED(id);
     if(m_reply)

@@ -6,7 +6,7 @@ WeatherQueryFuture::WeatherQueryFuture(QObject *parent)
 
 }
 
-void WeatherQueryFuture::startRequest(const QString &id)
+void WeatherQueryFuture::startToRequest(const QString &id)
 {
     if(m_reply)
     {
@@ -89,7 +89,7 @@ const TTK::Weather& WeatherQueryFuture::today()
     return m_futureList.front();
 }
 
-const TTK::Weather &WeatherQueryFuture::future(int index)
+const TTK::Weather& WeatherQueryFuture::future(int index)
 {
     if(index < 0 || index >= m_futureList.count())
     {
