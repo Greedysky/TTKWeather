@@ -8,10 +8,10 @@ WeatherAddItemTableWidget::WeatherAddItemTableWidget(QWidget *parent)
 {
     setColumnCount(3);
 
-    QHeaderView *headerview = horizontalHeader();
-    headerview->resizeSection(0, 151);
-    headerview->resizeSection(1, 55);
-    headerview->resizeSection(2, 55);
+    QHeaderView *headerView = horizontalHeader();
+    headerView->resizeSection(0, 151);
+    headerView->resizeSection(1, 55);
+    headerView->resizeSection(2, 55);
     setIconSize(QSize(28, 20));
 }
 

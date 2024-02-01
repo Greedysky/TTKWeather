@@ -9,9 +9,9 @@ WeatherItemTableWidget::WeatherItemTableWidget(QWidget *parent)
 {
     setColumnCount(2);
 
-    QHeaderView *headerview = horizontalHeader();
-    headerview->resizeSection(0, 120);
-    headerview->resizeSection(1, 195);
+    QHeaderView *headerView = horizontalHeader();
+    headerView->resizeSection(0, 120);
+    headerView->resizeSection(1, 195);
 
     connect(this, SIGNAL(loadingIcon(QStringList)), parent, SLOT(loadingIconFinished(QStringList)));
 }
