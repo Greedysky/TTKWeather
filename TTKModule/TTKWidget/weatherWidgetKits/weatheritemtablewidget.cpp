@@ -11,7 +11,7 @@ WeatherItemTableWidget::WeatherItemTableWidget(QWidget *parent)
 
     QHeaderView *headerView = horizontalHeader();
     headerView->resizeSection(0, 120);
-    headerView->resizeSection(1, 195);
+    headerView->resizeSection(1, 200);
 
     connect(this, SIGNAL(loadingIcon(QStringList)), parent, SLOT(loadingIconFinished(QStringList)));
 }
