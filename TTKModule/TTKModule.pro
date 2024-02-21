@@ -32,4 +32,4 @@ SOURCES += $$PWD/weatherapplication.cpp
 
 RESOURCES += $$PWD/../TTKUi/TTKWeather.qrc
 
-win32:RC_FILE = $$PWD/TTKCore.rc
+win32:RC_FILE = $$PWD/$${TARGET}.rc
