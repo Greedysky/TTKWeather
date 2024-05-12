@@ -71,4 +71,4 @@ namespace TTK
     }
 }
 
-#endif //  WEATHERUIOBJECT_H
+#endif // WEATHERUIOBJECT_H

@@ -49,4 +49,4 @@ namespace TTK
 
 }
 
-#endif //  WEATHEROBJECT_H
+#endif // WEATHEROBJECT_H
