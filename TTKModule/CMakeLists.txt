@@ -69,7 +69,7 @@ if(TTK_QT_VERSION VERSION_EQUAL "4")
     add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES} ${UIC_FILES} ${MOC_FILES} ${HEADER_FILES})
   endif()
 
-  list(APPEND QT4_LIBS ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTNETWORK_LIBRARY} TTKLibrary TTKUi TTKExtras)
+  list(APPEND QT4_LIBS ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTNETWORK_LIBRARY} TTKLibrary TTKExtras)
   
   if(${OPENSSL_DIR})
     if(WIN32)
@@ -90,7 +90,7 @@ elseif(TTK_QT_VERSION VERSION_EQUAL "5")
     add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES} ${UIC_FILES} ${MOC_FILES} ${HEADER_FILES})
   endif()
 
-  list(APPEND QT5_LIBS Qt5::Core Qt5::Network Qt5::Gui Qt5::Widgets TTKLibrary TTKUi TTKExtras)
+  list(APPEND QT5_LIBS Qt5::Core Qt5::Network Qt5::Gui Qt5::Widgets TTKLibrary TTKExtras)
 
   if(${OPENSSL_DIR})
     if(WIN32)

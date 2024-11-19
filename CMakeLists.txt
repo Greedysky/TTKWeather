@@ -188,7 +188,6 @@ endif()
 
 
 add_subdirectory(TTKCommon)
-add_subdirectory(TTKUi)
 add_subdirectory(TTKThirdParty)
 add_subdirectory(TTKModule)
 add_subdirectory(TTKRun)
