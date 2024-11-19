@@ -19,21 +19,11 @@
 INCLUDEPATH += $$PWD
 
 HEADERS += \
-    $$PWD/weatherabstractmovedialog.h \
-    $$PWD/weatherabstractmovewidget.h \
     $$PWD/weatheritemtablewidget.h \
     $$PWD/weatherfutureitemwidget.h \
-    $$PWD/weatheradditemtablewidget.h \
-    $$PWD/weatherabstracttablewidget.h \
-    $$PWD/weatherloadingwidget.h \
-    $$PWD/weathermessagebox.h
+    $$PWD/weatheradditemtablewidget.h
 
 SOURCES += \
-    $$PWD/weatherabstractmovedialog.cpp \
-    $$PWD/weatherabstractmovewidget.cpp \
     $$PWD/weatheritemtablewidget.cpp \
     $$PWD/weatherfutureitemwidget.cpp \
-    $$PWD/weatheradditemtablewidget.cpp \
-    $$PWD/weatherabstracttablewidget.cpp \
-    $$PWD/weatherloadingwidget.cpp \
-    $$PWD/weathermessagebox.cpp
+    $$PWD/weatheradditemtablewidget.cpp

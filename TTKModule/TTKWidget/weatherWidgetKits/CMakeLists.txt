@@ -16,6 +16,16 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-include($$PWD/weatherCoreKits/WeatherCoreKits.pri)
-include($$PWD/weatherUiKits/WeatherUiKits.pri)
-include($$PWD/weatherWidgetKits/WeatherWidgetKits.pri)
+cmake_minimum_required(VERSION 3.0.0)
+
+set_property(GLOBAL PROPERTY TTK_WIDGET_KITS_HEADERS
+  ${TTK_WIDGET_DIR}/weatheradditemtablewidget.h
+  ${TTK_WIDGET_DIR}/weatherfutureitemwidget.h
+  ${TTK_WIDGET_DIR}/weatheritemtablewidget.h
+)
+
+set_property(GLOBAL PROPERTY TTK_WIDGET_KITS_SOURCES
+  ${TTK_WIDGET_DIR}/weatheradditemtablewidget.cpp
+  ${TTK_WIDGET_DIR}/weatherfutureitemwidget.cpp
+  ${TTK_WIDGET_DIR}/weatheritemtablewidget.cpp
+)

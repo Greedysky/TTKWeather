@@ -23,6 +23,7 @@ WeatherApplication::WeatherApplication(QWidget *parent)
 
 WeatherApplication::~WeatherApplication()
 {
+    Q_CLEANUP_RESOURCE(TTKWeather);
     delete m_loadingWidget;
     delete m_futureItem;
     delete ui;

@@ -16,6 +16,20 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-include($$PWD/weatherCoreKits/WeatherCoreKits.pri)
-include($$PWD/weatherUiKits/WeatherUiKits.pri)
-include($$PWD/weatherWidgetKits/WeatherWidgetKits.pri)
+cmake_minimum_required(VERSION 3.0.0)
+
+set_property(GLOBAL PROPERTY TTK_WIDGET_CORE_KITS_HEADERS
+  ${TTK_WIDGET_CORE_DIR}/weatherabstractmovedialog.h
+  ${TTK_WIDGET_CORE_DIR}/weatherabstractmovewidget.h
+  ${TTK_WIDGET_CORE_DIR}/weatherabstracttablewidget.h
+  ${TTK_WIDGET_CORE_DIR}/weatherloadingwidget.h
+  ${TTK_WIDGET_CORE_DIR}/weathermessagebox.h
+)
+
+set_property(GLOBAL PROPERTY TTK_WIDGET_CORE_KITS_SOURCES
+  ${TTK_WIDGET_CORE_DIR}/weatherabstractmovedialog.cpp
+  ${TTK_WIDGET_CORE_DIR}/weatherabstractmovewidget.cpp
+  ${TTK_WIDGET_CORE_DIR}/weatherabstracttablewidget.cpp
+  ${TTK_WIDGET_CORE_DIR}/weatherloadingwidget.cpp
+  ${TTK_WIDGET_CORE_DIR}/weathermessagebox.cpp
+)

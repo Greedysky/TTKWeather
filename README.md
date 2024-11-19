@@ -1,4 +1,6 @@
 # TTKWeather
+[简体中文 Chinese](./README_cn.md) | [繁体中文 Chinese](./README_tc.md)
+
 ![TTKWeather](https://img.shields.io/badge/Greedysky-TTKWeather-green.svg?style=flat-square)
 ![Version](https://img.shields.io/github/v/release/Greedysky/TTKWeather?style=flat-square&label=Version)
 ![License](https://img.shields.io/badge/License-GPL%20V3-yellowgreen.svg?style=flat-square)
@@ -11,6 +13,8 @@
 Usage
 --------
 **TTKWeather forecast program, you can query the future weather conditions, based on Qt for windows and linux.**
+
+### Attention: This software is only for learning and communication.
 
 ## CI Status
  * Qt stable version is tested on Qt4.x for windows-mingw 32bit

@@ -16,27 +16,13 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-TEMPLATE = app
+cmake_minimum_required(VERSION 3.0.0)
 
-include($$PWD/../../TTKWeather.pri)
-include($$PWD/../../TTKCommon/TTKApplication/TTKApplication.pri)
+set_property(GLOBAL PROPERTY TTK_WIDGET_UI_KITS_HEADERS
+  ${TTK_WIDGET_UI_DIR}/weatheruiobject.h
+)
 
-DESTDIR = $$OUT_PWD/../../bin/$$TTK_VERSION
-TARGET = TTKWeather
-
-LIBS += -L$$DESTDIR -lTTKCore
-
-INCLUDEPATH += \
-    $$PWD/../../TTKModule \
-    $$PWD/../../TTKModule/TTKCore/weatherCoreKits \
-    $$PWD/../../TTKModule/TTKWidget/weatherCoreKits
-
-win32:msvc{
-HEADERS += \
-    $$PWD/../../TTKModule/weatherapplication.h \
-    $$PWD/../../TTKModule/TTKWidget/weatherCoreKits\weatherabstractmovewidget.h
-}
-
-SOURCES += $$PWD/ttkrunmain.cpp
-
-win32:RC_FILE = $$PWD/TTKApp.rc
+set_property(GLOBAL PROPERTY TTK_UIS
+  ${TTK_WIDGET_UI_DIR}/weatherapplication.ui
+  ${TTK_WIDGET_UI_DIR}/weathermessagebox.ui
+)

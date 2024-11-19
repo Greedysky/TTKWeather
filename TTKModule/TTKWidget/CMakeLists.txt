@@ -16,6 +16,8 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-include($$PWD/weatherCoreKits/WeatherCoreKits.pri)
-include($$PWD/weatherUiKits/WeatherUiKits.pri)
-include($$PWD/weatherWidgetKits/WeatherWidgetKits.pri)
+cmake_minimum_required(VERSION 3.0.0)
+
+add_subdirectory(weatherCoreKits)
+add_subdirectory(weatherUiKits)
+add_subdirectory(weatherWidgetKits)

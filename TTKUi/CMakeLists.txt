@@ -16,27 +16,40 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-TEMPLATE = app
+cmake_minimum_required(VERSION 3.0.0)
 
-include($$PWD/../../TTKWeather.pri)
-include($$PWD/../../TTKCommon/TTKApplication/TTKApplication.pri)
+project(TTKUi)
 
-DESTDIR = $$OUT_PWD/../../bin/$$TTK_VERSION
-TARGET = TTKWeather
+SET(QRC_FILES
+  ${TTK_UI_DIR}/TTKWeather.qrc
+)
 
-LIBS += -L$$DESTDIR -lTTKCore
+if(TTK_QT_VERSION VERSION_EQUAL "4")
+  qt4_add_resources(RCC_FILES ${QRC_FILES})
 
-INCLUDEPATH += \
-    $$PWD/../../TTKModule \
-    $$PWD/../../TTKModule/TTKCore/weatherCoreKits \
-    $$PWD/../../TTKModule/TTKWidget/weatherCoreKits
+  if(WIN32)
+    list(APPEND RCC_FILES TTKUi.rc)
+  endif()
 
-win32:msvc{
-HEADERS += \
-    $$PWD/../../TTKModule/weatherapplication.h \
-    $$PWD/../../TTKModule/TTKWidget/weatherCoreKits\weatherabstractmovewidget.h
-}
+  if(TTK_BUILD_SHARED)
+    add_library(${PROJECT_NAME} SHARED ${RCC_FILES})
+  else()
+    add_library(${PROJECT_NAME} STATIC ${RCC_FILES})
+  endif()
 
-SOURCES += $$PWD/ttkrunmain.cpp
+  target_link_libraries(${PROJECT_NAME} ${QT_QTCORE_LIBRARY})
+elseif(TTK_QT_VERSION VERSION_EQUAL "5")
+  qt5_add_resources(RCC_FILES ${QRC_FILES})
 
-win32:RC_FILE = $$PWD/TTKApp.rc
+  if(WIN32)
+    list(APPEND RCC_FILES TTKUi.rc)
+  endif()
+
+  if(TTK_BUILD_SHARED)
+    add_library(${PROJECT_NAME} SHARED ${RCC_FILES})
+  else()
+    add_library(${PROJECT_NAME} STATIC ${RCC_FILES})
+  endif()
+
+  target_link_libraries(${PROJECT_NAME} Qt5::Core)
+endif()
