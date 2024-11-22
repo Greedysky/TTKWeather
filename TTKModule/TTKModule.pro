@@ -23,7 +23,6 @@ include($$PWD/../TTKWeather.pri)
 include($$PWD/TTKCore/TTKCore.pri)
 include($$PWD/TTKWidget/TTKWidget.pri)
 
-DESTDIR = $$OUT_PWD/../bin/$$TTK_VERSION
 TARGET = TTKCore
 
 HEADERS += $$PWD/weatherapplication.h

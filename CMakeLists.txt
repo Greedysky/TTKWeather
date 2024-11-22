@@ -211,6 +211,10 @@ else()
   install(DIRECTORY "${TTK_UTILS_DIR}/deploy" DESTINATION "${TTK_INSTALL_DIR}")
   install(FILES "${TTK_UTILS_DIR}/deploy/share/appdata/ttkweather.appdata.xml" DESTINATION "${TTK_INSTALL_DIR}/share/metainfo")
 endif()
+# copy run resource
+if(UNIX)
+  install(CODE "execute_process(COMMAND \"${TTK_UTILS_DIR}/resource.sh\" \"${TTK_RESOURCE_DIR}\" \"${TTK_INSTALL_BIN_DIR}\")")
+endif()
 # update and release translations
 if(WIN32)
   install(CODE "execute_process(COMMAND \"${TTK_UTILS_DIR}/ts_win.bat\" \"${QT_LRELEASE_EXECUTABLE}\" \"${TTK_INSTALL_BIN_DIR}\" \"${TTK_BASE_DIR}\")")
