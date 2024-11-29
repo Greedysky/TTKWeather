@@ -18,14 +18,14 @@
 
 cmake_minimum_required(VERSION 3.0.0)
 
-set_property(GLOBAL PROPERTY TTK_CORE_KITS_HEADERS
+set_property(GLOBAL PROPERTY TTK_CORE_KITS_HEADER_FILES
   ${TTK_CORE_DIR}/weatherquery.h
   ${TTK_CORE_DIR}/weatherquerycity.h
   ${TTK_CORE_DIR}/weatherobject.h
   ${TTK_CORE_DIR}/weatherqueryfuture.h
 )
 
-set_property(GLOBAL PROPERTY TTK_CORE_KITS_SOURCES
+set_property(GLOBAL PROPERTY TTK_CORE_KITS_SOURCE_FILES
   ${TTK_CORE_DIR}/weatherquery.cpp
   ${TTK_CORE_DIR}/weatherquerycity.cpp
   ${TTK_CORE_DIR}/weatherqueryfuture.cpp

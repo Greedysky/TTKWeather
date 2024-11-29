@@ -18,13 +18,13 @@
 
 cmake_minimum_required(VERSION 3.0.0)
 
-set_property(GLOBAL PROPERTY TTK_WIDGET_KITS_HEADERS
+set_property(GLOBAL PROPERTY TTK_WIDGET_KITS_HEADER_FILES
   ${TTK_WIDGET_DIR}/weatheradditemtablewidget.h
   ${TTK_WIDGET_DIR}/weatherfutureitemwidget.h
   ${TTK_WIDGET_DIR}/weatheritemtablewidget.h
 )
 
-set_property(GLOBAL PROPERTY TTK_WIDGET_KITS_SOURCES
+set_property(GLOBAL PROPERTY TTK_WIDGET_KITS_SOURCE_FILES
   ${TTK_WIDGET_DIR}/weatheradditemtablewidget.cpp
   ${TTK_WIDGET_DIR}/weatherfutureitemwidget.cpp
   ${TTK_WIDGET_DIR}/weatheritemtablewidget.cpp
