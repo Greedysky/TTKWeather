@@ -1,14 +1,14 @@
 # TTKWeather
-[简体中文 Chinese](./README_cn.md) | [繁体中文 Chinese](./README_tc.md)
+[简体中文 Chinese](README_cn.md) | [繁体中文 Chinese](README_tc.md)
 
 ![TTKWeather](https://img.shields.io/badge/Greedysky-TTKWeather-green.svg?style=flat-square)
 ![Version](https://img.shields.io/github/v/release/Greedysky/TTKWeather?style=flat-square&label=Version)
 ![License](https://img.shields.io/badge/License-GPL%20V3-yellowgreen.svg?style=flat-square)
 ![License](https://img.shields.io/badge/License-LGPL%20V3-yellow.svg?style=flat-square)
 
-![LOGO](https://github.com/Greedysky/TTKWeather/blob/master/TTKResource/logo_banner.png?raw=true)
+![LOGO](TTKResource/logo_banner.png?raw=true)
 
-### **|[About](https://github.com/Greedysky/TTKWeather#usage)|[License](https://github.com/Greedysky/TTKWeather#license)|[Download](https://github.com/Greedysky/TTKWeather#download)|[Features](https://github.com/Greedysky/TTKWeather#features)|[Screenshots](https://github.com/Greedysky/TTKWeather#screenshots)|[Copyright](https://github.com/Greedysky/TTKWeather#copyright)|[Contribute](https://github.com/Greedysky/TTKWeather#how-to-contribute)|**
+### **|[About](#usage)|[License](#license)|[Download](#download)|[Features](#features)|[Screenshots](#screenshots)|[Copyright](#copyright)|[Contribute](#how-to-contribute)|**
 
 Usage
 --------
@@ -37,7 +37,7 @@ Usage
 
 License
 --------
-TTKWeather is free software licensed under the term of [Licence GPL v3](https://github.com/Greedysky/TTKWeather/blob/master/LICENSE). If you use TTKWeather or its constituent libraries, you must adhere to the terms of the license in question.
+TTKWeather is free software licensed under the term of [Licence GPL v3](LICENSE). If you use TTKWeather or its constituent libraries, you must adhere to the terms of the license in question.
 
 Download
 --------
