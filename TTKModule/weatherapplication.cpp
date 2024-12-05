@@ -91,7 +91,7 @@ void WeatherApplication::aboutApplication()
     WeatherMessageBox message;
     message.setText(tr(TTK_APP_NAME) + QString("\n\n") +
                     tr("Directed By Greedysky") +
-                    QString("\nCopyright© 2015 - 2024") +
+                    QString("\nCopyright© 2015 - 2025") +
                     QString("\nMail:Greedysky@163.com"));
     message.exec();
 }
