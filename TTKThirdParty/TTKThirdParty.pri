@@ -19,4 +19,5 @@
 INCLUDEPATH += \
     $$PWD \
     $$PWD/TTKExtras \
-    $$PWD/../TTKCommon
+    $$PWD/../TTKCommon \
+    $$PWD/../TTKCommon/base
