@@ -41,7 +41,7 @@ public:
     /*!
      * Get query city finished.
      */
-    inline WeatherQueryCity *queryCity() const { return m_queryCity; }
+    inline WeatherQueryCity *queryCity() const noexcept { return m_queryCity; }
 
 private:
     WeatherQueryCity *m_queryCity;
