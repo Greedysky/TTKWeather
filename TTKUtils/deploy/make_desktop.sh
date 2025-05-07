@@ -13,7 +13,7 @@ execpath="$PWD/../TTKWeather"
 
 echo -n "[Desktop Entry]
 Type=Application
-Version=3.0.0.0
+Version=3.1.0.0
 Name=TTKWeather
 Name[zh_CN]=天气预报
 Name[zh_TW]=天氣預報
