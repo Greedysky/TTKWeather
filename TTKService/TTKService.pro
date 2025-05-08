@@ -32,7 +32,8 @@ INCLUDEPATH += \
 
 win32:msvc{
 HEADERS += \
-    $$PWD/../TTKModule/weatherapplication.h
+    $$PWD/../TTKModule/weatherapplication.h \
+    $$PWD/../TTKModule/TTKWidget/weatherCoreKits/weatherabstractmovewidget.h
 }
 
 SOURCES += $$PWD/weatherservicemain.cpp
