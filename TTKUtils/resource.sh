@@ -7,11 +7,13 @@ OUTPUT="$2"
 mkdir -p "$OUTPUT"
 
 #copy
-cp -rv "$SOURCE/TTKWeather.sh" "$OUTPUT/TTKWeather.sh"
-cp -rv "$SOURCE/TTKRoutine.sh" "$OUTPUT/TTKRoutine.sh"
+cp -rv "$SOURCE/TTKWeather.sh" "$OUTPUT/../TTKWeather.sh"
+cp -rv "$SOURCE/TTKRoutine.sh" "$OUTPUT/../TTKRoutine.sh"
+cp -rv "$SOURCE/TTKService.sh" "$OUTPUT/TTKService.sh"
 cp -rv "$SOURCE/TTKRoutineCopy.sh" "$OUTPUT/TTKRoutineCopy.sh"
 
 #chmod
-chmod +x "$OUTPUT/TTKWeather.sh"
-chmod +x "$OUTPUT/TTKRoutine.sh"
+chmod +x "$OUTPUT/../TTKWeather.sh"
+chmod +x "$OUTPUT/../TTKRoutine.sh"
+chmod +x "$OUTPUT/TTKService.sh"
 chmod +x "$OUTPUT/TTKRoutineCopy.sh"

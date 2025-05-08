@@ -59,7 +59,7 @@ if(WIN32)
   list(APPEND SOURCE_FILES ${PROJECT_NAME}.rc)
 endif()
 
-set(QT_LINK_LIBS TTKLibrary TTKExtras)
+set(QT_LINK_LIBS TTKLibrary TTKUi TTKExtras)
 
 if(${OPENSSL_DIR})
   if(WIN32)

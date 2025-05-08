@@ -16,13 +16,35 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-TEMPLATE = app
+cmake_minimum_required(VERSION 3.0.0)
 
-DESTDIR = $$OUT_PWD/../../bin
-TARGET = TTKWeather
+project(TTKUi)
 
-include($$PWD/../../TTKCommon/TTKRun/TTKRun.pri)
+SET(QRC_FILES
+  ${TTK_UI_DIR}/TTKModule.qrc
+)
 
-SOURCES += $$PWD/ttkrunmain.cpp
+if(TTK_QT_VERSION VERSION_EQUAL "4")
+  qt4_add_resources(RCC_FILES ${QRC_FILES})
 
-win32:RC_FILE = $$PWD/TTKApp.rc
+  list(APPEND QT_LINK_LIBS ${QT_QTCORE_LIBRARY})
+elseif(TTK_QT_VERSION VERSION_EQUAL "5")
+  qt5_add_resources(RCC_FILES ${QRC_FILES})
+
+  list(APPEND QT_LINK_LIBS Qt5::Core)
+elseif(TTK_QT_VERSION VERSION_EQUAL "6")
+  qt6_add_resources(RCC_FILES ${QRC_FILES})
+
+  list(APPEND QT_LINK_LIBS Qt6::Core)
+endif()
+
+if(WIN32)
+  list(APPEND RCC_FILES TTKUi.rc)
+endif()
+
+if(TTK_BUILD_SHARED)
+  add_library(${PROJECT_NAME} SHARED ${RCC_FILES})
+else()
+  add_library(${PROJECT_NAME} STATIC ${RCC_FILES})
+endif()
+target_link_libraries(${PROJECT_NAME} ${QT_LINK_LIBS})

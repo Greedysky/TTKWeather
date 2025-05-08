@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/image">
-        <file alias="lb_app_icon">../TTKResource/lb_app_icon.png</file>
+        <file alias="lb_app_logo">../TTKResource/lb_app_logo.png</file>
         <file alias="close">../TTKResource/appClose.png</file>
         <file alias="loading">../TTKResource/loading.jpg</file>
         <file alias="about">../TTKResource/about.png</file>

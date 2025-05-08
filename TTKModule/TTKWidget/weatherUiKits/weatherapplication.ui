@@ -14,8 +14,8 @@
    <string>WeatherApplication</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../../TTKUi/TTKWeather.qrc">
-    <normaloff>:/image/lb_app_icon</normaloff>:/image/lb_app_icon</iconset>
+   <iconset resource="../../../TTKUi/TTKModule.qrc">
+    <normaloff>:/image/lb_app_logo</normaloff>:/image/lb_app_logo</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -63,7 +63,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/image/lb_app_icon);</string>
+    <string notr="true">border-image: url(:/image/lb_app_logo);</string>
    </property>
   </widget>
   <widget class="QToolButton" name="windowClose">
@@ -106,7 +106,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../../../TTKUi/TTKWeather.qrc"/>
+  <include location="../../../TTKUi/TTKModule.qrc"/>
  </resources>
  <connections/>
 </ui>

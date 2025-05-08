@@ -16,13 +16,15 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-TEMPLATE = app
+TEMPLATE = lib
+msvc:CONFIG += staticlib
+CONFIG += plugin lib
 
-DESTDIR = $$OUT_PWD/../../bin
-TARGET = TTKWeather
+include($$PWD/../TTKVersion.pri)
 
-include($$PWD/../../TTKCommon/TTKRun/TTKRun.pri)
+DESTDIR = $$OUT_PWD/../bin/$$TTK_VERSION
+TARGET = TTKUi
 
-SOURCES += $$PWD/ttkrunmain.cpp
+RESOURCES += $$PWD/TTKModule.qrc
 
-win32:RC_FILE = $$PWD/TTKApp.rc
+win32:RC_FILE = $$PWD/$${TARGET}.rc

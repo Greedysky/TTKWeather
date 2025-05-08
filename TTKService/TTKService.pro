@@ -18,11 +18,23 @@
 
 TEMPLATE = app
 
-DESTDIR = $$OUT_PWD/../../bin
-TARGET = TTKWeather
+include($$PWD/../TTKWeather.pri)
+include($$PWD/../TTKCommon/TTKApplication/TTKApplication.pri)
 
-include($$PWD/../../TTKCommon/TTKRun/TTKRun.pri)
+TARGET = TTKService
 
-SOURCES += $$PWD/ttkrunmain.cpp
+LIBS += -L$$DESTDIR -lTTKCore -lTTKDumper
 
-win32:RC_FILE = $$PWD/TTKApp.rc
+INCLUDEPATH += \
+    $$PWD/../TTKModule \
+    $$PWD/../TTKModule/TTKCore/weatherCoreKits \
+    $$PWD/../TTKModule/TTKWidget/weatherCoreKits
+
+win32:msvc{
+HEADERS += \
+    $$PWD/../TTKModule/weatherapplication.h
+}
+
+SOURCES += $$PWD/weatherservicemain.cpp
+
+win32:RC_FILE = $$PWD/$${TARGET}.rc

@@ -99,6 +99,7 @@ include_directories(
 
 set(TTK_UI_DIR "${TTK_BASE_DIR}/TTKUi")
 set(TTK_THIRDPARTY_DIR "${TTK_BASE_DIR}/TTKThirdParty")
+set(TTK_TTKSERVICE_DIR "${TTK_BASE_DIR}/TTKService")
 set(TTK_UTILS_DIR "${TTK_BASE_DIR}/TTKUtils")
 set(TTK_LANGUAGE_DIR "${TTK_BASE_DIR}/TTKLanguage")
 set(TTK_RESOURCE_DIR "${TTK_BASE_DIR}/TTKResource")
@@ -174,19 +175,19 @@ if(TTK_QT_VERSION VERSION_GREATER "4")
 endif()
 
 
-find_program(QT_LRELEASE_EXECUTABLE lrelease ${QT_INSTALL_BINS})
-if(QT_LRELEASE_EXECUTABLE)
-  message(STATUS "Found lrelease executable: " ${QT_LRELEASE_EXECUTABLE})
-else()
-  message(FATAL_ERROR "Could NOT find lrelease executable")
-endif()
-
-
 find_program(CCACHE_FOUND ccache)
 if(CCACHE_FOUND)
   message(STATUS "Set up ccache module")
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
   set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
+endif()
+
+
+find_program(QT_LRELEASE_EXECUTABLE lrelease ${QT_INSTALL_BINS})
+if(QT_LRELEASE_EXECUTABLE)
+  message(STATUS "Found lrelease executable: " ${QT_LRELEASE_EXECUTABLE})
+else()
+  message(FATAL_ERROR "Could NOT find lrelease executable")
 endif()
 
 
@@ -202,8 +203,10 @@ endif()
 
 add_subdirectory(TTKCommon)
 add_subdirectory(TTKLanguage)
+add_subdirectory(TTKUi)
 add_subdirectory(TTKThirdParty)
 add_subdirectory(TTKModule)
+add_subdirectory(TTKService)
 add_subdirectory(TTKRun)
 
 

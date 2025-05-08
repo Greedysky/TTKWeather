@@ -20,27 +20,17 @@ cmake_minimum_required(VERSION 3.0.0)
 
 project(TTKWeather)
 
-include_directories(${TTK_CONFIG_DIR})
-include_directories(${TTK_COMMON_APP_DIR})
-include_directories(${TTK_COMMON_DUMPER_DIR})
+set(LIBRARY_OUTPUT_PATH ${TTK_BUILD_DIR})
+set(EXECUTABLE_OUTPUT_PATH ${TTK_BUILD_DIR})
 
-set(TTKAPPLICATION_HEADER_FILES
-  ${TTK_COMMON_APP_DIR}/ttklocalpeer.h
-  ${TTK_COMMON_APP_DIR}/ttkapplication.h
-)
-
-set(TTKAPPLICATION_SOURCE_FILES
-  ${TTK_COMMON_APP_DIR}/ttklocalpeer.cpp
-  ${TTK_COMMON_APP_DIR}/ttkapplication.cpp
-)
+include_directories(${TTK_COMMON_DIR})
+include_directories(${TTK_COMMON_RUN_DIR})
 
 set(HEADER_FILES
-  ${TTKAPPLICATION_HEADER_FILES}
   ${TTK_COMMON_RUN_DIR}/ttkrunobject.h
 )
 
 set(SOURCE_FILES
-  ${TTKAPPLICATION_SOURCE_FILES}
   ${TTK_COMMON_RUN_DIR}/ttkrunobject.cpp
   ttkrunmain.cpp
 )
@@ -49,21 +39,4 @@ if(WIN32)
   list(APPEND SOURCE_FILES TTKApp.rc)
 endif()
 
-set(QT_LINK_LIBS TTKCore TTKDumper)
-
-if(TTK_QT_VERSION VERSION_EQUAL "4")
-  qt4_wrap_cpp(MOC_FILES ${HEADER_FILES})
-
-  list(APPEND QT_LINK_LIBS ${QT_QTCORE_LIBRARY})
-elseif(TTK_QT_VERSION VERSION_EQUAL "5")
-  qt5_wrap_cpp(MOC_FILES ${HEADER_FILES})
-
-  list(APPEND QT_LINK_LIBS Qt5::Core)
-elseif(TTK_QT_VERSION VERSION_EQUAL "6")
-  qt6_wrap_cpp(MOC_FILES ${HEADER_FILES})
-
-  list(APPEND QT_LINK_LIBS Qt6::Core)
-endif()
-
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${MOC_FILES})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${QT_LINK_LIBS})
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES})

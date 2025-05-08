@@ -40,7 +40,7 @@ win32{
              QMAKE_LFLAGS_WINDOWS = /SUBSYSTEM:WINDOWS,5.01
              QMAKE_LFLAGS_CONSOLE = /SUBSYSTEM:CONSOLE,5.01
         }
-        LIBS += -L$$DESTDIR -lTTKLibrary -lTTKExtras -lTTKDumper
+        LIBS += -L$$DESTDIR -lTTKLibrary -lTTKUi -lTTKExtras
     }
 
     gcc{
@@ -50,7 +50,7 @@ win32{
             QMAKE_CXXFLAGS += -std=c++11
         }
         QMAKE_CXXFLAGS += -Wunused-function -Wswitch
-        LIBS += -L$$DESTDIR -lTTKLibrary -lTTKExtras -lTTKDumper
+        LIBS += -L$$DESTDIR -lTTKLibrary -lTTKUi -lTTKExtras
     }
 }
 
@@ -61,7 +61,7 @@ unix:!mac{
         QMAKE_CXXFLAGS += -std=c++11
     }
     QMAKE_CXXFLAGS += -Wunused-function -Wswitch
-    LIBS += -L$$DESTDIR -lTTKLibrary -lTTKExtras -lTTKDumper
+    LIBS += -L$$DESTDIR -lTTKLibrary -lTTKUi -lTTKExtras
 }
 
 DEFINES += TTK_LIBRARY
