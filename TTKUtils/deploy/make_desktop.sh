@@ -5,11 +5,16 @@ if [ ! -d $path ]; then
   mkdir $path
 fi
 
+curpath=$PWD/deploy
+if [ $# -eq 0 ]; then
+  curpath=$PWD
+fi
+
 datapath=$path/TTKWeather.desktop
-packpath="$PWD/$datapath"
+packpath="$curpath/$datapath"
 userpath=~/.local/$datapath
-iconpath="$PWD/share/pixmaps/ttkweather.png"
-execpath="$PWD/../TTKWeather"
+iconpath="$curpath/share/pixmaps/ttkweather.png"
+execpath="$curpath/../TTKWeather"
 
 echo -n "[Desktop Entry]
 Type=Application
