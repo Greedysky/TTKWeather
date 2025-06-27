@@ -17,7 +17,7 @@ WeatherFutureItemWidget::WeatherFutureItemWidget(QWidget *parent)
     {
         WeatherItemTableWidget *item = new WeatherItemTableWidget(parent);
         item->createItem(TTK::Weather());
-        m_itemLists << item;
+        m_items << item;
         m_statckedWidget->addWidget(item);
     }
 
@@ -27,7 +27,7 @@ WeatherFutureItemWidget::WeatherFutureItemWidget(QWidget *parent)
 WeatherFutureItemWidget::~WeatherFutureItemWidget()
 {
     delete m_group;
-    qDeleteAll(m_itemLists);
+    qDeleteAll(m_items);
     delete m_statckedWidget;
 }
 
@@ -70,7 +70,7 @@ void WeatherFutureItemWidget::buttonClicked(int index)
 {
     if(!m_itemId.isEmpty())
     {
-        m_itemLists[index]->setItemName(m_itemId, index);
+        m_items[index]->setItemName(m_itemId, index);
     }
     m_statckedWidget->setCurrentIndex(index);
 }
@@ -85,6 +85,6 @@ void WeatherFutureItemWidget::createItem(const TTK::Weather &weather)
 {
     for(int i = 0; i < COUNT; ++i)
     {
-        m_itemLists[i]->createItem(weather);
+        m_items[i]->createItem(weather);
     }
 }

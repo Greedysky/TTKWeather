@@ -73,7 +73,7 @@ private:
     QString m_itemId;
     QStackedWidget *m_statckedWidget;
     QButtonGroup *m_group;
-    QList<WeatherItemTableWidget*> m_itemLists;
+    QList<WeatherItemTableWidget*> m_items;
 
 };
 
