@@ -51,9 +51,5 @@ unix{
 win32{
     output = $$OUT_PWD/bin/$$TTK_VERSION/GLanguage
     output = $$replace(output, /, \\)
-    !exists($$output):system(md $$output)
-
-    system(for /r $$PWD/TTKLanguage %i in (*.ts) do $$LRELEASE_EXECUTABLE %i)
-    system(for /r $$PWD/TTKLanguage %i in (*.qm) do ren %i *.ln)
-    system(for /r $$PWD/TTKLanguage %i in (*.ln) do move /y %i $$output)
+    system($$PWD/TTKUtils/ts_win.bat $$LRELEASE_EXECUTABLE $$OUT_PWD/bin/$$TTK_VERSION $$PWD)
 }
