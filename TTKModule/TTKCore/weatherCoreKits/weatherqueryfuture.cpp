@@ -33,12 +33,11 @@ void WeatherQueryFuture::downLoadFinished()
     {
         m_futureList.clear();
 
-        QJson::Parser json;
-        bool ok = false;
-        const QVariant &data = json.parse(m_reply->readAll(), &ok);
-        if(ok)
+        QJsonParseError ok;
+        const QJsonDocument &json = QJsonDocument::fromJson(m_reply->readAll(), &ok);
+        if(QJsonParseError::NoError == ok.error)
         {
-            QVariantMap value = data.toMap();
+            QVariantMap value = json.toVariant().toMap();
             if(value["success"] == "1")
             {
                 const QVariantList &datas = value["result"].toList();
