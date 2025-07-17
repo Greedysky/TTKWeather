@@ -23,7 +23,7 @@ include($$PWD/../TTKCommon/TTKApplication/TTKApplication.pri)
 
 TARGET = TTKService
 
-LIBS += -L$$DESTDIR -lTTKCore -lTTKDumper
+LIBS += -L$$DESTDIR -lTTKCore
 
 INCLUDEPATH += \
     $$PWD/../TTKModule \
