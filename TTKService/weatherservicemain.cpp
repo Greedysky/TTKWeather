@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 #endif
 
     TTKDumper dumper;
-    dumper.run();
+    dumper.execute();
 
     QTranslator translator;
     if(!translator.load(QApplication::applicationDirPath() + "/GLanguage/cn.ln"))
