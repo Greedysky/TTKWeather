@@ -18,49 +18,45 @@
 
 cmake_minimum_required(VERSION 3.18.0)
 
-project(TTKService)
-
-include_directories(${TTK_CONFIG_DIR})
-include_directories(${TTK_COMMON_APP_DIR})
-
-set(TTKAPPLICATION_HEADER_FILES
-  ${TTK_COMMON_APP_DIR}/ttklocalpeer.h
-  ${TTK_COMMON_APP_DIR}/ttkapplication.h
-)
-
-set(TTKAPPLICATION_SOURCE_FILES
-  ${TTK_COMMON_APP_DIR}/ttklocalpeer.cpp
-  ${TTK_COMMON_APP_DIR}/ttkapplication.cpp
-)
+project(TTKConfig)
 
 set(HEADER_FILES
-  ${TTKAPPLICATION_HEADER_FILES}
+  weatherconfigdefine.h
+  weatherconfigmodule.h
 )
 
 set(SOURCE_FILES
-  ${TTKAPPLICATION_SOURCE_FILES}
-  weatherservicemain.cpp
+  weatherconfigmodule.cpp
+)
+
+SET(QRC_FILES
+  ${TTK_UI_DIR}/TTKApp.qrc
 )
 
 if(WIN32)
   list(APPEND SOURCE_FILES ${PROJECT_NAME}.rc)
 endif()
 
-set(QT_LINK_LIBS TTKCore TTKConfig)
-
 if(TTK_QT_VERSION VERSION_EQUAL "4")
   qt4_wrap_cpp(MOC_FILES ${HEADER_FILES})
+  qt4_add_resources(RCC_FILES ${QRC_FILES})
 
   list(APPEND QT_LINK_LIBS ${QT_QTCORE_LIBRARY})
 elseif(TTK_QT_VERSION VERSION_EQUAL "5")
   qt5_wrap_cpp(MOC_FILES ${HEADER_FILES})
+  qt5_add_resources(RCC_FILES ${QRC_FILES})
 
   list(APPEND QT_LINK_LIBS Qt5::Core)
 elseif(TTK_QT_VERSION VERSION_EQUAL "6")
   qt6_wrap_cpp(MOC_FILES ${HEADER_FILES})
+  qt6_add_resources(RCC_FILES ${QRC_FILES})
 
   list(APPEND QT_LINK_LIBS Qt6::Core)
 endif()
 
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${MOC_FILES})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${QT_LINK_LIBS})
+if(TTK_BUILD_SHARED)
+  add_library(${PROJECT_NAME} SHARED ${HEADER_FILES} ${SOURCE_FILES} ${MOC_FILES} ${RCC_FILES})
+else()
+  add_library(${PROJECT_NAME} STATIC ${HEADER_FILES} ${SOURCE_FILES} ${MOC_FILES} ${RCC_FILES})
+endif()
+target_link_libraries(${PROJECT_NAME} ${QT_LINK_LIBS})

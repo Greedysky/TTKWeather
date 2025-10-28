@@ -19,12 +19,14 @@
 INCLUDEPATH += $$PWD
 
 HEADERS += \
+    $$PWD/weatherruntimemanager.h \
     $$PWD/weatherobject.h \
     $$PWD/weatherquery.h \
     $$PWD/weatherquerycity.h \
     $$PWD/weatherqueryfuture.h
 
 SOURCES += \
+    $$PWD/weatherruntimemanager.cpp \
     $$PWD/weatherquery.cpp \
     $$PWD/weatherquerycity.cpp \
     $$PWD/weatherqueryfuture.cpp

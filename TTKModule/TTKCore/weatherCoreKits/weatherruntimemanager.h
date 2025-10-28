@@ -1,5 +1,5 @@
-#ifndef WEATHEROBJECT_H
-#define WEATHEROBJECT_H
+#ifndef WEATHERRUNTIMEMANAGER_H
+#define WEATHERRUNTIMEMANAGER_H
 
 /***************************************************************************
  * This file is part of the TTK Weather project
@@ -19,42 +19,24 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include <QDir>
+#include "ttkmoduleexport.h"
 
-#include "ttkqtglobal.h"
-#include "ttkqtobject.h"
-
-/*! @brief The namespace of the application object.
+/*! @brief The class of the app run time needed.
  * @author Greedysky <greedysky@163.com>
  */
-namespace TTK
+class TTK_MODULE_EXPORT WeatherRunTimeManager
 {
-    struct Weather
-    {
-        QString m_weaid;
-        QString m_days;
-        QString m_week;
-        QString m_citynm;
-        QString m_temperature;
-        QString m_humidity;
-        QString m_weather;
-        QString m_wind;
-        QString m_winp;
-        QString m_temp_high;
-        QString m_temp_low;
-        QString m_humi_high;
-        QString m_humi_low;
-        QString m_weatidX;
-        QString m_weatidY;
-    };
-    TTK_DECLARE_LIST(Weather);
+public:
+    /*!
+     * Execute module.
+     */
+    void execute() const;
 
-}
+    /*!
+     * Get translator path.
+     */
+    QString translator() const;
 
-#define LANGUAGE_DIR       TTK_STR_CAT("GLanguage", TTK_SEPARATOR)
-//
-#define MAIN_DIR_FULL      TTK::applicationPath() + TTK_PARENT_DIR
-//
-#define LANGUAGE_DIR_FULL  TTK::applicationPath() + LANGUAGE_DIR
+};
 
-#endif // WEATHEROBJECT_H
+#endif // WEATHERRUNTIMEMANAGER_H

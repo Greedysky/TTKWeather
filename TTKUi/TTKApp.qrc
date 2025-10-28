@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/data">
+        <file alias="TTKRoutine.sh">../TTKResource/_extras/TTKRoutine.sh</file>
+        <file alias="TTKRoutineCopy.sh">../TTKResource/_extras/TTKRoutineCopy.sh</file>
+        <file alias="TTKService.sh">../TTKResource/_extras/TTKService.sh</file>
+        <file alias="TTKWeather.sh">../TTKResource/_extras/TTKWeather.sh</file>
+    </qresource>
+</RCC>

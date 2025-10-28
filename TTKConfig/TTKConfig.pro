@@ -16,28 +16,39 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # ***************************************************************************
 
-TEMPLATE = app
+QT += core
 
-include($$PWD/../TTKWeather.pri)
-include($$PWD/../TTKCommon/TTKApplication/TTKApplication.pri)
+TEMPLATE = lib
+CONFIG += plugin lib
 
-TARGET = TTKService
+include($$PWD/../TTKVersion.pri)
 
-LIBS += -L$$DESTDIR -lTTKCore -lTTKConfig
+DESTDIR = $$OUT_PWD/../bin/$$TTK_VERSION
+TARGET = TTKConfig
 
-INCLUDEPATH += \
-    $$PWD/../TTKConfig \
-    $$PWD/../TTKModule \
-    $$PWD/../TTKModule/TTKCore/weatherCoreKits \
-    $$PWD/../TTKModule/TTKWidget/weatherCoreKits
+DEFINES += TTK_LIBRARY
 
 win32:msvc{
-HEADERS += \
-    $$PWD/../TTKConfig/weatherconfigmodule.h \
-    $$PWD/../TTKModule/weatherapplication.h \
-    $$PWD/../TTKModule/TTKWidget/weatherCoreKits/weatherabstractmovewidget.h
+    CONFIG += c++11
+}else{
+    equals(QT_MAJOR_VERSION, 6){ #Qt6
+        QMAKE_CXXFLAGS += -std=c++17
+    }else{
+        QMAKE_CXXFLAGS += -std=c++11
+    }
 }
 
-SOURCES += $$PWD/weatherservicemain.cpp
+INCLUDEPATH += \
+    $$PWD/../TTKCommon \
+    $$PWD/../TTKCommon/base \
+    $$PWD/../TTKModule/TTKCore/weatherCoreKits
+
+HEADERS += \
+    $$PWD/weatherconfigdefine.h \
+    $$PWD/weatherconfigmodule.h
+
+SOURCES += $$PWD/weatherconfigmodule.cpp
+
+RESOURCES += $$PWD/../TTKUi/TTKApp.qrc
 
 win32:RC_FILE = $$PWD/$${TARGET}.rc

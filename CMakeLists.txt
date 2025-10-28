@@ -113,6 +113,7 @@ include_directories(
 )
 
 
+set(TTK_CONFIG_DIR "${TTK_BASE_DIR}/TTKConfig")
 set(TTK_UI_DIR "${TTK_BASE_DIR}/TTKUi")
 set(TTK_THIRDPARTY_DIR "${TTK_BASE_DIR}/TTKThirdParty")
 set(TTK_TTKSERVICE_DIR "${TTK_BASE_DIR}/TTKService")
@@ -230,6 +231,7 @@ endif()
 
 add_subdirectory(TTKCommon)
 add_subdirectory(TTKLanguage)
+add_subdirectory(TTKConfig)
 add_subdirectory(TTKUi)
 add_subdirectory(TTKThirdParty)
 add_subdirectory(TTKModule)
