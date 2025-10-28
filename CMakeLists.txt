@@ -257,6 +257,7 @@ else()
   install(DIRECTORY "${TTK_UTILS_DIR}/deploy" DESTINATION "${TTK_INSTALL_DIR}")
   install(FILES "${TTK_UTILS_DIR}/install.sh" DESTINATION "${TTK_INSTALL_DIR}")
   install(FILES "${TTK_UTILS_DIR}/uninstall.sh" DESTINATION "${TTK_INSTALL_DIR}")
+  install(FILES "${TTK_UTILS_DIR}/ttk_runtime" DESTINATION "${TTK_INSTALL_DIR}")
   install(FILES "${TTK_UTILS_DIR}/deploy/share/appdata/ttkweather.appdata.xml" DESTINATION "${TTK_INSTALL_DIR}/share/metainfo")
 endif()
 # copy run resource

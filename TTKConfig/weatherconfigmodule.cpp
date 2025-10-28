@@ -19,11 +19,6 @@ void WeatherConfigModule::initialize() const
     valid();
 }
 
-void WeatherConfigModule::reset() const
-{
-
-}
-
 void WeatherConfigModule::directoryExist(const QString &name) const
 {
     QDir dir;
