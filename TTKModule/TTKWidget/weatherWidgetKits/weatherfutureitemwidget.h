@@ -62,7 +62,7 @@ private Q_SLOTS:
 
 private:
     /*!
-     * Init future button widget.
+     * Init widget and parameter.
      */
     void initialize();
     /*!

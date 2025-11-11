@@ -69,7 +69,7 @@ private Q_SLOTS:
 
 private:
     /*!
-     * Init main widget.
+     * Init widget and parameter.
      */
     void initialize();
 
