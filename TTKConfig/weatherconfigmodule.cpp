@@ -8,7 +8,7 @@ WeatherConfigModule::WeatherConfigModule(QObject *parent)
 
 }
 
-void WeatherConfigModule::valid() const
+void WeatherConfigModule::execute() const
 {
     checkDirectoryExist();
     checkFileNeededExist();
@@ -16,7 +16,7 @@ void WeatherConfigModule::valid() const
 
 void WeatherConfigModule::initialize() const
 {
-    valid();
+    execute();
 }
 
 void WeatherConfigModule::directoryExist(const QString &name) const

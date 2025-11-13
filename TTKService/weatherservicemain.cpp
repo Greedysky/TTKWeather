@@ -8,7 +8,7 @@
 
 int main(int argc, char *argv[])
 {
-    TTK::loadApplicationScaleFactor();
+    TTK::initialize(TTK::Attribute::All);
 
     TTKApplication app(argc, argv);
     TTKInitialization ttk;
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     }
 
     WeatherConfigModule config;
-    config.valid();
+    config.execute();
 
     WeatherRunTimeManager manager;
     manager.execute();
