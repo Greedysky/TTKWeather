@@ -1,6 +1,5 @@
 #include "weatherruntimemanager.h"
 #include "weatherobject.h"
-#include "ttklogoutput.h"
 
 #include <QFont>
 #include <QApplication>
@@ -29,12 +28,7 @@ QString TTK::languageCore(int index)
 
 void WeatherRunTimeManager::execute() const
 {
-    // initiailize log module
-    TTK::initiailizeLog(TTK_APP_NAME);
-    TTK::installLogHandler();
-
     TTK_INFO_STREAM("WeatherApplication Run")
-
 #ifdef Q_OS_UNIX
     QFont font;
     font.setPixelSize(13);
