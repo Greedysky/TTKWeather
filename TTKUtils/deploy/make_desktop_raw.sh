@@ -1,0 +1,25 @@
+#!/bin/sh
+
+packpath="$1"
+iconpath="$2"
+execpath="$3"
+
+echo -n "[Desktop Entry]
+Type=Application
+Version=1.0
+Name=TTKWeather
+Name[zh_CN]=天气预报
+Name[zh_TW]=天氣預報
+GenericName=TTKWeather
+GenericName[zh_CN]=天气预报
+GenericName[zh_TW]=天氣預報
+Comment=TTKWeather
+Comment[zh_CN]=天气预报
+Comment[zh_TW]=天氣預報
+Icon=${iconpath}
+Exec=${execpath}
+Terminal=false
+Keywords=multimedia;weather;
+Categories=Utility;Qt;
+MimeType=
+X-KDE-StartupNotify=false\n" > ${packpath}
