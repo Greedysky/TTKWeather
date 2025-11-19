@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (C) 2015 - 2025 Greedysky Studio -->
 <component type="desktop-application">
-  <id>TTKWeather.desktop</id>
+  <id>com.greedysky.TTKWeather</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
   <name>TTKWeather</name>
-  <pkgname>TTKWeather</pkgname>
   <summary>The ttk weather</summary>
   <description>
     <p>
@@ -23,7 +22,9 @@
   <url type="bugtracker">https://github.com/Greedysky/TTKWeather/issues</url>
   <url type="help">https://github.com/Greedysky/TTKWeather</url>
   <url type="homepage">https://github.com/Greedysky/TTKWeather</url>
+  <content_rating type="oars-1.1" />
   <developer_name>Greedysky Studio</developer_name>
+  <launchable type="desktop-id">TTKWeather.desktop</launchable>
   <screenshots>
     <screenshot type="default">
       <image type="source">https://github.com/Greedysky/Resource/blob/master/Screen/TTKWeather/1.png?raw=true</image>
