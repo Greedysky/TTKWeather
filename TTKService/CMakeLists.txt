@@ -42,6 +42,16 @@ set(SOURCE_FILES
   weatherservicemain.cpp
 )
 
+if(MSVC)
+  get_property(TTK_LIBRARY_KITS_HEADER_FILES GLOBAL PROPERTY "TTK_LIBRARY_KITS_HEADER_FILES")
+  list(APPEND HEADER_FILES
+    ${TTK_CONFIG_DIR}/weatherconfigmodule.h
+    ${TTK_MODULE_DIR}/weatherapplication.h
+    ${TTK_WIDGET_CORE_DIR}/weatherabstractmovewidget.h
+    ${TTK_LIBRARY_KITS_HEADER_FILES}
+  )
+endif()
+
 if(WIN32)
   list(APPEND SOURCE_FILES ${PROJECT_NAME}.rc)
 endif()
