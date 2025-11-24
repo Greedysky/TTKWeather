@@ -29,7 +29,6 @@ jobs:
           host: windows
           arch: win64_msvc2019_64
           target: desktop
-          modules: qt5compat
           cache: 'true'
 
       - name: Create build dir
