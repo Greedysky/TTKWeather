@@ -17,6 +17,11 @@ WeatherApplication::WeatherApplication(QWidget *parent)
 
     hide();
 
+#ifndef QT_NO_SSL
+    // ssl support check
+    TTK_INFO_STREAM("Application network support ssl:" << (QSslSocket::supportsSsl() ? "true" : "false"));
+#endif
+
     m_loadingWidget = new WeatherLoadingWidget(this);
     m_loadingWidget->show();
 }
