@@ -85,7 +85,7 @@ const TTK::Weather& WeatherQueryFuture::today()
     {
         m_futureList.append(TTK::Weather());
     }
-    return m_futureList.front();
+    return m_futureList.first();
 }
 
 const TTK::Weather& WeatherQueryFuture::future(int index)
