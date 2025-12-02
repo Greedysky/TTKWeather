@@ -2,9 +2,17 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>QJson::ParserRunnable</name>
+    <name>QObject</name>
     <message>
-        <source>An error occurred while parsing json: %1</source>
+        <source>File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use Module Play</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add To Module Playlist</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
