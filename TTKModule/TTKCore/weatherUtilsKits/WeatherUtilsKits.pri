@@ -18,6 +18,12 @@
 
 INCLUDEPATH += $$PWD
 
-HEADERS += $$PWD/weatheralgorithmutils.h
+HEADERS += \
+    $$PWD/weatheralgorithmutils.h \
+    $$PWD/weathercoreutils.h \
+    $$PWD/weatherwidgetutils.h
 
-SOURCES += $$PWD/weatheralgorithmutils.cpp
+SOURCES += \
+    $$PWD/weatheralgorithmutils.cpp \
+    $$PWD/weathercoreutils.cpp \
+    $$PWD/weatherwidgetutils.cpp

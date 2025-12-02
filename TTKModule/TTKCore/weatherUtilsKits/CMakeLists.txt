@@ -20,8 +20,12 @@ cmake_minimum_required(VERSION 3.18.0)
 
 set_property(GLOBAL PROPERTY TTK_CORE_UTILS_KITS_HEADER_FILES
   ${TTK_CORE_UTILS_DIR}/weatheralgorithmutils.h
+  ${TTK_CORE_UTILS_DIR}/weathercoreutils.h
+  ${TTK_CORE_UTILS_DIR}/weatherwidgetutils.h
 )
 
 set_property(GLOBAL PROPERTY TTK_CORE_UTILS_KITS_SOURCE_FILES
   ${TTK_CORE_UTILS_DIR}/weatheralgorithmutils.cpp
+  ${TTK_CORE_UTILS_DIR}/weathercoreutils.cpp
+  ${TTK_CORE_UTILS_DIR}/weatherwidgetutils.cpp
 )

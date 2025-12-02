@@ -6,6 +6,7 @@
 #include "weatheritemtablewidget.h"
 #include "weatherfutureitemwidget.h"
 #include "weathermessagebox.h"
+#include "weatherwidgetutils.h"
 
 #include <QPainter>
 
@@ -24,6 +25,9 @@ WeatherApplication::WeatherApplication(QWidget *parent)
 
     m_loadingWidget = new WeatherLoadingWidget(this);
     m_loadingWidget->show();
+
+    TTK::Widget::adjustWidgetPosition(this);
+    TTK::Widget::adjustWidgetPosition(m_loadingWidget);
 }
 
 WeatherApplication::~WeatherApplication()
