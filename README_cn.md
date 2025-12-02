@@ -61,7 +61,7 @@ Github镜像下载地址: **<u>https://github.com/Greedysky/TTKWeather</u>**
 版权
 --------
  * This file is part of the TTK Weather project.
- * Copyright (C) 2015 - 2025 Greedysky Studio.
+ * Copyright (C) 2015 - 2026 Greedysky Studio.
  * Mail: greedysky@163.com.
 
 贡献
