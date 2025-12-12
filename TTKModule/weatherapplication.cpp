@@ -74,7 +74,7 @@ void WeatherApplication::loadingFinished()
     m_queryCity = m_loadingWidget->queryCity();
     m_loadingWidget->close();
 
-    setAttribute(Qt::WA_TranslucentBackground, true);
+    setAttribute(Qt::WA_TranslucentBackground);
     initialize();
     show();
 }
