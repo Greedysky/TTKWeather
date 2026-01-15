@@ -3,5 +3,5 @@
 WeatherAbstractMoveWidget::WeatherAbstractMoveWidget(QWidget *parent)
     : TTKAbstractMoveWidget(false, parent)
 {
-    drawWindowShadow(false);
+    setShadowOption(false);
 }
