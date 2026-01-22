@@ -18,11 +18,11 @@ void WeatherQueryFuture::startToRequest(const QString &id)
     TTK::makeUserAgentHeader(&request);
 
     m_reply = m_manager.get(request);
-    connect(m_reply, SIGNAL(finished()), SLOT(downLoadFinished()));
+    connect(m_reply, SIGNAL(finished()), SLOT(downloadFinished()));
     QtNetworkErrorConnect(m_reply, this, replyError, TTK_SLOT);
 }
 
-void WeatherQueryFuture::downLoadFinished()
+void WeatherQueryFuture::downloadFinished()
 {
     if(m_reply == nullptr)
     {
@@ -76,7 +76,7 @@ void WeatherQueryFuture::downLoadFinished()
         }
     }
 
-    Q_EMIT downLoadDataChanged({});
+    Q_EMIT downloadDataChanged({});
 }
 
 const TTK::Weather& WeatherQueryFuture::today()

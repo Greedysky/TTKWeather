@@ -27,7 +27,7 @@ void WeatherItemTableWidget::setItemName(const QString &name, int index)
     if(m_queryFuture == nullptr)
     {
         m_queryFuture = new WeatherQueryFuture(this);
-        connect(m_queryFuture, SIGNAL(downLoadDataChanged(QString)), SLOT(searchItemInformationDown()));
+        connect(m_queryFuture, SIGNAL(downloadDataChanged(QString)), SLOT(searchItemInformationDown()));
     }
     m_queryFuture->startToRequest(name);
 }

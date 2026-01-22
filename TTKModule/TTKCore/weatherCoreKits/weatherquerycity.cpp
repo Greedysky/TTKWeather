@@ -21,7 +21,7 @@ void WeatherQueryCity::startToRequest(const QString &id)
     TTK::makeUserAgentHeader(&request);
 
     m_reply = m_manager.get(request);
-    connect(m_reply, SIGNAL(finished()), SLOT(downLoadFinished()));
+    connect(m_reply, SIGNAL(finished()), SLOT(downloadFinished()));
     QtNetworkErrorConnect(m_reply, this, replyError, TTK_SLOT);
 }
 
@@ -30,11 +30,11 @@ QString WeatherQueryCity::cityCode(const QString &name) const
     return m_cityMap[name].toString();
 }
 
-void WeatherQueryCity::downLoadFinished()
+void WeatherQueryCity::downloadFinished()
 {
     if(m_reply == nullptr)
     {
-        Q_EMIT downLoadDataChanged({});
+        Q_EMIT downloadDataChanged({});
         return;
     }
 
@@ -65,5 +65,5 @@ void WeatherQueryCity::downLoadFinished()
         }
     }
 
-    Q_EMIT downLoadDataChanged({});
+    Q_EMIT downloadDataChanged({});
 }
