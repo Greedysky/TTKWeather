@@ -15,7 +15,7 @@ void WeatherQueryFuture::startToRequest(const QString &id)
     }
 
     QNetworkRequest request(TTK::Algorithm::mdII(FUTURE_QUERY_URL, false).arg(id));
-    TTK::makeUserAgentHeader(&request);
+    TTK::setUserAgentHeader(&request);
 
     m_reply = m_manager.get(request);
     connect(m_reply, SIGNAL(finished()), SLOT(downloadFinished()));
