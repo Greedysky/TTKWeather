@@ -10,7 +10,7 @@
 WeatherFutureItemWidget::WeatherFutureItemWidget(QWidget *parent)
     : QWidget(parent)
 {
-    m_group = new QButtonGroup(this);
+    m_buttonGroup = new QButtonGroup(this);
     m_statckedWidget = new QStackedWidget(this);
 
     for(int i = 0; i < COUNT; ++i)
@@ -26,7 +26,7 @@ WeatherFutureItemWidget::WeatherFutureItemWidget(QWidget *parent)
 
 WeatherFutureItemWidget::~WeatherFutureItemWidget()
 {
-    delete m_group;
+    delete m_buttonGroup;
     qDeleteAll(m_items);
     delete m_statckedWidget;
 }
@@ -40,9 +40,9 @@ void WeatherFutureItemWidget::createButton()
         button->setToolTip(tr("Button%1").arg(i + 1));
         button->setFixedSize(65, 30);
         button->setStyleSheet(TTK::UI::PushButtonStyle01);
-        m_group->addButton(button, i);
+        m_buttonGroup->addButton(button, i);
     }
-    QtButtonGroupConnect(m_group, this, buttonClicked, TTK_SLOT);
+    QtButtonGroupConnect(m_buttonGroup, this, buttonClicked, TTK_SLOT);
 }
 
 void WeatherFutureItemWidget::initialize()
@@ -52,13 +52,14 @@ void WeatherFutureItemWidget::initialize()
     QVBoxLayout *vbox = new QVBoxLayout(this);
     vbox->setContentsMargins(0, 0, 0, 0);
     vbox->setSpacing(0);
+
     QHBoxLayout *hbox = new QHBoxLayout;
     hbox->setContentsMargins(0, 0, 0, 0);
     hbox->setSpacing(0);
 
     for(int i = 0; i < COUNT; ++i)
     {
-        hbox->addWidget(m_group->button(i));
+        hbox->addWidget(m_buttonGroup->button(i));
     }
 
     vbox->addLayout(hbox);
