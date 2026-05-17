@@ -8,3 +8,4 @@ else
 fi
 
 rm -f ${homepath}/.local/share/applications/TTKWeather.desktop
+rm -f ${homepath}/.local/share/metainfo/ttkweather.metainfo.xml
