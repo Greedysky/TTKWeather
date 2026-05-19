@@ -7,9 +7,7 @@
   <name>TTKWeather</name>
   <summary>The ttk weather</summary>
   <description>
-    <p>
-      TTKWeather forecast program, you can query the future weather conditions, based on Qt for windows and linux.
-    </p>
+    <p>TTKWeather forecast program, you can query the future weather conditions, based on Qt for windows and linux.</p>
   </description>
   <categories>
     <category>Weather</category>
